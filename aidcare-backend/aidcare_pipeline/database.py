@@ -7,6 +7,13 @@ from dotenv import load_dotenv
 load_dotenv() # Ensures .env is loaded if this module is accessed early
 
 SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL")
+if SQLALCHEMY_DATABASE_URL and (SQLALCHEMY_DATABASE_URL.startswith("http://") or SQLALCHEMY_DATABASE_URL.startswith("https://")):
+    raise RuntimeError(
+        "DATABASE_URL must be a PostgreSQL connection string (postgresql://...), not an HTTP URL. "
+        "Get the Postgres URL from Railway: Project → Postgres → Connect → Connection URL."
+    )
+if SQLALCHEMY_DATABASE_URL and SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
 if not SQLALCHEMY_DATABASE_URL:
     # Railway-first fallback: allow app startup even when a Postgres plugin is not attached yet.
     # Set AIDCARE_ALLOW_SQLITE_FALLBACK=0 to force DATABASE_URL requirement.
