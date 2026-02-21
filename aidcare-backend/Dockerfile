@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     python3-dev \
     tesseract-ocr \
-    tesseract-ocr-eng \ 
+    tesseract-ocr-eng \
     poppler-utils \
     git \
     # apt-get install tesseract-ocr tesseract-ocr-eng \

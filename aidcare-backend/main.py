@@ -10,6 +10,7 @@ import shutil
 import time
 import json
 import uuid
+from threading import Lock
 from datetime import datetime, timezone
 
 # --- AI pipeline modules ---
@@ -160,6 +161,44 @@ os.makedirs(UPLOADED_PATIENT_DOCS_DIR, exist_ok=True)
 # --- FastAPI App Initialization & State ---
 app = FastAPI(title="AidCare AI Assistant API")
 app_state = {} # To store loaded models/retrievers
+app_state_locks = {
+    "chw_retriever": Lock(),
+    "clinical_retriever": Lock(),
+}
+
+
+def _is_truthy_env(name: str, default: str = "0") -> bool:
+    return os.getenv(name, default).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _get_or_init_chw_retriever() -> GuidelineRetriever:
+    retriever = app_state.get("chw_retriever")
+    if retriever:
+        return retriever
+
+    with app_state_locks["chw_retriever"]:
+        retriever = app_state.get("chw_retriever")
+        if retriever:
+            return retriever
+        print("Lazy-loading CHW Retriever...")
+        retriever = get_chw_retriever()
+        app_state["chw_retriever"] = retriever
+        return retriever
+
+
+def _get_or_init_clinical_retriever() -> GuidelineRetriever:
+    retriever = app_state.get("clinical_retriever")
+    if retriever:
+        return retriever
+
+    with app_state_locks["clinical_retriever"]:
+        retriever = app_state.get("clinical_retriever")
+        if retriever:
+            return retriever
+        print("Lazy-loading Clinical Retriever...")
+        retriever = get_clinical_retriever()
+        app_state["clinical_retriever"] = retriever
+        return retriever
 
 DEFAULT_COPILOT_DOCTORS = [
     {
@@ -408,31 +447,29 @@ async def startup_event():
         print(f"OpenER hospitals loaded: {len(app_state.get('opener_hospitals', []))}")
     except Exception as e:
         print(f"WARNING: Copilot tables/seed setup failed: {e}")
-    
-    print("Initializing Whisper model...")
-    load_whisper_model() # This loads the model into its module's global scope
-    
-    print("Initializing CHW Guideline Retriever...")
-    try:
-        app_state["chw_retriever"] = get_chw_retriever()
-        if app_state["chw_retriever"] and app_state["chw_retriever"].index.ntotal > 0:
-            print(f"CHW Retriever loaded. Index has {app_state['chw_retriever'].index.ntotal} vectors.")
-        else:
-            print("ERROR: CHW Retriever FAILED to load or index is empty.")
-    except Exception as e:
-        print(f"CRITICAL ERROR initializing CHW Retriever: {e}")
-        # Consider if the app should fail to start if a retriever doesn't load
-        # For now, it will continue, but endpoints using it will fail.
 
-    print("Initializing Clinical Support Guideline Retriever...")
-    try:
-        app_state["clinical_retriever"] = get_clinical_retriever()
-        if app_state["clinical_retriever"] and app_state["clinical_retriever"].index.ntotal > 0:
-            print(f"Clinical Retriever loaded. Index has {app_state['clinical_retriever'].index.ntotal} vectors.")
-        else:
-            print("ERROR: Clinical Retriever FAILED to load or index is empty.")
-    except Exception as e:
-        print(f"CRITICAL ERROR initializing Clinical Retriever: {e}")
+    preload_models = _is_truthy_env("AIDCARE_PRELOAD_MODELS_ON_STARTUP", "0")
+    if preload_models:
+        print("AIDCARE_PRELOAD_MODELS_ON_STARTUP enabled. Preloading Whisper + retrievers...")
+        try:
+            load_whisper_model() # no-op with API-based transcription
+        except Exception as e:
+            print(f"WARNING: Whisper preload failed: {e}")
+
+        try:
+            chw = _get_or_init_chw_retriever()
+            print(f"CHW Retriever ready with {chw.index.ntotal} vectors.")
+        except Exception as e:
+            print(f"WARNING: CHW retriever preload failed: {e}")
+
+        try:
+            clinical = _get_or_init_clinical_retriever()
+            print(f"Clinical Retriever ready with {clinical.index.ntotal} vectors.")
+        except Exception as e:
+            print(f"WARNING: Clinical retriever preload failed: {e}")
+    else:
+        print("Skipping heavy model preload at startup (AIDCARE_PRELOAD_MODELS_ON_STARTUP=0).")
+        print("Retrievers will initialize lazily on first triage request.")
 
     print("FastAPI app startup complete (check logs for retriever status).")
 
@@ -452,7 +489,7 @@ app.add_middleware(
         "https://lang.theaidcare.com",        # Naija language demo subdomain
         "https://aidcare-lang.vercel.app",    # Vercel production deployment
     ],
-    allow_origin_regex="https://.*\\.vercel\\.app",  # All Vercel preview deployments
+    allow_origin_regex=r"https://.*\.(vercel\.app|up\.railway\.app)",  # Vercel + Railway preview/prod domains
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -460,17 +497,23 @@ app.add_middleware(
 
 # --- Dependencies for Retrievers ---
 def get_chw_retriever_dependency() -> GuidelineRetriever:
-    retriever = app_state.get("chw_retriever")
-    if not retriever:
-        print("Error in dependency: CHW Retriever not available in app_state.")
+    try:
+        retriever = _get_or_init_chw_retriever()
+    except Exception as e:
+        print(f"Error initializing CHW Retriever dependency: {e}")
         raise HTTPException(status_code=503, detail="CHW Triage knowledge base not available. Please try again later.")
+    if retriever.index.ntotal == 0:
+        raise HTTPException(status_code=503, detail="CHW Triage knowledge base index is empty.")
     return retriever
 
 def get_clinical_retriever_dependency() -> GuidelineRetriever:
-    retriever = app_state.get("clinical_retriever")
-    if not retriever:
-        print("Error in dependency: Clinical Retriever not available in app_state.")
+    try:
+        retriever = _get_or_init_clinical_retriever()
+    except Exception as e:
+        print(f"Error initializing Clinical Retriever dependency: {e}")
         raise HTTPException(status_code=503, detail="Clinical Support knowledge base not available. Please try again later.")
+    if retriever.index.ntotal == 0:
+        raise HTTPException(status_code=503, detail="Clinical Support knowledge base index is empty.")
     return retriever
 
 # --- Copilot (Doctor/Admin) Endpoints ---
