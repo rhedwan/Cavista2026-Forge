@@ -49,6 +49,9 @@ def migrate():
         if not column_exists(conn, "copilot_consultations", "patient_id"):
             print("Adding column: copilot_consultations.patient_id")
             conn.execute(text("ALTER TABLE copilot_consultations ADD COLUMN patient_id INTEGER"))
+        if not column_exists(conn, "copilot_consultations", "transcript"):
+            print("Adding column: copilot_consultations.transcript")
+            conn.execute(text("ALTER TABLE copilot_consultations ADD COLUMN transcript JSONB"))
     print("Migration complete.")
 
 if __name__ == "__main__":
