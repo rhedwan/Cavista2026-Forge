@@ -1,41 +1,13 @@
 'use client';
-// AidCare Copilot — API client
 
-import {
-  Doctor,
-  Consultation,
-  SOAPNote,
-  ScribeResult,
-  HandoverReport,
-  BurnoutDetail,
-  AdminDashboard,
-  Language,
-} from '../types';
-import {
-  AssistLanguageCode,
-  AssistTriageResult,
-} from '../types/triage';
-import {
-  OpenERAlert,
-  OpenEREmergencyAssessment,
-  OpenERHospital,
-  OpenERIncidentType,
-  OpenERReadinessCard,
-} from '../types/opener';
+import { AuthTokenResponse, AuthUser, Patient, PatientDetail, ActionItem, ScribeResult, HandoverReport, Language } from '../types';
+import { getToken, clearSession } from './session';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-type ApiErrorPayload = {
-  detail?: string;
-  message?: string;
-};
+const API = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
 
 export class ApiError extends Error {
   status: number;
   detail: string;
-
   constructor(status: number, detail: string) {
     super(`API ${status}: ${detail}`);
     this.name = 'ApiError';
@@ -44,298 +16,160 @@ export class ApiError extends Error {
   }
 }
 
-function extractErrorDetail(raw: string): string {
-  try {
-    const parsed = JSON.parse(raw) as ApiErrorPayload;
-    return parsed.detail || parsed.message || raw;
-  } catch {
-    return raw;
-  }
+function authHeaders(): Record<string, string> {
+  const token = getToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-export function getErrorMessage(error: unknown, fallback = 'Something went wrong.'): string {
-  if (error instanceof ApiError) {
-    return error.detail || fallback;
+async function api<T>(path: string, init?: RequestInit): Promise<T> {
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+    ...authHeaders(),
+    ...(init?.headers as Record<string, string> || {}),
+  };
+  const res = await fetch(`${API}${path}`, { ...init, headers });
+  if (res.status === 401) {
+    clearSession();
+    if (typeof window !== 'undefined') window.location.href = '/login';
+    throw new ApiError(401, 'Session expired');
   }
-  if (error instanceof Error) {
-    const match = error.message.match(/^API\s+\d+:\s*(.*)$/);
-    if (match?.[1]) return extractErrorDetail(match[1]);
-    return error.message || fallback;
+  if (!res.ok) {
+    const text = await res.text().catch(() => res.statusText);
+    let detail = text;
+    try { detail = JSON.parse(text).detail || text; } catch {}
+    throw new ApiError(res.status, detail);
   }
+  return res.json();
+}
+
+async function apiForm<T>(path: string, formData: FormData): Promise<T> {
+  const res = await fetch(`${API}${path}`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: formData,
+  });
+  if (res.status === 401) {
+    clearSession();
+    if (typeof window !== 'undefined') window.location.href = '/login';
+    throw new ApiError(401, 'Session expired');
+  }
+  if (!res.ok) {
+    const text = await res.text().catch(() => res.statusText);
+    let detail = text;
+    try { detail = JSON.parse(text).detail || text; } catch {}
+    throw new ApiError(res.status, detail);
+  }
+  return res.json();
+}
+
+export function getError(err: unknown, fallback = 'Something went wrong.'): string {
+  if (err instanceof ApiError) return err.detail || fallback;
+  if (err instanceof Error) return err.message || fallback;
   return fallback;
 }
 
-async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    headers: { 'Content-Type': 'application/json', ...init?.headers },
-    ...init,
+// ── Auth ──
+export const login = (email: string, password: string) =>
+  api<AuthTokenResponse>('/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) });
+
+export const register = (params: { email: string; password: string; full_name: string; specialty?: string; role?: string }) =>
+  api<AuthTokenResponse>('/auth/register', { method: 'POST', body: JSON.stringify(params) });
+
+export const getMe = () => api<AuthUser>('/auth/me');
+
+// ── Shifts ──
+export const startShift = (wardUuid?: string) =>
+  api<{ shift_id: string; started_at: string; ward_id: string | null }>('/doctor/shifts/start/', {
+    method: 'POST', body: JSON.stringify({ ward_uuid: wardUuid || null }),
   });
-  if (!res.ok) {
-    const errText = await res.text().catch(() => res.statusText);
-    throw new ApiError(res.status, extractErrorDetail(errText || res.statusText));
-  }
-  return res.json();
+
+export const endShift = (shiftUuid: string) =>
+  api<{ ended_at: string; final_cls: number; status: string }>('/doctor/shifts/end/', {
+    method: 'POST', body: JSON.stringify({ shift_uuid: shiftUuid }),
+  });
+
+export const getActiveShift = () =>
+  api<{ shift: { shift_id: string; started_at: string; ward_id: string | null; ward_name: string | null } | null }>('/doctor/shifts/active');
+
+// ── Scribe ──
+export function transcribeAndScribe(audioBlob: Blob, patientUuid: string, patientRef: string, language: Language): Promise<ScribeResult> {
+  const fd = new FormData();
+  fd.append('audio_file', audioBlob, 'recording.webm');
+  fd.append('patient_uuid', patientUuid);
+  fd.append('patient_ref', patientRef);
+  fd.append('language', language);
+  return apiForm('/doctor/scribe/', fd);
 }
 
-// ─── Doctor ───────────────────────────────────────────────────────────────────
+// ── Patients ──
+export const getPatients = (wardUuid?: string) =>
+  api<{ total: number; patients: { critical: Patient[]; stable: Patient[]; discharged: Patient[] } }>(
+    `/patients/${wardUuid ? `?ward_uuid=${wardUuid}` : ''}`
+  );
 
-export async function getDoctors(): Promise<{ doctors: Doctor[] }> {
-  return apiFetch('/doctor/list/');
-}
+export const getPatientDetail = (uuid: string) => api<PatientDetail>(`/patients/${uuid}`);
 
-export async function getDoctorProfile(doctorId: string): Promise<Doctor> {
-  return apiFetch(`/doctor/profile/${doctorId}`);
-}
+export const getPatientAISummary = (uuid: string) =>
+  api<{ chronic_conditions: { condition: string; details: string }[]; flagged_patterns: string[]; summary: string }>(
+    `/patients/${uuid}/ai-summary`
+  );
 
-// ─── Shifts ───────────────────────────────────────────────────────────────────
+export const createPatient = (params: Record<string, unknown>) =>
+  api<Patient>('/patients/', { method: 'POST', body: JSON.stringify(params) });
 
-export async function startShift(doctorUuid: string, ward: string): Promise<{ shift_id: string; started_at: string }> {
-  return apiFetch('/doctor/shifts/start/', {
+export const createActionItem = (patientUuid: string, params: { description: string; priority?: string }) =>
+  api<ActionItem>(`/patients/${patientUuid}/action-items`, { method: 'POST', body: JSON.stringify(params) });
+
+export const completeActionItem = (itemUuid: string) =>
+  api<ActionItem>(`/patients/action-items/${itemUuid}/complete`, { method: 'PATCH' });
+
+// ── Handover ──
+export const generateHandover = (shiftUuid: string, wardUuid?: string, notes?: string) =>
+  api<HandoverReport>('/doctor/handover/', {
     method: 'POST',
-    body: JSON.stringify({ doctor_uuid: doctorUuid, ward }),
+    body: JSON.stringify({ shift_uuid: shiftUuid, ward_uuid: wardUuid || null, handover_notes: notes || '' }),
   });
+
+export const getShiftConsultations = (shiftUuid: string) =>
+  api<{ consultations_count: number; consultations: import('../types').Consultation[] }>(
+    `/doctor/handover/consultations?shift_uuid=${shiftUuid}`
+  );
+
+// ── Triage ──
+export const triageContinue = (params: { conversation_history: string; patient_message: string; staff_notes?: string; language: string }) =>
+  api<{ response: string; language: string; conversation_complete: boolean; should_auto_complete: boolean }>(
+    '/triage/conversation/continue', { method: 'POST', body: JSON.stringify(params) }
+  );
+
+export const triageProcessText = (transcript: string, language: string, staffNotes?: string) =>
+  api<{ language: string; extracted_symptoms: string[]; triage_recommendation: Record<string, unknown>; risk_level: string }>(
+    '/triage/process_text', { method: 'POST', body: JSON.stringify({ transcript_text: transcript, staff_notes: staffNotes || '', language }) }
+  );
+
+export function triageProcessAudio(audioBlob: Blob, language: string, staffNotes?: string) {
+  const fd = new FormData();
+  fd.append('audio_file', audioBlob, 'triage.webm');
+  fd.append('language', language);
+  fd.append('staff_notes', staffNotes || '');
+  return apiForm<Record<string, unknown>>('/triage/process_audio', fd);
 }
 
-export async function endShift(doctorUuid: string, shiftUuid: string): Promise<{ ended_at: string; final_cls: number; status: string }> {
-  return apiFetch('/doctor/shifts/end/', {
+export async function triageTTS(text: string, language: string): Promise<Blob> {
+  const res = await fetch(`${API}/triage/tts`, {
     method: 'POST',
-    body: JSON.stringify({ doctor_uuid: doctorUuid, shift_uuid: shiftUuid }),
+    headers: { 'Content-Type': 'application/json', ...authHeaders() },
+    body: JSON.stringify({ text, language }),
   });
+  if (!res.ok) throw new ApiError(res.status, 'TTS failed');
+  return res.blob();
 }
 
-// ─── Scribe ───────────────────────────────────────────────────────────────────
+export const triageSave = (patientUuid: string, result: Record<string, unknown>) =>
+  api<{ status: string }>(`/triage/save/${patientUuid}`, { method: 'POST', body: JSON.stringify({ triage_result: result }) });
 
-export async function transcribeAndScribe(
-  audioBlob: Blob,
-  doctorUuid: string,
-  patientRef: string,
-  language: Language
-): Promise<ScribeResult> {
-  const formData = new FormData();
-  formData.append('audio_file', audioBlob, 'recording.webm');
-  formData.append('doctor_uuid', doctorUuid);
-  formData.append('patient_ref', patientRef);
-  formData.append('language', language);
+// ── Burnout ──
+export const getMyBurnout = () => api<Record<string, unknown>>('/doctor/burnout/me');
 
-  const res = await fetch(`${API_BASE}/doctor/scribe/`, {
-    method: 'POST',
-    body: formData,
-  });
-  if (!res.ok) {
-    const errText = await res.text().catch(() => res.statusText);
-    throw new ApiError(res.status, extractErrorDetail(errText || res.statusText));
-  }
-  return res.json();
-}
-
-// ─── Consultations ────────────────────────────────────────────────────────────
-
-export async function saveConsultation(params: {
-  doctorUuid: string;
-  shiftUuid: string;
-  patientRef: string;
-  transcript: string;
-  soapNote: SOAPNote;
-  patientSummary: string;
-  complexityScore: number;
-  flags: string[];
-  language: Language;
-}): Promise<{ consultation_id: string; saved_at: string; burnout_score: { cls: number; status: string } }> {
-  return apiFetch('/doctor/consultations/', {
-    method: 'POST',
-    body: JSON.stringify({
-      doctor_uuid: params.doctorUuid,
-      shift_uuid: params.shiftUuid,
-      patient_ref: params.patientRef,
-      transcript: params.transcript,
-      soap_note: params.soapNote,
-      patient_summary: params.patientSummary,
-      complexity_score: params.complexityScore,
-      flags: params.flags,
-      language: params.language,
-    }),
-  });
-}
-
-export async function getShiftConsultations(
-  doctorUuid: string,
-  shiftUuid: string
-): Promise<{ consultations_count: number; consultations: Consultation[] }> {
-  return apiFetch(`/doctor/consultations/${doctorUuid}?shift_uuid=${shiftUuid}`);
-}
-
-// ─── Handover ─────────────────────────────────────────────────────────────────
-
-export async function generateHandover(
-  doctorUuid: string,
-  shiftUuid: string,
-  handoverNotes?: string
-): Promise<HandoverReport> {
-  return apiFetch('/doctor/handover/', {
-    method: 'POST',
-    body: JSON.stringify({
-      doctor_uuid: doctorUuid,
-      shift_uuid: shiftUuid,
-      handover_notes: handoverNotes || '',
-    }),
-  });
-}
-
-// ─── Burnout ──────────────────────────────────────────────────────────────────
-
-export async function getBurnoutScore(doctorUuid: string): Promise<BurnoutDetail> {
-  return apiFetch(`/doctor/burnout/${doctorUuid}`);
-}
-
-// ─── Admin ────────────────────────────────────────────────────────────────────
-
-export async function getAdminDashboard(): Promise<AdminDashboard> {
-  return apiFetch('/admin/dashboard/');
-}
-
-export async function getDoctorDetail(doctorUuid: string) {
-  return apiFetch(`/admin/doctor/${doctorUuid}/detail`);
-}
-
-// ─── Copilot Assist ──────────────────────────────────────────────────────────
-
-export async function copilotContinueConversation(params: {
-  conversationHistory: string;
-  latestMessage: string;
-  language: AssistLanguageCode;
-}): Promise<{
-  response: string;
-  language: string;
-  conversation_complete: boolean;
-  should_auto_complete: boolean;
-}> {
-  return apiFetch('/copilot/triage/conversation/continue', {
-    method: 'POST',
-    body: JSON.stringify({
-      conversation_history: params.conversationHistory,
-      latest_message: params.latestMessage,
-      language: params.language,
-    }),
-  });
-}
-
-export async function copilotProcessText(
-  transcriptText: string,
-  language: AssistLanguageCode
-): Promise<AssistTriageResult> {
-  return apiFetch('/copilot/triage/process_text', {
-    method: 'POST',
-    body: JSON.stringify({
-      transcript_text: transcriptText,
-      language,
-    }),
-  });
-}
-
-export async function copilotProcessAudio(
-  audioBlob: Blob,
-  language: AssistLanguageCode
-): Promise<AssistTriageResult> {
-  const formData = new FormData();
-  formData.append('audio_file', audioBlob, 'assist-recording.webm');
-  formData.append('language', language);
-
-  const res = await fetch(`${API_BASE}/copilot/triage/process_audio`, {
-    method: 'POST',
-    body: formData,
-  });
-  if (!res.ok) {
-    const errText = await res.text().catch(() => res.statusText);
-    throw new ApiError(res.status, extractErrorDetail(errText || res.statusText));
-  }
-  return res.json();
-}
-
-export async function getCopilotGuidelineSources(): Promise<{
-  sources: {
-    chw: number;
-    clinical: number;
-    parsed_guidelines: number;
-  };
-  parsed_breakdown: Record<string, number>;
-}> {
-  return apiFetch('/copilot/guidelines/sources');
-}
-
-// ─── OpenER ──────────────────────────────────────────────────────────────────
-
-export async function getOpenERHospitals(): Promise<{ hospitals: OpenERHospital[] }> {
-  return apiFetch('/opener/hospitals');
-}
-
-export async function getOpenERReadiness(params: {
-  incidentType: OpenERIncidentType | string;
-  lat: number;
-  lng: number;
-}): Promise<{ incident_type: string; location: { lat: number; lng: number }; recommended_hospitals: OpenERReadinessCard[] }> {
-  const query = new URLSearchParams({
-    incident_type: params.incidentType,
-    lat: String(params.lat),
-    lng: String(params.lng),
-  }).toString();
-  return apiFetch(`/opener/hospitals/readiness?${query}`);
-}
-
-export async function assessOpenEREmergency(params: {
-  incidentType: OpenERIncidentType | string;
-  lat: number;
-  lng: number;
-  patientAge?: number;
-  sex?: string;
-  keySymptoms: string[];
-  vitals?: Record<string, string | number>;
-}): Promise<OpenEREmergencyAssessment> {
-  return apiFetch('/opener/emergencies/assess', {
-    method: 'POST',
-    body: JSON.stringify({
-      incident_type: params.incidentType,
-      location: { lat: params.lat, lng: params.lng },
-      patient_age: params.patientAge,
-      sex: params.sex,
-      key_symptoms: params.keySymptoms,
-      vitals: params.vitals || {},
-    }),
-  });
-}
-
-export async function dispatchOpenERAlert(params: {
-  emergencyId: string;
-  hospitalId: string;
-  etaMinutes: number;
-  summary: string;
-}): Promise<OpenERAlert> {
-  return apiFetch('/opener/alerts/dispatch', {
-    method: 'POST',
-    body: JSON.stringify({
-      emergency_id: params.emergencyId,
-      hospital_id: params.hospitalId,
-      eta_minutes: params.etaMinutes,
-      summary: params.summary,
-    }),
-  });
-}
-
-export async function updateOpenERHospital(
-  hospitalId: string,
-  payload: {
-    criticalBeds: number;
-    specialistsOnSeat: string[];
-    queueLevel: number;
-    notes?: string;
-  }
-): Promise<{ status: string; hospital: OpenERHospital }> {
-  return apiFetch(`/opener/hospitals/${hospitalId}/manual-update`, {
-    method: 'POST',
-    body: JSON.stringify({
-      critical_beds: payload.criticalBeds,
-      specialists_on_seat: payload.specialistsOnSeat,
-      queue_level: payload.queueLevel,
-      notes: payload.notes || '',
-    }),
-  });
-}
+// ── Admin ──
+export const getAdminDashboard = (wardUuid?: string) =>
+  api<Record<string, unknown>>(`/admin/dashboard/${wardUuid ? `?ward_uuid=${wardUuid}` : ''}`);

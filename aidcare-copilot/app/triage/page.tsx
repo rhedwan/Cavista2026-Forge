@@ -1,505 +1,394 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import {
-  copilotContinueConversation,
-  copilotProcessAudio,
-  copilotProcessText,
-  getCopilotGuidelineSources,
-  getErrorMessage,
-} from '../../lib/api';
-import { ASSIST_LANGUAGES, ASSIST_LANGUAGE_ORDER } from '../../lib/languages';
-import { speakText, stopCurrentAudio } from '../../lib/tts';
-import {
-  AssistLanguageCode,
-  AssistMessage,
-  AssistPhase,
-  AssistRecordingState,
-  AssistRiskLevel,
-  AssistTriageResult,
-} from '../../types/triage';
+import AppShell from '../../components/AppShell';
+import Icon from '../../components/Icon';
+import { triageContinue, triageProcessText, triageTTS, triageSave, getPatients, getError } from '../../lib/api';
+import { Patient } from '../../types';
 
-const RISK_STYLES: Record<AssistRiskLevel, string> = {
-  high: 'hospital-risk-high',
-  moderate: 'hospital-risk-moderate',
-  low: 'hospital-risk-low',
+type Phase = 'language' | 'conversation' | 'results';
+type Lang = 'en' | 'ha' | 'yo' | 'ig' | 'pcm';
+type RecState = 'idle' | 'recording' | 'processing';
+
+interface Msg {
+  role: 'patient' | 'ai' | 'staff';
+  content: string;
+}
+
+const LANGS: { code: Lang; name: string; native: string; greeting: string; color: string }[] = [
+  { code: 'en', name: 'English', native: 'English', greeting: 'Hello! How are you feeling today?', color: '#2563eb' },
+  { code: 'ha', name: 'Hausa', native: 'هَوُسَ', greeting: 'Sannu! Yaya zan iya taimaka maka yau?', color: '#059669' },
+  { code: 'yo', name: 'Yoruba', native: 'Yorùbá', greeting: 'Bawo ni! Kini mo le se fun e loni?', color: '#7c3aed' },
+  { code: 'ig', name: 'Igbo', native: 'Igbo', greeting: 'Ndewo! Kedu otu m ga-esi nyere gi aka taa?', color: '#dc2626' },
+  { code: 'pcm', name: 'Pidgin', native: 'Naija Pidgin', greeting: 'How far! Wetin dey do you today?', color: '#d97706' },
+];
+
+const RISK: Record<string, { color: string; bg: string }> = {
+  high: { color: '#dc2626', bg: '#fef2f2' },
+  moderate: { color: '#d97706', bg: '#fffbeb' },
+  low: { color: '#059669', bg: '#ecfdf5' },
 };
 
 export default function TriagePage() {
-  const router = useRouter();
-  const [agreed, setAgreed] = useState(false);
-  const [phase, setPhase] = useState<AssistPhase>('language_select');
-  const [language, setLanguage] = useState<AssistLanguageCode>('en');
-  const [messages, setMessages] = useState<AssistMessage[]>([]);
-  const [conversationContext, setConversationContext] = useState<string[]>([]);
-  const [inputText, setInputText] = useState('');
+  const [phase, setPhase] = useState<Phase>('language');
+  const [lang, setLang] = useState<Lang>('en');
+  const [msgs, setMsgs] = useState<Msg[]>([]);
+  const [input, setInput] = useState('');
+  const [staffNote, setStaffNote] = useState('');
+  const [staffNotes, setStaffNotes] = useState('');
   const [loading, setLoading] = useState(false);
-  const [autoCompleting, setAutoCompleting] = useState(false);
+  const [triageResult, setTriageResult] = useState<Record<string, unknown> | null>(null);
   const [error, setError] = useState('');
-  const [result, setResult] = useState<AssistTriageResult | null>(null);
-  const [sources, setSources] = useState<{ chw: number; clinical: number; parsed_guidelines: number } | null>(null);
-  const [speaking, setSpeaking] = useState(false);
+  const [patients, setPatients] = useState<Patient[]>([]);
+  const [showPicker, setShowPicker] = useState(false);
+  const [recState, setRecState] = useState<RecState>('idle');
+  const [recTime, setRecTime] = useState(0);
+  const mrRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const chatEnd = useRef<HTMLDivElement>(null);
 
-  const [recordingState, setRecordingState] = useState<AssistRecordingState>('idle');
-  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
-  const [recordingTime, setRecordingTime] = useState(0);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const audioChunksRef = useRef<Blob[]>([]);
-  const recordingTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { chatEnd.current?.scrollIntoView({ behavior: 'smooth' }); }, [msgs]);
 
-  const lang = ASSIST_LANGUAGES[language];
-
-  useEffect(() => {
-    const hasAgreed = localStorage.getItem('aidcare_disclaimer_agreed') === 'true';
-    setAgreed(hasAgreed);
-  }, []);
-
-  useEffect(() => {
-    getCopilotGuidelineSources().then((data) => setSources(data.sources)).catch(() => null);
-  }, []);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
-
-  useEffect(() => {
-    return () => {
-      stopCurrentAudio();
-      if (recordingTimerRef.current) clearInterval(recordingTimerRef.current);
-    };
-  }, []);
-
-  function acceptDisclaimer() {
-    localStorage.setItem('aidcare_disclaimer_agreed', 'true');
-    setAgreed(true);
-  }
-
-  function beginConversation() {
+  function selectLang(code: Lang) {
+    setLang(code);
+    const l = LANGS.find(x => x.code === code)!;
+    setMsgs([{ role: 'ai', content: l.greeting }]);
     setPhase('conversation');
-    setMessages([{ role: 'assistant', content: lang.greeting }]);
-    setConversationContext([]);
-    setInputText('');
-    setResult(null);
-    setError('');
+    playTTS(l.greeting, code);
   }
 
-  function buildConversationHistory(msgs: AssistMessage[]): string {
-    return msgs
-      .filter((m) => m.role !== 'system')
-      .map((m) => `${m.role === 'user' ? 'PATIENT' : 'YOU'}: ${m.content}`)
-      .join('\n');
-  }
-
-  async function handleSendMessage(prefill?: string) {
-    const text = (prefill ?? inputText).trim();
-    if (!text || loading) return;
-
-    setLoading(true);
-    setError('');
-    if (!prefill) setInputText('');
-
-    const userMessage: AssistMessage = { role: 'user', content: text };
-    const nextMessages = [...messages, userMessage];
-    const nextContext = [...conversationContext, text];
-    setMessages(nextMessages);
-    setConversationContext(nextContext);
-
+  async function playTTS(text: string, l: string) {
     try {
-      const data = await copilotContinueConversation({
-        conversationHistory: buildConversationHistory(nextMessages),
-        latestMessage: text,
-        language,
-      });
-
-      setMessages((prev) => [...prev, { role: 'assistant', content: data.response || lang.greeting }]);
-
-      if (data.should_auto_complete || data.conversation_complete) {
-        setAutoCompleting(true);
-        setTimeout(() => {
-          completeAssessment(nextContext);
-        }, 1300);
-      }
-    } catch (e: unknown) {
-      setError(getErrorMessage(e, 'Unable to continue conversation.'));
-      setMessages((prev) => [...prev, { role: 'system', content: 'Please try again.' }]);
-    } finally {
-      setLoading(false);
-    }
+      const blob = await triageTTS(text, l);
+      const audio = new Audio(URL.createObjectURL(blob));
+      audio.play().catch(() => {});
+    } catch {}
   }
 
-  async function completeAssessment(contextSnapshot?: string[]) {
+  function buildHistory() {
+    return msgs.filter(m => m.role !== 'staff').map(m => m.role === 'patient' ? `PATIENT: ${m.content}` : `YOU: ${m.content}`).join('\n');
+  }
+
+  async function send(text: string) {
+    if (!text.trim()) return;
+    const newMsgs: Msg[] = [...msgs, { role: 'patient', content: text }];
+    setMsgs(newMsgs);
+    setInput('');
     setLoading(true);
     setError('');
     try {
-      const text = (contextSnapshot || conversationContext).join(' ');
-      const triage = await copilotProcessText(text, language);
-      setResult(triage);
+      const res = await triageContinue({ conversation_history: buildHistory(), patient_message: text, staff_notes: staffNotes, language: lang });
+      const aiMsg: Msg = { role: 'ai', content: res.response };
+      setMsgs([...newMsgs, aiMsg]);
+      playTTS(res.response, lang);
+      if (res.should_auto_complete) setTimeout(() => completeAssessment([...newMsgs, aiMsg]), 1500);
+    } catch (err) { setError(getError(err)); }
+    finally { setLoading(false); }
+  }
+
+  function addStaff() {
+    if (!staffNote.trim()) return;
+    const note = staffNote.trim();
+    setStaffNotes(p => p ? `${p}\n${note}` : note);
+    setMsgs([...msgs, { role: 'staff', content: note }]);
+    setStaffNote('');
+  }
+
+  async function completeAssessment(m?: Msg[]) {
+    const all = m || msgs;
+    const text = all.map(x => x.role === 'staff' ? `STAFF: ${x.content}` : x.role === 'patient' ? `PATIENT: ${x.content}` : `ASSISTANT: ${x.content}`).join('\n');
+    setLoading(true);
+    setError('');
+    try {
+      const res = await triageProcessText(text, lang, staffNotes);
+      setTriageResult(res);
       setPhase('results');
-    } catch (e: unknown) {
-      setError(getErrorMessage(e, 'Unable to complete assessment.'));
-      setAutoCompleting(false);
-    } finally {
-      setLoading(false);
-    }
+    } catch (err) { setError(getError(err)); }
+    finally { setLoading(false); }
   }
 
-  async function startRecording() {
+  async function startRec() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = recorder;
-      audioChunksRef.current = [];
-
-      recorder.ondataavailable = (event) => {
-        if (event.data.size > 0) audioChunksRef.current.push(event.data);
-      };
-      recorder.onstop = () => {
-        const blob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
-        setAudioBlob(blob);
-        setRecordingState('recorded');
-        stream.getTracks().forEach((track) => track.stop());
-      };
-
-      recorder.start();
-      setRecordingState('recording');
-      setRecordingTime(0);
-      recordingTimerRef.current = setInterval(() => setRecordingTime((v) => v + 1), 1000);
-    } catch {
-      setError('Microphone access failed.');
-    }
+      const mr = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+      mrRef.current = mr; chunksRef.current = [];
+      mr.ondataavailable = e => { if (e.data.size > 0) chunksRef.current.push(e.data); };
+      mr.start();
+      setRecState('recording');
+      setRecTime(0);
+      timerRef.current = setInterval(() => setRecTime(t => t + 1), 1000);
+    } catch { setError('Microphone access denied.'); }
   }
 
-  function stopRecording() {
-    if (mediaRecorderRef.current && recordingState === 'recording') {
-      mediaRecorderRef.current.stop();
-      if (recordingTimerRef.current) {
-        clearInterval(recordingTimerRef.current);
-        recordingTimerRef.current = null;
-      }
-    }
-  }
-
-  function cancelRecording() {
-    if (recordingState === 'recording') stopRecording();
-    setRecordingState('idle');
-    setAudioBlob(null);
-    setRecordingTime(0);
-    audioChunksRef.current = [];
-  }
-
-  async function sendAudioMessage() {
-    if (!audioBlob) return;
-    setRecordingState('processing');
-    setLoading(true);
-    setError('');
+  async function stopRec() {
+    if (!mrRef.current) return;
+    setRecState('processing');
+    if (timerRef.current) clearInterval(timerRef.current);
+    const blob = await new Promise<Blob>(resolve => {
+      mrRef.current!.onstop = () => resolve(new Blob(chunksRef.current, { type: 'audio/webm' }));
+      mrRef.current!.stop();
+      mrRef.current!.stream.getTracks().forEach(t => t.stop());
+    });
     try {
-      const triage = await copilotProcessAudio(audioBlob, language);
-      if (triage.transcript) {
-        setMessages((prev) => [...prev, { role: 'user', content: triage.transcript || '', isAudio: true }]);
-      }
-      setResult(triage);
+      const API = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
+      const token = typeof window !== 'undefined' ? localStorage.getItem('aidcare_token') : null;
+      const headers: Record<string, string> = {};
+      if (token) headers.Authorization = `Bearer ${token}`;
+      const fd = new FormData();
+      fd.append('audio_file', blob, 'triage.webm');
+      fd.append('language', lang);
+      fd.append('staff_notes', staffNotes);
+      const r = await fetch(`${API}/triage/process_audio`, { method: 'POST', headers, body: fd });
+      if (!r.ok) throw new Error('Audio processing failed');
+      const res = await r.json();
+      if (res.transcript) setMsgs(prev => [...prev, { role: 'patient', content: res.transcript }]);
+      setTriageResult(res);
       setPhase('results');
-      setAudioBlob(null);
-      setRecordingState('idle');
-      setRecordingTime(0);
-      audioChunksRef.current = [];
-    } catch (e: unknown) {
-      setError(getErrorMessage(e, 'Audio processing failed.'));
-      setRecordingState('recorded');
-    } finally {
-      setLoading(false);
-    }
+    } catch (err) { setError(getError(err)); }
+    finally { setRecState('idle'); }
   }
 
-  function resetAll() {
-    setPhase('language_select');
-    setMessages([]);
-    setConversationContext([]);
-    setInputText('');
-    setResult(null);
-    setError('');
-    setAutoCompleting(false);
-    cancelRecording();
-    stopCurrentAudio();
+  async function openPicker() {
+    setShowPicker(true);
+    try { const d = await getPatients(); setPatients([...d.patients.critical, ...d.patients.stable, ...d.patients.discharged]); } catch {}
   }
 
-  if (!agreed) {
-    return (
-      <div className="hospital-shell py-10">
-        <div className="mx-auto max-w-3xl hospital-card">
-          <p className="hospital-chip hospital-chip-warning">Safety Disclaimer</p>
-          <h1 className="mt-3 text-3xl font-semibold text-slate-900">AidCare Public Triage Intake</h1>
-          <p className="mt-3 text-sm leading-relaxed text-slate-700">
-            This assistant provides initial guidance only. It does not replace licensed clinical diagnosis. For severe
-            symptoms, proceed to emergency care immediately.
-          </p>
-          <div className="hospital-separator" />
-          <div className="flex flex-wrap gap-2">
-            <button onClick={acceptDisclaimer} className="hospital-btn hospital-btn-primary">
-              I Understand, Continue
-            </button>
-            <button onClick={() => router.push('/doctor')} className="hospital-btn hospital-btn-secondary">
-              Doctor Console
-            </button>
-            <button onClick={() => router.push('/opener')} className="hospital-btn hospital-btn-quiet">
-              OpenER Routing
-            </button>
-          </div>
-        </div>
-      </div>
-    );
+  async function assignTo(uuid: string) {
+    if (!triageResult) return;
+    try { await triageSave(uuid, triageResult); setShowPicker(false); } catch (err) { setError(getError(err)); }
   }
+
+  function reset() { setPhase('language'); setMsgs([]); setStaffNotes(''); setStaffNote(''); setTriageResult(null); setError(''); setInput(''); }
+
+  const rec = triageResult?.triage_recommendation as Record<string, unknown> | undefined;
+  const risk = (triageResult?.risk_level as string) || 'low';
+  const symptoms = (triageResult?.extracted_symptoms as string[]) || [];
+  const fmt = (s: number) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 
   return (
-    <div className="hospital-shell py-6 md:py-8">
-      <header className="hospital-topbar mb-4">
-        <div className="hospital-brand">
-          <span className="hospital-brand-mark">A</span>
-          <div>
-            <p className="hospital-brand-title">AidCare Triage Front Desk</p>
-            <p className="hospital-brand-subtitle">Community Symptom Intake</p>
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <button onClick={() => router.push('/doctor')} className="hospital-btn hospital-btn-secondary">
-            Doctor Console
-          </button>
-          <button onClick={() => router.push('/opener')} className="hospital-btn hospital-btn-secondary">
-            OpenER
-          </button>
-          <button onClick={resetAll} className="hospital-btn hospital-btn-quiet">
-            Reset
-          </button>
-        </div>
-      </header>
-
-      {sources && (
-        <p className="hospital-alert hospital-alert-info mb-3">
-          Sources: CHW {sources.chw} • Clinical {sources.clinical} • Parsed {sources.parsed_guidelines}
-        </p>
-      )}
-      {error && <p className="hospital-alert hospital-alert-danger mb-3">{error}</p>}
-
-      {phase === 'language_select' && (
-        <div className="grid gap-4 lg:grid-cols-[1.12fr_0.88fr]">
-          <section className="hospital-card">
-            <p className="hospital-panel-title">Step 1</p>
-            <h1 className="text-2xl font-semibold text-slate-900">Choose Language</h1>
-            <p className="mt-1 text-sm text-slate-600">Select preferred language for symptom conversation.</p>
-            <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {ASSIST_LANGUAGE_ORDER.map((code) => {
-                const item = ASSIST_LANGUAGES[code];
-                return (
-                  <button
-                    key={code}
-                    onClick={() => setLanguage(code)}
-                    className={`hospital-list-item ${language === code ? 'active' : ''}`}
-                  >
-                    <p className="text-sm font-semibold text-slate-900">{item.nativeName}</p>
-                    <p className="text-xs text-slate-600">{item.name}</p>
-                  </button>
-                );
-              })}
+    <AppShell>
+      <main className="flex-1 overflow-auto">
+        {/* LANGUAGE SELECT */}
+        {phase === 'language' && (
+          <div className="max-w-3xl mx-auto py-16 px-6 text-center">
+            <div className="inline-flex items-center justify-center size-14 rounded-2xl bg-primary/10 mb-4">
+              <Icon name="stethoscope" className="text-primary text-3xl" />
             </div>
-            <button onClick={beginConversation} className="hospital-btn hospital-btn-primary mt-4">
-              Start Assessment
-            </button>
-          </section>
-
-          <aside className="hospital-card space-y-3">
-            <div className="hospital-panel-muted">
-              <p className="hospital-panel-title">How It Works</p>
-              <ol className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
-                <li>Describe symptoms in your language.</li>
-                <li>Use voice recording if typing is difficult.</li>
-                <li>Review urgency and recommended next steps.</li>
-              </ol>
-            </div>
-            <div className="hospital-panel">
-              <p className="hospital-panel-title">Emergency Escalation</p>
-              <p className="text-sm text-slate-700">For critical findings, route immediately to OpenER and alert a prepared facility.</p>
-            </div>
-          </aside>
-        </div>
-      )}
-
-      {phase === 'conversation' && (
-        <div className="grid gap-4 xl:grid-cols-[1.32fr_0.82fr]">
-          <section className="hospital-card">
-            <div className="mb-3 flex items-center justify-between">
-              <div>
-                <p className="hospital-panel-title">Step 2</p>
-                <h2 className="text-xl font-semibold text-slate-900">Symptom Conversation</h2>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="hospital-chip hospital-chip-primary">{lang.nativeName}</span>
-                {autoCompleting && <span className="hospital-chip hospital-chip-warning">Auto-completing</span>}
-              </div>
-            </div>
-
-            <div className="hospital-chat">
-              {messages.map((msg, idx) => (
-                <div key={idx} className={`hospital-chat-row ${msg.role}`}>
-                  {msg.content}
-                  {msg.role === 'assistant' && (
-                    <button
-                      onClick={() => speakText(msg.content, language, () => setSpeaking(true), () => setSpeaking(false))}
-                      className="hospital-btn hospital-btn-secondary mt-2 !py-1 !px-2 !text-xs"
-                    >
-                      {speaking ? 'Speaking...' : 'Speak'}
-                    </button>
-                  )}
-                </div>
+            <h1 className="text-2xl font-bold text-slate-900 mb-2">Patient Triage</h1>
+            <p className="text-sm text-slate-500 mb-8">Select the patient&apos;s preferred language to begin.</p>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+              {LANGS.map(l => (
+                <button key={l.code} onClick={() => selectLang(l.code)}
+                  className="bg-white rounded-xl border border-slate-200 p-5 text-center hover:shadow-md hover:border-slate-300 transition-all group">
+                  <p className="text-lg font-bold mb-1" style={{ color: l.color }}>{l.native}</p>
+                  <p className="text-xs text-slate-500">{l.name}</p>
+                </button>
               ))}
-              <div ref={messagesEndRef} />
+            </div>
+          </div>
+        )}
+
+        {/* CONVERSATION */}
+        {phase === 'conversation' && (
+          <div className="flex h-[calc(100vh-57px)]">
+            <div className="flex-1 flex flex-col">
+              <div className="px-6 py-3 border-b border-slate-200 flex items-center justify-between bg-white">
+                <div className="flex items-center gap-3">
+                  <h2 className="text-base font-semibold text-slate-900">Triage Conversation</h2>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full border"
+                    style={{ color: LANGS.find(x => x.code === lang)?.color, borderColor: `${LANGS.find(x => x.code === lang)?.color}30`, background: `${LANGS.find(x => x.code === lang)?.color}08` }}>
+                    {LANGS.find(x => x.code === lang)?.name}
+                  </span>
+                </div>
+                <button onClick={() => completeAssessment()} disabled={msgs.length < 3 || loading}
+                  className="h-9 px-4 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary-hover transition disabled:opacity-40 shadow-sm shadow-blue-200">
+                  Complete Assessment
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto px-6 py-5 bg-slate-50">
+                <div className="max-w-2xl mx-auto space-y-4">
+                  {msgs.map((m, i) => (
+                    <div key={i} className={`flex gap-3 ${m.role === 'patient' ? 'flex-row-reverse' : ''}`}>
+                      <div className={`size-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 text-white ${
+                        m.role === 'patient' ? 'bg-primary' : m.role === 'staff' ? 'bg-amber-500' : 'bg-emerald-600'
+                      }`}>
+                        {m.role === 'patient' ? 'PT' : m.role === 'staff' ? 'RN' : 'AI'}
+                      </div>
+                      <div className={`max-w-[75%] rounded-xl px-4 py-3 text-sm leading-relaxed ${
+                        m.role === 'patient' ? 'bg-primary text-white rounded-tr-sm' :
+                        m.role === 'staff' ? 'bg-amber-50 text-slate-800 border border-amber-200 rounded-tl-sm' :
+                        'bg-white text-slate-800 border border-slate-200 rounded-tl-sm shadow-sm'
+                      }`}>
+                        {m.role === 'staff' && <p className="text-[10px] font-semibold text-amber-600 uppercase mb-1">Staff Note</p>}
+                        {m.content}
+                      </div>
+                    </div>
+                  ))}
+                  {loading && (
+                    <div className="flex gap-3">
+                      <div className="size-8 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold text-white">AI</div>
+                      <div className="bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-sm">
+                        <div className="flex gap-1.5">
+                          <span className="size-2 rounded-full bg-slate-300 animate-bounce" />
+                          <span className="size-2 rounded-full bg-slate-300 animate-bounce" style={{ animationDelay: '0.15s' }} />
+                          <span className="size-2 rounded-full bg-slate-300 animate-bounce" style={{ animationDelay: '0.3s' }} />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={chatEnd} />
+                </div>
+              </div>
+
+              {error && <div className="mx-6 mb-2 text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">{error}</div>}
+
+              <div className="px-6 py-3 border-t border-slate-200 bg-white flex gap-2">
+                {recState === 'idle' ? (
+                  <>
+                    <input value={input} onChange={e => setInput(e.target.value)}
+                      onKeyDown={e => e.key === 'Enter' && !loading && send(input)}
+                      placeholder="Type patient's words..."
+                      className="flex-1 h-10 rounded-lg border border-slate-200 bg-slate-50 px-3 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" disabled={loading} />
+                    <button onClick={startRec} className="size-10 rounded-lg bg-red-500 hover:bg-red-600 flex items-center justify-center text-white transition shadow-sm">
+                      <Icon name="mic" className="text-lg" />
+                    </button>
+                    <button onClick={() => send(input)} disabled={!input.trim() || loading}
+                      className="h-10 px-4 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary-hover transition disabled:opacity-40">
+                      Send
+                    </button>
+                  </>
+                ) : recState === 'recording' ? (
+                  <div className="flex items-center gap-3 flex-1">
+                    <span className="flex items-center gap-1.5 text-sm text-red-600">
+                      <span className="size-2 rounded-full bg-red-500 animate-pulse" />
+                      Recording {fmt(recTime)}
+                    </span>
+                    <button onClick={stopRec} className="ml-auto h-10 px-4 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary-hover transition">
+                      Stop &amp; Process
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-sm text-slate-500 flex-1">
+                    <div className="size-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                    Processing audio...
+                  </div>
+                )}
+              </div>
             </div>
 
-            <div className="mt-3 flex gap-2">
-              <input
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                placeholder={lang.placeholder}
-                className="hospital-input"
-              />
-              <button
-                onClick={() => handleSendMessage()}
-                disabled={loading || !inputText.trim()}
-                className="hospital-btn hospital-btn-primary"
-              >
-                {loading ? 'Sending...' : lang.sendLabel}
+            {/* Staff panel */}
+            <div className="w-72 flex-shrink-0 border-l border-slate-200 bg-white flex flex-col hidden lg:flex">
+              <div className="p-4 border-b border-slate-200">
+                <h3 className="text-sm font-semibold text-slate-900 mb-1">Staff Clinical Notes</h3>
+                <p className="text-xs text-slate-500">Add vitals, observations. Not spoken to patient.</p>
+              </div>
+              <div className="flex-1 overflow-y-auto p-4 space-y-2">
+                {staffNotes.split('\n').filter(Boolean).map((n, i) => (
+                  <div key={i} className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-xs text-slate-700">{n}</div>
+                ))}
+              </div>
+              <div className="p-4 border-t border-slate-200 flex gap-2">
+                <input value={staffNote} onChange={e => setStaffNote(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && addStaff()}
+                  placeholder="e.g. BP 90/60, temp 39.2"
+                  className="flex-1 h-9 rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs focus:ring-2 focus:ring-primary focus:border-transparent" />
+                <button onClick={addStaff} disabled={!staffNote.trim()}
+                  className="h-9 px-3 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium hover:bg-slate-200 transition disabled:opacity-40">
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* RESULTS */}
+        {phase === 'results' && triageResult && (
+          <div className="max-w-3xl mx-auto py-8 px-6">
+            <div className="flex items-center justify-between mb-6">
+              <h1 className="text-2xl font-bold text-slate-900">Triage Assessment</h1>
+              <button onClick={reset} className="h-9 px-4 rounded-lg border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition">
+                New Triage
               </button>
             </div>
 
-            <button
-              onClick={() => completeAssessment()}
-              disabled={loading || conversationContext.length === 0}
-              className="hospital-btn hospital-btn-secondary mt-3"
-            >
-              {loading ? 'Processing...' : lang.completeLabel}
-            </button>
-          </section>
-
-          <aside className="hospital-card space-y-3">
-            <div className="hospital-panel">
-              <p className="hospital-panel-title">Scenario Presets</p>
-              <div className="space-y-2">
-                <button
-                  onClick={() => handleSendMessage('I have severe chest pain with sweating and shortness of breath for 30 minutes.')}
-                  className="hospital-btn hospital-btn-secondary w-full text-left"
-                >
-                  Chest Pain Emergency
-                </button>
-                <button
-                  onClick={() => handleSendMessage('Heavy bleeding after delivery and dizziness started 20 minutes ago.')}
-                  className="hospital-btn hospital-btn-secondary w-full text-left"
-                >
-                  Postpartum Bleeding
-                </button>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="bg-white rounded-xl border border-slate-200 p-5 text-center">
+                <p className="text-xs text-slate-500 uppercase tracking-wide mb-2">Urgency Level</p>
+                <p className="text-lg font-bold" style={{ color: RISK[risk]?.color }}>{(rec?.urgency_level as string) || 'Unknown'}</p>
+              </div>
+              <div className="bg-white rounded-xl border border-slate-200 p-5 text-center">
+                <p className="text-xs text-slate-500 uppercase tracking-wide mb-2">Risk Level</p>
+                <span className="inline-block text-sm font-bold px-4 py-1.5 rounded-full text-white uppercase"
+                  style={{ background: RISK[risk]?.color }}>{risk}</span>
               </div>
             </div>
 
-            <div className="hospital-panel-muted">
-              <p className="hospital-panel-title">Voice Input</p>
-              {recordingState === 'idle' && (
-                <button onClick={startRecording} className="hospital-btn hospital-btn-primary">
-                  Start Recording
-                </button>
-              )}
-              {recordingState === 'recording' && (
-                <div className="space-y-2">
-                  <p className="text-sm text-red-700">Recording... {recordingTime}s</p>
-                  <div className="flex gap-2">
-                    <button onClick={stopRecording} className="hospital-btn hospital-btn-secondary">Stop</button>
-                    <button onClick={cancelRecording} className="hospital-btn hospital-btn-secondary">Cancel</button>
-                  </div>
-                </div>
-              )}
-              {recordingState === 'recorded' && (
-                <div className="space-y-2">
-                  <p className="text-sm text-slate-700">Recording captured.</p>
-                  <div className="flex gap-2">
-                    <button onClick={sendAudioMessage} className="hospital-btn hospital-btn-primary">Process Audio</button>
-                    <button onClick={cancelRecording} className="hospital-btn hospital-btn-secondary">Discard</button>
-                  </div>
-                </div>
-              )}
-              {recordingState === 'processing' && <p className="text-sm text-slate-700">Processing audio...</p>}
+            <div className="bg-white rounded-xl border border-slate-200 p-5 mb-4">
+              <h3 className="text-sm font-semibold text-slate-900 mb-2">Summary</h3>
+              <p className="text-sm text-slate-700">{(rec?.summary_of_findings as string) || 'No summary.'}</p>
             </div>
 
-            <div className="hospital-panel">
-              <p className="hospital-panel-title">Context Status</p>
-              <p className="text-sm text-slate-700">Captured statements: {conversationContext.length}</p>
-            </div>
-          </aside>
-        </div>
-      )}
-
-      {phase === 'results' && result && (
-        <div className="grid gap-4 xl:grid-cols-[1.24fr_0.86fr]">
-          <section className="hospital-card">
-            <div className="mb-3 flex items-center justify-between">
-              <div>
-                <p className="hospital-panel-title">Step 3</p>
-                <h2 className="text-xl font-semibold text-slate-900">Assessment Result</h2>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="bg-white rounded-xl border border-slate-200 p-5">
+                <h3 className="text-sm font-semibold text-slate-900 mb-3">Extracted Symptoms</h3>
+                <div className="flex flex-wrap gap-2">
+                  {symptoms.length > 0 ? symptoms.map((s, i) => (
+                    <span key={i} className="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">{s}</span>
+                  )) : <p className="text-sm text-slate-400">None</p>}
+                </div>
               </div>
-              <span className={`hospital-chip ${RISK_STYLES[result.risk_level]}`}>
-                {lang.urgencyLabel}: {result.triage_recommendation.urgency_level}
-              </span>
+              <div className="bg-white rounded-xl border border-slate-200 p-5">
+                <h3 className="text-sm font-semibold text-slate-900 mb-3">Recommended Actions</h3>
+                <ul className="space-y-1.5 text-sm text-slate-700">
+                  {((rec?.recommended_actions_for_chw as string[]) || []).map((a, i) => (
+                    <li key={i} className="flex gap-2"><span className="text-primary font-bold">{i + 1}.</span>{a}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            <div className="hospital-panel-muted mb-3">
-              <p className="text-sm text-slate-800">{result.triage_recommendation.summary_of_findings}</p>
-              <button
-                onClick={() => speakText(result.triage_recommendation.summary_of_findings, language, () => setSpeaking(true), () => setSpeaking(false))}
-                className="hospital-btn hospital-btn-secondary mt-2"
-              >
-                {speaking ? 'Speaking...' : lang.speakSummaryLabel}
+            {staffNotes && (
+              <div className="bg-amber-50 rounded-xl border border-amber-200 p-5 mb-4">
+                <h3 className="text-sm font-semibold text-slate-900 mb-2">Staff Notes</h3>
+                <p className="text-sm text-slate-700 whitespace-pre-line">{staffNotes}</p>
+              </div>
+            )}
+
+            <div className="flex gap-3 mt-6">
+              {risk === 'high' && (
+                <a href="tel:112" className="h-10 px-5 rounded-lg bg-red-500 text-white text-sm font-medium flex items-center gap-2 hover:bg-red-600 transition">
+                  <Icon name="call" className="text-lg" /> Call Emergency (112)
+                </a>
+              )}
+              <button onClick={openPicker} className="h-10 px-5 rounded-lg bg-primary text-white text-sm font-medium hover:bg-primary-hover transition shadow-sm shadow-blue-200">
+                Assign to Patient Record
               </button>
             </div>
 
-            <div className="mb-3">
-              <p className="hospital-panel-title">Actions</p>
-              <ol className="list-decimal pl-5 text-sm text-slate-700 space-y-1">
-                {result.triage_recommendation.recommended_actions_for_chw.map((action, idx) => (
-                  <li key={idx}>{action}</li>
-                ))}
-              </ol>
-            </div>
-
-            <div className="hospital-panel">
-              <p className="hospital-panel-title">Evidence</p>
-              <div className="space-y-2">
-                {result.evidence.map((e, i) => (
-                  <div key={i} className="hospital-panel-muted">
-                    <p className="text-xs font-semibold text-slate-800">{e.source_type} • {e.guideline_section}</p>
-                    <p className="mt-1 text-xs text-slate-600">{e.source_excerpt}</p>
-                  </div>
-                ))}
+            {showPicker && (
+              <div className="fixed inset-0 bg-black/20 flex items-center justify-center z-50" onClick={() => setShowPicker(false)}>
+                <div className="bg-white rounded-xl shadow-xl p-6 w-96 max-h-[70vh] overflow-y-auto border border-slate-200" onClick={e => e.stopPropagation()}>
+                  <h3 className="text-base font-semibold text-slate-900 mb-4">Select Patient</h3>
+                  {patients.length > 0 ? (
+                    <div className="space-y-2">
+                      {patients.map(p => (
+                        <button key={p.patient_id} onClick={() => assignTo(p.patient_id)}
+                          className="w-full text-left rounded-lg border border-slate-200 p-3 hover:bg-slate-50 hover:border-slate-300 transition">
+                          <p className="text-sm font-medium text-slate-900">{p.full_name}</p>
+                          <p className="text-xs text-slate-500">{p.bed_number ? `Bed ${p.bed_number} \u2022 ` : ''}{p.primary_diagnosis || ''}</p>
+                        </button>
+                      ))}
+                    </div>
+                  ) : <p className="text-sm text-slate-400">No patients found.</p>}
+                  <button onClick={() => setShowPicker(false)} className="mt-4 w-full h-9 rounded-lg border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition">Cancel</button>
+                </div>
               </div>
-            </div>
-          </section>
-
-          <aside className="hospital-card space-y-3">
-            <div className={`hospital-panel ${RISK_STYLES[result.risk_level]}`}>
-              <p className="hospital-panel-title">Risk Band</p>
-              <p className="hospital-panel-value">{result.risk_level.toUpperCase()}</p>
-            </div>
-            <div className="hospital-panel">
-              <p className="hospital-panel-title">Next Step</p>
-              <div className="space-y-2">
-                <button onClick={() => router.push('/opener')} className="hospital-btn hospital-btn-primary w-full">
-                  Escalate via OpenER
-                </button>
-                <button onClick={resetAll} className="hospital-btn hospital-btn-secondary w-full">
-                  {lang.restartLabel}
-                </button>
-              </div>
-            </div>
-          </aside>
-        </div>
-      )}
-    </div>
+            )}
+          </div>
+        )}
+      </main>
+    </AppShell>
   );
 }

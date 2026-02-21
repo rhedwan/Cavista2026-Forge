@@ -1,35 +1,40 @@
 'use client';
-// Session management — localStorage-based for hackathon MVP
 
-const DOCTOR_KEY = 'copilot_doctor';
+import { AuthUser } from '../types';
+
+const TOKEN_KEY = 'aidcare_token';
+const USER_KEY = 'aidcare_user';
 const SHIFT_KEY = 'copilot_shift';
-
-export interface SessionDoctor {
-  doctor_id: string;
-  name: string;
-  specialty: string;
-  ward: string;
-  role: string;
-}
 
 export interface SessionShift {
   shift_id: string;
   started_at: string;
-  ward: string;
+  ward_id: string | null;
+  ward_name: string | null;
 }
 
-export function getSessionDoctor(): SessionDoctor | null {
+export function getToken(): string | null {
   if (typeof window === 'undefined') return null;
-  const raw = localStorage.getItem(DOCTOR_KEY);
+  return localStorage.getItem(TOKEN_KEY);
+}
+
+export function setToken(token: string) {
+  localStorage.setItem(TOKEN_KEY, token);
+}
+
+export function getSessionUser(): AuthUser | null {
+  if (typeof window === 'undefined') return null;
+  const raw = localStorage.getItem(USER_KEY);
   return raw ? JSON.parse(raw) : null;
 }
 
-export function setSessionDoctor(doctor: SessionDoctor) {
-  localStorage.setItem(DOCTOR_KEY, JSON.stringify(doctor));
+export function setSessionUser(user: AuthUser) {
+  localStorage.setItem(USER_KEY, JSON.stringify(user));
 }
 
-export function clearSessionDoctor() {
-  localStorage.removeItem(DOCTOR_KEY);
+export function clearSession() {
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(USER_KEY);
   localStorage.removeItem(SHIFT_KEY);
 }
 
@@ -45,6 +50,10 @@ export function setSessionShift(shift: SessionShift) {
 
 export function clearSessionShift() {
   localStorage.removeItem(SHIFT_KEY);
+}
+
+export function isAuthenticated(): boolean {
+  return !!getToken();
 }
 
 export function getShiftDuration(startedAt: string): string {
