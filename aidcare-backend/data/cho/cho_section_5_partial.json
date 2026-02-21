@@ -1,0 +1,100 @@
+{
+  "section": "5",
+  "title": "ADULT HEALTH CONDITIONS",
+  "subsections": [
+    {
+      "code": "5.1",
+      "title": "ADULT FIRST VISIT",
+      "entries": [
+        {
+          "case": "Routine adult evaluation",
+          "history": [
+            "Chief complaint",
+            "Medical and surgical history",
+            "Lifestyle (smoking, alcohol, diet)"
+          ],
+          "examination": [
+            "Vital signs (BP, pulse, temp)",
+            "General physical exam"
+          ],
+          "clinical_judgement": "General wellness or early identification of disease",
+          "action": [
+            "Document vitals and history",
+            "Counsel on healthy living",
+            "Screen for chronic diseases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.2",
+      "title": "FEVER",
+      "entries": [
+        {
+          "case": "Fever without clear source",
+          "history": [
+            "Onset, pattern",
+            "Associated symptoms",
+            "Travel or contact history"
+          ],
+          "examination": [
+            "Temperature",
+            "Look for localizing signs (e.g. throat, chest, abdomen)"
+          ],
+          "clinical_judgement": "Likely infection",
+          "action": [
+            "Administer antipyretic",
+            "Refer if not resolving in 3 days"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.3",
+      "title": "COUGH",
+      "entries": [
+        {
+          "case": "Persistent cough",
+          "history": [
+            "Duration",
+            "Sputum, chest pain, wheeze"
+          ],
+          "examination": [
+            "Auscultate lungs",
+            "Check lymph nodes"
+          ],
+          "clinical_judgement": "Possible TB, pneumonia, or asthma",
+          "action": [
+            "Treat empirically",
+            "Refer for sputum test or chest X-ray"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.4",
+      "title": "DIFFICULTY IN BREATHING",
+      "entries": [
+        {
+          "case": "Shortness of breath",
+          "history": [
+            "Onset, triggers, orthopnea",
+            "History of asthma or cardiac disease"
+          ],
+          "examination": [
+            "Respiratory rate",
+            "Oxygen saturation (if available)",
+            "Auscultate chest"
+          ],
+          "clinical_judgement": "Asthma, COPD, or cardiac condition",
+          "action": [
+            "Administer bronchodilator",
+            "Refer urgently if severe"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 240
+}

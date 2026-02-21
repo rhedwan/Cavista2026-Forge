@@ -1,0 +1,33 @@
+{
+  "disease": "COVID-19",
+  "category": "Other Disease of Public Health Importance",
+  "case_definition": {
+    "suspected": "Any person with fever, cough, shortness of breath, or sudden loss of taste/smell and with a relevant travel or contact history.",
+    "probable": "A suspected case with inconclusive testing or link to confirmed case and typical symptoms.",
+    "confirmed": "Detection of SARS-CoV-2 via RT-PCR or approved diagnostic test."
+  },
+  "notifiable": true,
+  "surveillance": {
+    "reporting_frequency": "Daily (during outbreak)",
+    "reporting_tools": [
+      "IDSR COVID-19 Case Form",
+      "NHMIS COVID Reporting Tool"
+    ],
+    "immediate_notification_required": true
+  },
+  "public_health_actions": [
+    "Isolate suspected case",
+    "Collect nasopharyngeal/oropharyngeal swab",
+    "Notify NCDC and conduct contact tracing",
+    "Promote infection prevention measures (masking, distancing)"
+  ],
+  "lab_confirmation": "RT-PCR for SARS-CoV-2.",
+  "integration": {
+    "linked_to_nhmis": true,
+    "nhmis_indicator_code": "NMIS-COV-19"
+  },
+  "source": {
+    "document": "Nigeria IDSR Guidelines",
+    "page_reference": "Section 2.6.1"
+  }
+}

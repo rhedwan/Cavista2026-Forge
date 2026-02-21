@@ -1,0 +1,159 @@
+{
+  "section": "7",
+  "title": "GERIATRIC HEALTH",
+  "subsections": [
+    {
+      "code": "7.1",
+      "title": "MUSCULO-SKELETAL SYSTEM DISORDERS",
+      "entries": [
+        {
+          "case": "Elderly with joint/muscle pain",
+          "history": [
+            "Onset, duration of pain",
+            "Difficulty walking or stiffness"
+          ],
+          "examination": [
+            "Joint inspection",
+            "Range of motion",
+            "Muscle strength"
+          ],
+          "clinical_judgement": "Osteoarthritis or degenerative disorder",
+          "action": [
+            "Prescribe analgesics",
+            "Advise physical activity",
+            "Refer if disabling"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.2",
+      "title": "CARDIOVASCULAR SYSTEM DISORDERS",
+      "entries": [
+        {
+          "case": "Elderly with chest pain, palpitations",
+          "history": [
+            "Onset, severity, relation to exertion",
+            "Past heart disease"
+          ],
+          "examination": [
+            "Check pulse, BP",
+            "Auscultate heart"
+          ],
+          "clinical_judgement": "Possible heart failure or ischemic disease",
+          "action": [
+            "Refer for ECG and further assessment",
+            "Start supportive care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.3",
+      "title": "GENITO-URINARY DISORDERS",
+      "entries": [
+        {
+          "case": "Urinary symptoms in the elderly",
+          "history": [
+            "Frequency",
+            "Dysuria",
+            "Incontinence"
+          ],
+          "examination": [
+            "Palpate bladder",
+            "Inspect genitalia"
+          ],
+          "clinical_judgement": "UTI or prostate issues",
+          "action": [
+            "Treat UTI or refer male with suspected BPH"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.4",
+      "title": "GASTROINTESTINAL DISORDERS",
+      "entries": [
+        {
+          "case": "Indigestion, constipation or diarrhea",
+          "history": [
+            "Dietary habits",
+            "Use of medications",
+            "Abdominal pain"
+          ],
+          "examination": [
+            "Inspect and palpate abdomen"
+          ],
+          "clinical_judgement": "Likely age-related digestive issue or pathology",
+          "action": [
+            "Adjust diet and hydration",
+            "Refer if persistent or alarming signs"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.5",
+      "title": "SPECIFIC PROBLEMS OF THE ELDERLY",
+      "entries": [
+        {
+          "case": "Multiple health concerns",
+          "history": [
+            "Mobility, hearing, vision, cognition"
+          ],
+          "examination": [
+            "Functional assessment",
+            "Gait and balance check"
+          ],
+          "clinical_judgement": "Frailty or geriatric syndrome",
+          "action": [
+            "Create care plan",
+            "Refer for multidisciplinary support"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.6",
+      "title": "MENTAL DISORDERS",
+      "entries": [
+        {
+          "case": "Confusion, memory loss, depression",
+          "history": [
+            "Forgetfulness, hallucinations, social withdrawal"
+          ],
+          "examination": [
+            "Mini mental status exam"
+          ],
+          "clinical_judgement": "Likely dementia or depression",
+          "action": [
+            "Refer for psychiatric or neurologic evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.7",
+      "title": "ORAL DISORDERS",
+      "entries": [
+        {
+          "case": "Dental pain or mouth sores",
+          "history": [
+            "Difficulty chewing, dry mouth",
+            "Dental hygiene"
+          ],
+          "examination": [
+            "Inspect teeth, gums, tongue"
+          ],
+          "clinical_judgement": "Dental caries, gingivitis or fungal infection",
+          "action": [
+            "Treat oral thrush",
+            "Refer to dentist"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 326
+}

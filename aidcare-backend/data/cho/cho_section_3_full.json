@@ -1,0 +1,235 @@
+{
+  "section": "3",
+  "title": "MIDDLE CHILDHOOD CONDITIONS",
+  "subsections": [
+    {
+      "code": "3.1",
+      "title": "CHILD FIRST VISIT",
+      "entries": [
+        {
+          "case": "Routine health check-up",
+          "history": [
+            "Immunization history",
+            "Nutrition",
+            "School performance"
+          ],
+          "examination": [
+            "Height and weight measurement",
+            "Vision and hearing check"
+          ],
+          "clinical_judgement": "Routine evaluation or mild conditions",
+          "action": [
+            "Document findings",
+            "Provide anticipatory guidance",
+            "Schedule follow-up"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.2",
+      "title": "FEVER",
+      "entries": [
+        {
+          "case": "Febrile child",
+          "history": [
+            "Onset and pattern",
+            "Recent illness in family",
+            "Travel history"
+          ],
+          "examination": [
+            "Temperature",
+            "Check ears, throat, chest"
+          ],
+          "clinical_judgement": "Likely viral or bacterial infection",
+          "action": [
+            "Administer antipyretics",
+            "Refer if prolonged or worsening"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.3",
+      "title": "CONVULSION",
+      "entries": [
+        {
+          "case": "Seizure episode",
+          "history": [
+            "Prior seizures",
+            "Fever or trauma",
+            "Duration and type"
+          ],
+          "examination": [
+            "Neurological assessment",
+            "Check for signs of meningitis"
+          ],
+          "clinical_judgement": "Febrile or afebrile seizure",
+          "action": [
+            "Stabilize",
+            "Treat fever",
+            "Refer for evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.4",
+      "title": "COUGH",
+      "entries": [
+        {
+          "case": "Persistent cough",
+          "history": [
+            "Duration",
+            "Associated fever or chest pain"
+          ],
+          "examination": [
+            "Check respiratory rate",
+            "Auscultate lungs"
+          ],
+          "clinical_judgement": "Possible bronchitis, pneumonia, or asthma",
+          "action": [
+            "Treat accordingly",
+            "Refer if chronic or severe"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.5",
+      "title": "DIARRHOEA",
+      "entries": [
+        {
+          "case": "Frequent loose stools",
+          "history": [
+            "Duration",
+            "Presence of blood",
+            "Hydration status"
+          ],
+          "examination": [
+            "Check for dehydration",
+            "General physical status"
+          ],
+          "clinical_judgement": "Acute gastroenteritis or dysentery",
+          "action": [
+            "Provide ORS and zinc",
+            "Refer if signs of severe dehydration"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.6",
+      "title": "VOMITING",
+      "entries": [
+        {
+          "case": "Repeated vomiting",
+          "history": [
+            "Timing, content of vomit",
+            "Associated symptoms"
+          ],
+          "examination": [
+            "Check hydration",
+            "Palpate abdomen"
+          ],
+          "clinical_judgement": "Gastrointestinal or systemic illness",
+          "action": [
+            "Rehydrate",
+            "Refer persistent or bilious vomiting"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.7",
+      "title": "HEADACHE",
+      "entries": [
+        {
+          "case": "Complaint of headache",
+          "history": [
+            "Duration, severity",
+            "Associated visual changes or fever"
+          ],
+          "examination": [
+            "Check temperature, BP, eye exam"
+          ],
+          "clinical_judgement": "Migraine, tension headache, or secondary cause",
+          "action": [
+            "Treat underlying cause",
+            "Refer if persistent or neurologic signs present"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.8",
+      "title": "PALLOR",
+      "entries": [
+        {
+          "case": "Suspected anemia",
+          "history": [
+            "Fatigue",
+            "Dietary history",
+            "Previous infections"
+          ],
+          "examination": [
+            "Check palms and conjunctiva",
+            "Palpate spleen"
+          ],
+          "clinical_judgement": "Likely iron-deficiency anemia",
+          "action": [
+            "Iron supplementation",
+            "Refer if severe or no improvement"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.9",
+      "title": "YELLOWISH EYES (JAUNDICE)",
+      "entries": [
+        {
+          "case": "Jaundice in child",
+          "history": [
+            "Urine/stool color",
+            "Duration",
+            "Contact with hepatitis cases"
+          ],
+          "examination": [
+            "Inspect sclera, palms",
+            "Palpate liver"
+          ],
+          "clinical_judgement": "Suspected hepatitis or hemolysis",
+          "action": [
+            "Refer for evaluation",
+            "Supportive care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.10",
+      "title": "NUTRITIONAL DISORDERS",
+      "entries": [
+        {
+          "case": "Undernutrition or obesity",
+          "history": [
+            "Diet history",
+            "Activity level",
+            "Feeding practices"
+          ],
+          "examination": [
+            "Check weight, height, MUAC"
+          ],
+          "clinical_judgement": "Malnutrition or overnutrition",
+          "action": [
+            "Nutritional counseling",
+            "Refer for dietary management"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 132
+}

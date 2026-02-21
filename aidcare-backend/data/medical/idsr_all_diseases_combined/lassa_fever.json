@@ -1,0 +1,33 @@
+{
+  "disease": "Lassa Fever",
+  "category": "Other Disease of Public Health Importance",
+  "case_definition": {
+    "suspected": "Any person with persistent fever not responding to antimalarial or antibiotics, with headache, sore throat, vomiting or bleeding.",
+    "probable": "A suspected case with epidemiological link or bleeding tendencies.",
+    "confirmed": "Positive RT-PCR or ELISA for Lassa virus."
+  },
+  "notifiable": true,
+  "surveillance": {
+    "reporting_frequency": "Immediate",
+    "reporting_tools": [
+      "IDSR Lassa Fever Form",
+      "IDSR Form 001"
+    ],
+    "immediate_notification_required": true
+  },
+  "public_health_actions": [
+    "Initiate supportive care and refer to treatment center",
+    "Collect blood sample for RT-PCR",
+    "Notify DSNO and NCDC",
+    "Deploy rapid response team and begin risk communication"
+  ],
+  "lab_confirmation": "RT-PCR or ELISA for Lassa virus.",
+  "integration": {
+    "linked_to_nhmis": true,
+    "nhmis_indicator_code": "IDSR-LF-01"
+  },
+  "source": {
+    "document": "Nigeria IDSR Guidelines",
+    "page_reference": "Section 2.6.2"
+  }
+}

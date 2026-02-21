@@ -1,0 +1,141 @@
+{
+  "section": "1",
+  "title": "THE NEWBORN",
+  "age_group": "0 \u2013 28 DAYS",
+  "subsections": [
+    {
+      "code": "1.1",
+      "title": "IMMEDIATE CARE OF THE NEWBORN",
+      "entries": [
+        {
+          "case": "Normal Newborn",
+          "history": [
+            "Mother\u2019s antenatal history",
+            "Birth conditions",
+            "Immediate post-delivery status"
+          ],
+          "examination": [
+            "Check breathing and skin color",
+            "Measure temperature and weight",
+            "Check for congenital abnormalities"
+          ],
+          "clinical_judgement": "Healthy full-term newborn",
+          "action": [
+            "Dry thoroughly and keep warm",
+            "Initiate breastfeeding within 30 minutes",
+            "Apply 4% chlorhexidine to cord",
+            "Document all findings"
+          ]
+        },
+        {
+          "case": "Meconium-stained liquor and no cry",
+          "history": [
+            "Presence of meconium",
+            "Crying status after birth"
+          ],
+          "examination": [
+            "Check for asphyxia",
+            "Breathing effort"
+          ],
+          "clinical_judgement": "Birth asphyxia or compromised airway",
+          "action": [
+            "Perform neonatal resuscitation within 1 minute",
+            "Ventilate with bag and mask",
+            "Refer if no improvement"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.2",
+      "title": "NEWBORN WITHOUT ANY COMPLAINT \u2013 THE WELL CHILD",
+      "entries": [
+        {
+          "case": "Routine newborn follow-up",
+          "history": [
+            "Feeding, sleeping, urination, immunization status"
+          ],
+          "examination": [
+            "Growth monitoring",
+            "Inspect for jaundice, rashes, or abnormalities"
+          ],
+          "clinical_judgement": "Healthy development",
+          "action": [
+            "Reassure and educate mother",
+            "Schedule monthly visits",
+            "Promote exclusive breastfeeding"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.3",
+      "title": "NEWBORN EMERGENCIES",
+      "entries": [
+        {
+          "case": "Danger signs in newborn",
+          "history": [
+            "Poor feeding",
+            "Lethargy",
+            "Fever or hypothermia"
+          ],
+          "examination": [
+            "Check temperature, respiration, activity level",
+            "Inspect for jaundice or infection"
+          ],
+          "clinical_judgement": "Suspected sepsis or critical illness",
+          "action": [
+            "Stabilize and refer urgently",
+            "Start supportive care (keep warm, feed expressed milk)"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.4",
+      "title": "NEWBORN ABNORMALITIES",
+      "entries": [
+        {
+          "case": "Congenital anomalies",
+          "history": [
+            "Family history of abnormalities",
+            "Antenatal complications"
+          ],
+          "examination": [
+            "Inspect for cleft lip, clubfoot, or spinal defects"
+          ],
+          "clinical_judgement": "Requires surgical or specialist care",
+          "action": [
+            "Refer immediately",
+            "Counsel parents",
+            "Document in registry"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.5",
+      "title": "ORAL HEALTH",
+      "entries": [
+        {
+          "case": "Mouth inspection in newborn",
+          "history": [
+            "Feeding difficulties",
+            "Mouth ulcers"
+          ],
+          "examination": [
+            "Inspect for thrush or cleft palate"
+          ],
+          "clinical_judgement": "Oral health concern",
+          "action": [
+            "Treat oral thrush",
+            "Refer cleft palate cases",
+            "Educate on hygiene"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 19
+}

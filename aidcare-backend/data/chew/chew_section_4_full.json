@@ -1,0 +1,301 @@
+{
+  "section": "4",
+  "title": "ADOLESCENT HEALTH",
+  "subsections": [
+    {
+      "code": "4.1",
+      "title": "ADOLESCENTS CONCERNS ABOUT PUBERTY (FEMALE)",
+      "entries": [
+        {
+          "case": "Puberty-related concerns",
+          "history": [
+            "Age of onset of menstruation",
+            "Concerns about breast development",
+            "Menstrual irregularities"
+          ],
+          "examination": [
+            "General physical exam",
+            "Assess pubertal stage"
+          ],
+          "clinical_judgement": "Normal puberty or minor concerns",
+          "action": [
+            "Provide education on puberty and hygiene",
+            "Reassure",
+            "Refer if abnormal bleeding or delayed puberty"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.2",
+      "title": "ADOLESCENTS CONCERNS ABOUT PUBERTY (MALE)",
+      "entries": [
+        {
+          "case": "Male pubertal changes",
+          "history": [
+            "Onset of voice change",
+            "Concerns about genital growth",
+            "Gynecomastia"
+          ],
+          "examination": [
+            "Check pubertal stage",
+            "Inspect for abnormalities"
+          ],
+          "clinical_judgement": "Normal development or delayed puberty",
+          "action": [
+            "Reassure if normal",
+            "Refer if signs of delayed or abnormal development"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.3",
+      "title": "CONTRACEPTIVE CHOICE FOR ADOLESCENTS",
+      "entries": [
+        {
+          "case": "Adolescent requesting contraception",
+          "history": [
+            "Sexual activity",
+            "Knowledge about methods",
+            "Desire for spacing or protection"
+          ],
+          "examination": [
+            "Check for signs of STIs",
+            "Ensure no contraindications"
+          ],
+          "clinical_judgement": "Needs contraception and counseling",
+          "action": [
+            "Offer appropriate contraceptive options",
+            "Educate on safe sex and STI prevention"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.4",
+      "title": "SEXUAL DYSFUNCTIONS /MALFUNCTIONS",
+      "entries": [
+        {
+          "case": "Concerns about sexual performance or function",
+          "history": [
+            "Erectile issues",
+            "Pain during intercourse",
+            "Psychological stress"
+          ],
+          "examination": [
+            "General and genital exam"
+          ],
+          "clinical_judgement": "Likely psychosomatic or developmental",
+          "action": [
+            "Reassure",
+            "Refer to adolescent or psychological services if persistent"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.5",
+      "title": "GENITOURINARY TRACT DISORDERS",
+      "entries": [
+        {
+          "case": "Genital or urinary symptoms",
+          "history": [
+            "Dysuria",
+            "Discharge",
+            "Pain or swelling"
+          ],
+          "examination": [
+            "Inspect external genitalia",
+            "Palpate abdomen for tenderness"
+          ],
+          "clinical_judgement": "Possible UTI or STI",
+          "action": [
+            "Treat with appropriate antibiotics",
+            "Refer for lab testing if unclear"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.6",
+      "title": "ABORTION",
+      "entries": [
+        {
+          "case": "Suspected incomplete or unsafe abortion",
+          "history": [
+            "Bleeding",
+            "Abdominal pain",
+            "Last menstrual period"
+          ],
+          "examination": [
+            "Check for bleeding, fever, shock"
+          ],
+          "clinical_judgement": "Likely incomplete abortion",
+          "action": [
+            "Stabilize and refer urgently",
+            "Provide emotional support and education"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.7",
+      "title": "NUTRITIONAL DISORDERS",
+      "entries": [
+        {
+          "case": "Undernutrition or overweight",
+          "history": [
+            "Diet pattern",
+            "Weight loss or gain",
+            "Body image concerns"
+          ],
+          "examination": [
+            "BMI check",
+            "Check for stunting or wasting"
+          ],
+          "clinical_judgement": "Moderate to severe nutritional issue",
+          "action": [
+            "Provide dietary advice",
+            "Refer if anorexia/bulimia suspected"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.8",
+      "title": "MENTAL HEALTH DISORDERS",
+      "entries": [
+        {
+          "case": "Depression or anxiety",
+          "history": [
+            "Mood changes",
+            "Sleep and appetite issues",
+            "Suicidal ideation"
+          ],
+          "examination": [
+            "Mental status exam"
+          ],
+          "clinical_judgement": "Likely mental health concern",
+          "action": [
+            "Refer for psychological assessment",
+            "Provide support and safety planning"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.9",
+      "title": "VIOLENCE AND ASSAULTIVE BEHAVIOUR",
+      "entries": [
+        {
+          "case": "History of abuse or aggression",
+          "history": [
+            "Details of incident",
+            "Relationship to perpetrator"
+          ],
+          "examination": [
+            "Physical injuries",
+            "Mental status"
+          ],
+          "clinical_judgement": "Suspected abuse or trauma",
+          "action": [
+            "Ensure safety",
+            "Refer for forensic and psychological care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.10",
+      "title": "SEXUALLY TRANSMITTED INFECTIONS (STIs)",
+      "entries": [
+        {
+          "case": "Symptoms of STI",
+          "history": [
+            "Discharge",
+            "Pain",
+            "Itching"
+          ],
+          "examination": [
+            "Inspect genitalia",
+            "Palpate lymph nodes"
+          ],
+          "clinical_judgement": "Probable STI",
+          "action": [
+            "Provide syndromic management",
+            "Refer for confirmatory testing"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.11",
+      "title": "INJURIES, FRACTURES AND BITES",
+      "entries": [
+        {
+          "case": "Trauma case",
+          "history": [
+            "Cause of injury",
+            "Pain and swelling"
+          ],
+          "examination": [
+            "Inspect and palpate affected area"
+          ],
+          "clinical_judgement": "Possible fracture or wound",
+          "action": [
+            "Immobilize",
+            "Clean and dress wounds",
+            "Refer for X-ray or surgery"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.12",
+      "title": "NECK DISORDERS/INJURIES",
+      "entries": [
+        {
+          "case": "Pain or stiffness in neck",
+          "history": [
+            "Recent trauma",
+            "Fever or headache"
+          ],
+          "examination": [
+            "Neck mobility",
+            "Tenderness"
+          ],
+          "clinical_judgement": "Likely sprain or meningitis",
+          "action": [
+            "Immobilize if trauma suspected",
+            "Refer if signs of infection or neurological signs"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.13",
+      "title": "EAR, NOSE AND THROAT DISORDERS",
+      "entries": [
+        {
+          "case": "ENT complaints",
+          "history": [
+            "Ear pain",
+            "Nasal congestion",
+            "Sore throat"
+          ],
+          "examination": [
+            "Inspect ear, nose, throat"
+          ],
+          "clinical_judgement": "Likely upper respiratory infection or otitis media",
+          "action": [
+            "Prescribe analgesics or antibiotics",
+            "Refer if recurrent or severe"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 202
+}

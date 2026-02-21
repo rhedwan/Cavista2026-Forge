@@ -1,0 +1,87 @@
+{
+  "section": "8",
+  "title": "HEALTHCARE FACILITY MANAGEMENT",
+  "subsections": [
+    {
+      "code": "8.1",
+      "title": "HEALTHCARE FACILITY MANAGEMENT",
+      "entries": [
+        {
+          "case": "Introduction to facility management",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Understand core functions and principles",
+          "action": [
+            "Implement principles of planning, organizing, leading, and controlling",
+            "Develop clear organograms and job descriptions"
+          ]
+        },
+        {
+          "case": "Leadership in PHC",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Effective leadership is essential for service delivery",
+          "action": [
+            "Promote teamwork and staff motivation",
+            "Lead by example and build trust among healthcare workers"
+          ]
+        },
+        {
+          "case": "Human Resources for Health (HRH)",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "HRH is key to effective PHC",
+          "action": [
+            "Monitor staffing levels and roles",
+            "Conduct staff appraisals and manage conflict"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "8.2",
+      "title": "FINANCIAL MANAGEMENT IN PHC",
+      "entries": [
+        {
+          "case": "Budgeting and cost estimation",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Plan for adequate resource allocation",
+          "action": [
+            "Prepare monthly expenditure reports",
+            "Maintain proper financial records and reports"
+          ]
+        },
+        {
+          "case": "Financial accountability",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Ensure transparency in fund use",
+          "action": [
+            "Use banking and reconciliation systems",
+            "Track income, expenses, and budgets"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "8.3",
+      "title": "HEALTH INFORMATION SYSTEM (HIS)",
+      "entries": [
+        {
+          "case": "Establishing HIS in PHCs",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Efficient data management improves service delivery",
+          "action": [
+            "Train staff on data collection tools (e.g., NHMIS)",
+            "Ensure timely and accurate reporting",
+            "Use data for planning and decision-making"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 342
+}

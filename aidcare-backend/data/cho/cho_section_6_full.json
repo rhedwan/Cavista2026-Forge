@@ -1,0 +1,147 @@
+{
+  "section": "6",
+  "title": "MATERNAL HEALTH",
+  "subsections": [
+    {
+      "code": "6.1",
+      "title": "PRENATAL (ANTENATAL) CARE",
+      "entries": [
+        {
+          "case": "Routine antenatal visit",
+          "history": [
+            "LMP, parity, medical history",
+            "Symptoms like bleeding, swelling, or headache"
+          ],
+          "examination": [
+            "Check BP, weight, fundal height",
+            "Palpate abdomen for fetal lie",
+            "Urinalysis for protein/sugar"
+          ],
+          "clinical_judgement": "Routine or high-risk pregnancy",
+          "action": [
+            "Provide folic acid, iron, IPTp",
+            "Counsel on danger signs and birth plan",
+            "Refer high-risk cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.2",
+      "title": "MATERNAL HEALTH (LABOUR AND DELIVERY)",
+      "entries": [
+        {
+          "case": "Woman in labor",
+          "history": [
+            "Duration and onset",
+            "Number of previous births",
+            "Rupture of membranes"
+          ],
+          "examination": [
+            "Assess cervical dilation",
+            "Check fetal heartbeat",
+            "Monitor contractions and vitals"
+          ],
+          "clinical_judgement": "Normal, prolonged, or obstructed labor",
+          "action": [
+            "Conduct delivery under clean conditions",
+            "Refer for complications or prolonged labor",
+            "Active management of third stage"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.3",
+      "title": "POSTNATAL DISORDERS",
+      "entries": [
+        {
+          "case": "Woman after delivery",
+          "history": [
+            "Bleeding, fever, pain",
+            "Breastfeeding status"
+          ],
+          "examination": [
+            "Check lochia, uterine involution",
+            "Inspect perineum and breasts"
+          ],
+          "clinical_judgement": "Normal or postpartum complication",
+          "action": [
+            "Support breastfeeding",
+            "Treat infection or hemorrhage early",
+            "Refer severe cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.4",
+      "title": "FAMILY PLANNING",
+      "entries": [
+        {
+          "case": "Postpartum or regular FP consult",
+          "history": [
+            "Desire for spacing/limiting",
+            "Menstrual and obstetric history"
+          ],
+          "examination": [
+            "BP, weight",
+            "Rule out pregnancy"
+          ],
+          "clinical_judgement": "Eligible for FP methods",
+          "action": [
+            "Provide suitable contraceptive",
+            "Counsel on side effects and follow-up",
+            "Refer if contraindications"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.5",
+      "title": "INFERTILITY",
+      "entries": [
+        {
+          "case": "Couple or woman with infertility",
+          "history": [
+            "Duration, previous pregnancies",
+            "Sexual and menstrual history"
+          ],
+          "examination": [
+            "Pelvic exam",
+            "Check for hormonal signs"
+          ],
+          "clinical_judgement": "Primary or secondary infertility",
+          "action": [
+            "Refer to fertility clinic",
+            "Educate on timed intercourse"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.6",
+      "title": "PRE-MENOPAUSE",
+      "entries": [
+        {
+          "case": "Perimenopausal complaints",
+          "history": [
+            "Irregular menses",
+            "Hot flashes",
+            "Mood changes"
+          ],
+          "examination": [
+            "General and pelvic exam"
+          ],
+          "clinical_judgement": "Menopausal transition",
+          "action": [
+            "Reassure and support",
+            "Refer for abnormal bleeding"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 296
+}

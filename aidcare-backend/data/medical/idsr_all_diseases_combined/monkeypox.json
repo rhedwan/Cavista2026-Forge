@@ -1,0 +1,33 @@
+{
+  "disease": "Monkeypox",
+  "category": "Other Disease of Public Health Importance",
+  "case_definition": {
+    "suspected": "Unexplained rash with fever and one or more of headache, lymphadenopathy, myalgia, or fatigue.",
+    "probable": "Suspected case with exposure to confirmed case or animal vector.",
+    "confirmed": "Positive PCR for Orthopoxvirus or Monkeypox virus."
+  },
+  "notifiable": true,
+  "surveillance": {
+    "reporting_frequency": "Immediate",
+    "reporting_tools": [
+      "IDSR Monkeypox Form",
+      "IDSR Form 003"
+    ],
+    "immediate_notification_required": true
+  },
+  "public_health_actions": [
+    "Isolate case and initiate contact tracing",
+    "Collect lesion sample for lab confirmation",
+    "Sensitize community on zoonotic transmission",
+    "Notify NCDC and deploy rapid response team"
+  ],
+  "lab_confirmation": "PCR for Monkeypox virus DNA.",
+  "integration": {
+    "linked_to_nhmis": true,
+    "nhmis_indicator_code": "IDSR-MP-01"
+  },
+  "source": {
+    "document": "Nigeria IDSR Guidelines",
+    "page_reference": "Section 2.6.5"
+  }
+}

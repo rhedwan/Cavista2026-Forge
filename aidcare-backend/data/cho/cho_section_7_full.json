@@ -1,0 +1,162 @@
+{
+  "section": "7",
+  "title": "GERIATRIC HEALTH",
+  "subsections": [
+    {
+      "code": "7.1",
+      "title": "MUSCULO-SKELETAL SYSTEM DISORDERS",
+      "entries": [
+        {
+          "case": "Joint pain or reduced mobility",
+          "history": [
+            "Onset, severity",
+            "Impact on daily activities"
+          ],
+          "examination": [
+            "Joint range of motion",
+            "Muscle strength",
+            "Signs of inflammation"
+          ],
+          "clinical_judgement": "Osteoarthritis or age-related degeneration",
+          "action": [
+            "Prescribe analgesics",
+            "Encourage mobility",
+            "Refer for physiotherapy"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.2",
+      "title": "CARDIOVASCULAR SYSTEM DISORDERS",
+      "entries": [
+        {
+          "case": "Chest pain, palpitations, or breathlessness",
+          "history": [
+            "Duration",
+            "Relation to exertion",
+            "Past history of hypertension or heart disease"
+          ],
+          "examination": [
+            "BP, pulse, auscultation"
+          ],
+          "clinical_judgement": "Likely hypertensive heart disease or CHF",
+          "action": [
+            "Initiate first-line management",
+            "Refer for ECG or cardiologist"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.3",
+      "title": "GENITO-URINARY DISORDERS",
+      "entries": [
+        {
+          "case": "Urinary complaints in the elderly",
+          "history": [
+            "Incontinence, dribbling, frequency"
+          ],
+          "examination": [
+            "Palpate bladder",
+            "Inspect for infection"
+          ],
+          "clinical_judgement": "Prostate enlargement, UTI, or age-related incontinence",
+          "action": [
+            "Treat UTI",
+            "Refer for prostate or urological evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.4",
+      "title": "GASTROINTESTINAL DISORDERS",
+      "entries": [
+        {
+          "case": "Constipation or indigestion",
+          "history": [
+            "Dietary pattern",
+            "Medication use",
+            "Stool frequency"
+          ],
+          "examination": [
+            "Abdominal palpation"
+          ],
+          "clinical_judgement": "Functional or medication-induced",
+          "action": [
+            "Dietary modification",
+            "Prescribe laxatives",
+            "Refer if severe"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.5",
+      "title": "SPECIFIC PROBLEMS OF THE ELDERLY",
+      "entries": [
+        {
+          "case": "Multiple chronic complaints",
+          "history": [
+            "Falls, confusion, polypharmacy"
+          ],
+          "examination": [
+            "Functional assessment",
+            "Mental status exam"
+          ],
+          "clinical_judgement": "Frailty or multiple morbidities",
+          "action": [
+            "Refer to specialist care",
+            "Coordinate multidisciplinary management"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.6",
+      "title": "MENTAL DISORDERS",
+      "entries": [
+        {
+          "case": "Memory loss, mood disorders",
+          "history": [
+            "Cognitive decline, hallucinations, depression"
+          ],
+          "examination": [
+            "Cognitive screening (e.g. MMSE)",
+            "Affect and behavior"
+          ],
+          "clinical_judgement": "Dementia or depression",
+          "action": [
+            "Refer to mental health unit",
+            "Support caregivers"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "7.7",
+      "title": "ORAL DISORDERS",
+      "entries": [
+        {
+          "case": "Toothache, gum disease, difficulty eating",
+          "history": [
+            "Dental hygiene",
+            "Dry mouth",
+            "Sores"
+          ],
+          "examination": [
+            "Inspect oral cavity"
+          ],
+          "clinical_judgement": "Caries, fungal infection, or gingivitis",
+          "action": [
+            "Treat oral thrush",
+            "Refer to dental clinic"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 326
+}

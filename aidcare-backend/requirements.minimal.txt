@@ -1,0 +1,31 @@
+# Minimal requirements for Triage (Text-only, no audio processing)
+# Use this for faster, lighter deployments if you don't need audio transcription
+
+# Core API
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+python-dotenv==1.1.0
+python-multipart==0.0.20
+pydantic==2.11.4
+
+# Google Gemini AI
+google-generativeai==0.8.5
+
+# Database
+sqlalchemy==2.0.45
+psycopg2-binary==2.9.11
+
+# Embeddings (lighter than sentence-transformers)
+sentence-transformers==4.1.0
+
+# Vector Search
+faiss-cpu==1.11.0
+
+# Scientific Computing
+numpy==2.2.4
+
+# HTTP & Network
+requests==2.32.3
+
+# Utilities
+python-dateutil==2.9.0.post0

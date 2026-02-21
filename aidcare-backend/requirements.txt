@@ -1,0 +1,44 @@
+# Core API
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+python-dotenv==1.1.0
+python-multipart==0.0.20
+pydantic==2.11.4
+
+# Google Gemini AI
+google-generativeai==0.8.5
+google-api-python-client==2.169.0
+
+# Database
+sqlalchemy==2.0.45
+psycopg2-binary==2.9.11
+
+# ML/AI - Whisper & Embeddings
+torch==2.7.0
+torchaudio==2.7.0
+torchvision==0.22.0
+transformers==4.51.3
+sentence-transformers==4.1.0
+accelerate==1.7.0
+
+# Vector Search
+faiss-cpu==1.11.0
+
+# Scientific Computing
+numpy==2.2.4
+scikit-learn==1.6.1
+
+# File Processing
+Pillow==11.1.0
+pdf2image==1.17.0
+pytesseract==0.3.13
+
+# OpenAI — Whisper API + GPT-4o/GPT-4o-mini
+openai==1.82.0
+
+# HTTP & Network
+requests==2.32.3
+httpx==0.28.1
+
+# Utilities
+python-dateutil==2.9.0.post0

@@ -1,0 +1,150 @@
+{
+  "section": "6",
+  "title": "MATERNAL HEALTH",
+  "subsections": [
+    {
+      "code": "6.1",
+      "title": "PRENATAL (ANTENATAL) CARE",
+      "entries": [
+        {
+          "case": "Routine antenatal care visit",
+          "history": [
+            "Last menstrual period",
+            "Obstetric history",
+            "Medical/surgical history"
+          ],
+          "examination": [
+            "Check blood pressure, weight, height",
+            "Abdominal examination for fetal growth and lie",
+            "Test urine for protein and sugar"
+          ],
+          "clinical_judgement": "Routine or high-risk pregnancy",
+          "action": [
+            "Administer routine ANC medications (iron, folic acid, IPTp)",
+            "Counsel on danger signs",
+            "Schedule next visit or refer if high-risk"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.2",
+      "title": "MATERNAL HEALTH (LABOUR AND DELIVERY)",
+      "entries": [
+        {
+          "case": "Woman in labour",
+          "history": [
+            "Onset and duration of labour",
+            "Parity",
+            "Rupture of membranes"
+          ],
+          "examination": [
+            "Check cervical dilation",
+            "Monitor fetal heart rate",
+            "Assess contractions and vital signs"
+          ],
+          "clinical_judgement": "Normal or obstructed labour",
+          "action": [
+            "Conduct clean and safe delivery",
+            "Refer obstructed or prolonged labour",
+            "Manage third stage actively"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.3",
+      "title": "POSTNATAL DISORDERS",
+      "entries": [
+        {
+          "case": "Postpartum care",
+          "history": [
+            "Bleeding",
+            "Fever",
+            "Breastfeeding challenges"
+          ],
+          "examination": [
+            "Check lochia, uterine involution",
+            "Assess perineum and breasts"
+          ],
+          "clinical_judgement": "Normal recovery or postpartum complication",
+          "action": [
+            "Support breastfeeding",
+            "Treat infections or bleeding early",
+            "Refer if severe"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.4",
+      "title": "FAMILY PLANNING",
+      "entries": [
+        {
+          "case": "Request for contraception",
+          "history": [
+            "Desire for spacing or limiting",
+            "Menstrual history",
+            "Medical history"
+          ],
+          "examination": [
+            "BP, breast exam, abdominal exam"
+          ],
+          "clinical_judgement": "Candidate for contraception",
+          "action": [
+            "Provide preferred and safe contraceptive",
+            "Educate on use and side effects",
+            "Schedule follow-up"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.5",
+      "title": "INFERTILITY",
+      "entries": [
+        {
+          "case": "Woman or couple with infertility concerns",
+          "history": [
+            "Duration of infertility",
+            "Menstrual regularity",
+            "Sexual and obstetric history"
+          ],
+          "examination": [
+            "Pelvic exam",
+            "Check for signs of hormonal imbalance"
+          ],
+          "clinical_judgement": "Possible primary or secondary infertility",
+          "action": [
+            "Refer for fertility evaluation and counseling",
+            "Treat identifiable causes where possible"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "6.6",
+      "title": "PRE-MENOPAUSE",
+      "entries": [
+        {
+          "case": "Perimenopausal symptoms",
+          "history": [
+            "Irregular menses",
+            "Hot flashes",
+            "Mood changes"
+          ],
+          "examination": [
+            "General and pelvic examination"
+          ],
+          "clinical_judgement": "Transition to menopause",
+          "action": [
+            "Provide reassurance and symptom relief",
+            "Refer if abnormal bleeding or other complications"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 296
+}

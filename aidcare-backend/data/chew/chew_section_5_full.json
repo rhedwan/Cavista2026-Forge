@@ -1,0 +1,729 @@
+{
+  "section": "5",
+  "title": "ADULT HEALTH CONDITIONS",
+  "subsections": [
+    {
+      "code": "5.1",
+      "title": "ADULT FIRST VISIT",
+      "entries": [
+        {
+          "case": "Initial adult consultation",
+          "history": [
+            "Chief complaint",
+            "Medical history",
+            "Family history",
+            "Lifestyle habits"
+          ],
+          "examination": [
+            "Measure BP, pulse, temperature",
+            "Check BMI and conduct general exam"
+          ],
+          "clinical_judgement": "Baseline assessment",
+          "action": [
+            "Document vitals and history",
+            "Advise on lifestyle changes",
+            "Screen for NCDs"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.2",
+      "title": "FEVER",
+      "entries": [
+        {
+          "case": "Adult with fever",
+          "history": [
+            "Duration",
+            "Pattern",
+            "Associated symptoms"
+          ],
+          "examination": [
+            "Temperature",
+            "Signs of infection (e.g. throat, chest, abdomen)"
+          ],
+          "clinical_judgement": "Likely infection",
+          "action": [
+            "Administer antipyretic",
+            "Refer if fever persists >3 days or severe symptoms"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.3",
+      "title": "COUGH",
+      "entries": [
+        {
+          "case": "Adult with persistent cough",
+          "history": [
+            "Duration",
+            "Sputum production",
+            "Weight loss",
+            "Chest pain"
+          ],
+          "examination": [
+            "Listen to lungs",
+            "Check for lymphadenopathy"
+          ],
+          "clinical_judgement": "Possible TB, bronchitis, or pneumonia",
+          "action": [
+            "Refer for sputum test or X-ray",
+            "Treat if clear bacterial infection"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.4",
+      "title": "DIFFICULTY IN BREATHING",
+      "entries": [
+        {
+          "case": "Shortness of breath",
+          "history": [
+            "Onset",
+            "Triggers",
+            "Associated chest pain or wheezing"
+          ],
+          "examination": [
+            "Respiratory rate",
+            "Oxygen saturation (if available)",
+            "Auscultate lungs"
+          ],
+          "clinical_judgement": "Possible asthma, COPD or heart failure",
+          "action": [
+            "Administer bronchodilator",
+            "Refer severe cases immediately"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.5",
+      "title": "DIARRHOEA",
+      "entries": [
+        {
+          "case": "Frequent loose stools",
+          "history": [
+            "Duration",
+            "Blood in stool",
+            "Recent food intake"
+          ],
+          "examination": [
+            "Signs of dehydration",
+            "Abdominal tenderness"
+          ],
+          "clinical_judgement": "Likely infectious or dietary cause",
+          "action": [
+            "Provide ORS and zinc",
+            "Refer if blood in stool or severe dehydration"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.6",
+      "title": "VOMITING",
+      "entries": [
+        {
+          "case": "Nausea and vomiting",
+          "history": [
+            "Content of vomit",
+            "Relation to meals",
+            "Fever or headache"
+          ],
+          "examination": [
+            "Hydration status",
+            "Abdominal exam"
+          ],
+          "clinical_judgement": "Possible gastritis or systemic infection",
+          "action": [
+            "Rehydrate",
+            "Refer if persistent or bilious"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.7",
+      "title": "BODY PAIN",
+      "entries": [
+        {
+          "case": "Generalized or localized pain",
+          "history": [
+            "Location",
+            "Duration",
+            "Aggravating factors"
+          ],
+          "examination": [
+            "Inspect and palpate area",
+            "Check for inflammation"
+          ],
+          "clinical_judgement": "Musculoskeletal vs. systemic",
+          "action": [
+            "Administer analgesics",
+            "Refer if persistent or associated with fever"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.8",
+      "title": "CHEST PAIN",
+      "entries": [
+        {
+          "case": "Chest discomfort",
+          "history": [
+            "Duration",
+            "Radiation",
+            "Relation to exertion or food"
+          ],
+          "examination": [
+            "BP, pulse, respiratory rate",
+            "Auscultate heart and lungs"
+          ],
+          "clinical_judgement": "Possible angina, reflux, or musculoskeletal",
+          "action": [
+            "Administer aspirin if suspected cardiac",
+            "Refer immediately for evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.9",
+      "title": "HEADACHE",
+      "entries": [
+        {
+          "case": "Acute or chronic headache",
+          "history": [
+            "Onset",
+            "Location",
+            "Fever, visual changes, trauma"
+          ],
+          "examination": [
+            "BP",
+            "Neurological signs"
+          ],
+          "clinical_judgement": "Likely tension, migraine, or systemic",
+          "action": [
+            "Provide pain relief",
+            "Refer for persistent or severe cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.10",
+      "title": "PALLOR",
+      "entries": [
+        {
+          "case": "Signs of anemia",
+          "history": [
+            "Fatigue",
+            "Dizziness",
+            "Nutritional history"
+          ],
+          "examination": [
+            "Check conjunctiva, palms",
+            "Measure BP"
+          ],
+          "clinical_judgement": "Likely iron deficiency or chronic disease",
+          "action": [
+            "Prescribe iron",
+            "Refer for full blood count"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.11",
+      "title": "WEIGHT LOSS",
+      "entries": [
+        {
+          "case": "Unintentional weight loss",
+          "history": [
+            "Duration",
+            "Appetite changes",
+            "Chronic illness"
+          ],
+          "examination": [
+            "BMI",
+            "Signs of malnutrition or systemic illness"
+          ],
+          "clinical_judgement": "Possible chronic disease (e.g., TB, cancer)",
+          "action": [
+            "Refer for further investigation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.12",
+      "title": "JAUNDICE",
+      "entries": [
+        {
+          "case": "Yellow skin or eyes",
+          "history": [
+            "Dark urine",
+            "Pale stool",
+            "Abdominal pain"
+          ],
+          "examination": [
+            "Inspect sclera",
+            "Palpate liver"
+          ],
+          "clinical_judgement": "Suspected liver disease",
+          "action": [
+            "Refer for LFTs",
+            "Supportive care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.13",
+      "title": "SKIN DISORDERS",
+      "entries": [
+        {
+          "case": "Rash or lesions",
+          "history": [
+            "Onset",
+            "Itching",
+            "Spreading pattern"
+          ],
+          "examination": [
+            "Inspect skin",
+            "Check for fever or discharge"
+          ],
+          "clinical_judgement": "Infectious or allergic dermatitis",
+          "action": [
+            "Apply topical treatments",
+            "Refer if extensive"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.14",
+      "title": "OEDEMA",
+      "entries": [
+        {
+          "case": "Swelling of legs/face",
+          "history": [
+            "Onset",
+            "Associated symptoms (e.g., breathlessness)"
+          ],
+          "examination": [
+            "Check for pitting oedema",
+            "Check BP"
+          ],
+          "clinical_judgement": "Cardiac, renal or nutritional cause",
+          "action": [
+            "Refer for kidney/cardiac workup"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.15",
+      "title": "BURNS",
+      "entries": [
+        {
+          "case": "Thermal or chemical burns",
+          "history": [
+            "Cause",
+            "Time of injury"
+          ],
+          "examination": [
+            "Assess extent and depth",
+            "Check for infection"
+          ],
+          "clinical_judgement": "First to third-degree burn",
+          "action": [
+            "Cool burn, dress, refer if extensive"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.16",
+      "title": "WOUNDS, SORES, ULCERS, FRACTURES & BITES",
+      "entries": [
+        {
+          "case": "Injuries and infections",
+          "history": [
+            "Cause, time",
+            "Pain, swelling"
+          ],
+          "examination": [
+            "Inspect for infection",
+            "Check mobility"
+          ],
+          "clinical_judgement": "Traumatic or infected wound",
+          "action": [
+            "Clean and dress",
+            "Refer if complicated"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.17",
+      "title": "HEAD INJURIES",
+      "entries": [
+        {
+          "case": "Trauma to head",
+          "history": [
+            "Loss of consciousness",
+            "Vomiting, seizure"
+          ],
+          "examination": [
+            "GCS score",
+            "Check pupils"
+          ],
+          "clinical_judgement": "Concussion or TBI",
+          "action": [
+            "Stabilize and refer immediately"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.18",
+      "title": "NECK DISORDERS/INJURIES",
+      "entries": [
+        {
+          "case": "Neck pain/swelling",
+          "history": [
+            "Recent trauma",
+            "Infection symptoms"
+          ],
+          "examination": [
+            "Palpate neck",
+            "Check mobility"
+          ],
+          "clinical_judgement": "Musculoskeletal or lymphadenopathy",
+          "action": [
+            "Apply collar if trauma",
+            "Refer if infection suspected"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.19",
+      "title": "EYE DISORDER",
+      "entries": [
+        {
+          "case": "Visual complaints",
+          "history": [
+            "Pain",
+            "Redness",
+            "Discharge"
+          ],
+          "examination": [
+            "Inspect eye",
+            "Visual acuity test"
+          ],
+          "clinical_judgement": "Conjunctivitis or trauma",
+          "action": [
+            "Topical antibiotics",
+            "Refer if vision loss"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.20",
+      "title": "EAR, NOSE AND THROAT DISORDERS",
+      "entries": [
+        {
+          "case": "ENT symptoms",
+          "history": [
+            "Sore throat",
+            "Ear pain",
+            "Nasal blockage"
+          ],
+          "examination": [
+            "Inspect ENT areas",
+            "Check temperature"
+          ],
+          "clinical_judgement": "Likely URTI or otitis media",
+          "action": [
+            "Prescribe analgesics or antibiotics",
+            "Refer if persistent"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.21",
+      "title": "ORAL HEALTH DISORDERS",
+      "entries": [
+        {
+          "case": "Dental or gum issues",
+          "history": [
+            "Pain",
+            "Bleeding",
+            "Swelling"
+          ],
+          "examination": [
+            "Inspect teeth and gums"
+          ],
+          "clinical_judgement": "Dental caries or gingivitis",
+          "action": [
+            "Refer to dental clinic",
+            "Give analgesics"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.22",
+      "title": "RESPIRATORY AND CARDIOVASCULAR DISORDERS",
+      "entries": [
+        {
+          "case": "Shortness of breath, chest pain",
+          "history": [
+            "Cough",
+            "Palpitations",
+            "Swelling"
+          ],
+          "examination": [
+            "Auscultate chest",
+            "Check BP"
+          ],
+          "clinical_judgement": "Heart failure or respiratory disease",
+          "action": [
+            "Start emergency care",
+            "Refer immediately"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.23",
+      "title": "ABNORMAL BLOOD PRESSURE",
+      "entries": [
+        {
+          "case": "High or low BP",
+          "history": [
+            "Headache, dizziness",
+            "Medication use"
+          ],
+          "examination": [
+            "Measure BP"
+          ],
+          "clinical_judgement": "Hypertension or hypotension",
+          "action": [
+            "Lifestyle advice",
+            "Refer for antihypertensives"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.24",
+      "title": "ABDOMINAL DISORDERS",
+      "entries": [
+        {
+          "case": "Abdominal pain or distension",
+          "history": [
+            "Onset, location",
+            "Bowel movement changes"
+          ],
+          "examination": [
+            "Palpate abdomen",
+            "Check for mass or tenderness"
+          ],
+          "clinical_judgement": "Possible appendicitis, gastritis, or hernia",
+          "action": [
+            "Refer for ultrasound/surgery"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.25",
+      "title": "WORM INFESTATION",
+      "entries": [
+        {
+          "case": "Suspected helminth infection",
+          "history": [
+            "Abdominal pain",
+            "Weight loss",
+            "Anal itching"
+          ],
+          "examination": [
+            "Inspect anus",
+            "Check nutritional status"
+          ],
+          "clinical_judgement": "Likely helminthiasis",
+          "action": [
+            "Give albendazole or mebendazole"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.26",
+      "title": "GENITO-URINARY DISORDERS",
+      "entries": [
+        {
+          "case": "Urinary or reproductive complaints",
+          "history": [
+            "Burning micturition",
+            "Discharge",
+            "Lower abdominal pain"
+          ],
+          "examination": [
+            "Palpate abdomen",
+            "Inspect genital area"
+          ],
+          "clinical_judgement": "Possible UTI or STI",
+          "action": [
+            "Antibiotics",
+            "Refer for testing"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.27",
+      "title": "UPPER AND LOWER LIMBS DISORDERS",
+      "entries": [
+        {
+          "case": "Pain or swelling in limbs",
+          "history": [
+            "Injury, fever",
+            "Redness or numbness"
+          ],
+          "examination": [
+            "Inspect and palpate",
+            "Assess movement"
+          ],
+          "clinical_judgement": "Injury or infection",
+          "action": [
+            "Support limb",
+            "Refer if fracture suspected"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.28",
+      "title": "MENTAL HEALTH DISORDERS",
+      "entries": [
+        {
+          "case": "Behavioral or emotional changes",
+          "history": [
+            "Mood swings",
+            "Hallucinations",
+            "Suicidal thoughts"
+          ],
+          "examination": [
+            "Mental status"
+          ],
+          "clinical_judgement": "Likely depression, psychosis or anxiety",
+          "action": [
+            "Refer for psychiatric care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.29",
+      "title": "POISONING",
+      "entries": [
+        {
+          "case": "Ingestion of toxic substance",
+          "history": [
+            "Substance taken",
+            "Time",
+            "Symptoms"
+          ],
+          "examination": [
+            "Vitals",
+            "Check consciousness"
+          ],
+          "clinical_judgement": "Acute poisoning",
+          "action": [
+            "Refer urgently",
+            "Start emergency resuscitation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.30",
+      "title": "MANAGEMENT OF HIV/AIDS PATIENTS",
+      "entries": [
+        {
+          "case": "Confirmed HIV positive",
+          "history": [
+            "ART status",
+            "Symptoms of opportunistic infections"
+          ],
+          "examination": [
+            "Weight",
+            "Oral exam",
+            "Skin lesions"
+          ],
+          "clinical_judgement": "Stable or complicated HIV",
+          "action": [
+            "Ensure ART adherence",
+            "Refer complicated cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.31",
+      "title": "STI/RTI (FEMALE)",
+      "entries": [
+        {
+          "case": "Female with genital symptoms",
+          "history": [
+            "Discharge",
+            "Itching",
+            "Painful urination"
+          ],
+          "examination": [
+            "Inspect vulva and cervix",
+            "Check for sores or discharge"
+          ],
+          "clinical_judgement": "Syndromic STI",
+          "action": [
+            "Treat per protocol",
+            "Refer if not resolved"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "5.32",
+      "title": "STI/RTI (MALE)",
+      "entries": [
+        {
+          "case": "Male with genital complaints",
+          "history": [
+            "Urethral discharge",
+            "Dysuria",
+            "Painful swelling"
+          ],
+          "examination": [
+            "Inspect penis and scrotum"
+          ],
+          "clinical_judgement": "Syndromic STI",
+          "action": [
+            "Treat syndromically",
+            "Refer complicated cases"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 240
+}

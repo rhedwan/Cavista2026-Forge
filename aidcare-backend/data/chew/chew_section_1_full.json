@@ -1,0 +1,145 @@
+{
+  "section": "1",
+  "title": "THE NEWBORN",
+  "age_group": "0 \u2013 28 DAYS",
+  "subsections": [
+    {
+      "code": "1.1",
+      "title": "IMMEDIATE CARE OF THE NEWBORN",
+      "entries": [
+        {
+          "case": "Normal Newborn",
+          "history": [],
+          "examination": [
+            "Check that the baby is pink",
+            "Count respiratory rate (40 - 60 bpm)",
+            "Measure temperature (36.5 \u2013 37.5\u00b0C)",
+            "Weigh the baby"
+          ],
+          "clinical_judgement": "Healthy, breathing, pink baby",
+          "action": [
+            "Dry with clean cloth",
+            "Initiate breastfeeding within 30 mins",
+            "Apply 0.5% Erythromycin to eyes",
+            "Delay cord clamping for 1\u20133 mins",
+            "Give Vitamin K1 IM",
+            "Cord care with 4% Chlorhexidine"
+          ],
+          "notes": [
+            "Do not bathe for first 24 hours",
+            "Ensure room temp of 25\u00b0C - 28\u00b0C",
+            "Document all findings",
+            "Provide discharge guidance to mother"
+          ]
+        },
+        {
+          "case": "Meconium-stained liquor and not breathing",
+          "clinical_judgement": "Asphyxia",
+          "action": [
+            "Initiate neonatal resuscitation within 1 minute",
+            "Use bag and mask ventilation",
+            "Check for fast breathing (>60 bpm)",
+            "Refer if no improvement"
+          ],
+          "notes": [
+            "Do not slap, pinch or turn baby upside down",
+            "Continue newborn care if breathing resumes"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.2",
+      "title": "NEWBORN WITHOUT ANY COMPLAINT \u2013 THE WELL CHILD",
+      "entries": [
+        {
+          "case": "Routine Evaluation",
+          "history": [
+            "Ask about feeding pattern and sleeping",
+            "Ask about urination and defecation"
+          ],
+          "examination": [
+            "Check for normal weight gain",
+            "Measure temperature",
+            "Inspect for jaundice, birthmarks, abnormalities"
+          ],
+          "clinical_judgement": "Healthy newborn without complaints",
+          "action": [
+            "Reassure mother",
+            "Educate on exclusive breastfeeding",
+            "Schedule next visit"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.3",
+      "title": "NEWBORN EMERGENCIES",
+      "entries": [
+        {
+          "case": "Danger Signs",
+          "history": [
+            "Poor feeding",
+            "Convulsions",
+            "Fast breathing",
+            "Fever",
+            "Hypothermia"
+          ],
+          "examination": [
+            "Count respiratory rate",
+            "Check for chest in-drawing",
+            "Assess jaundice"
+          ],
+          "clinical_judgement": "Suspected severe illness",
+          "action": [
+            "Start emergency care",
+            "Refer immediately to higher facility",
+            "Continue warming and skin-to-skin contact"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.4",
+      "title": "NEWBORN ABNORMALITIES",
+      "entries": [
+        {
+          "case": "Congenital Conditions",
+          "history": [
+            "Any family history of birth defects"
+          ],
+          "examination": [
+            "Check for cleft lip/palate, limb deformities",
+            "Palpate abdomen for masses"
+          ],
+          "clinical_judgement": "Identify abnormalities requiring specialist care",
+          "action": [
+            "Document findings",
+            "Refer for surgical or specialist intervention",
+            "Support parent emotionally and educate"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1.5",
+      "title": "ORAL HEALTH",
+      "entries": [
+        {
+          "case": "Routine Oral Check",
+          "examination": [
+            "Inspect oral cavity for thrush, cleft palate, or infection"
+          ],
+          "clinical_judgement": "Normal or mild oral issues",
+          "action": [
+            "Provide oral hygiene instructions",
+            "Treat thrush with nystatin if present",
+            "Refer complicated issues"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 19
+}

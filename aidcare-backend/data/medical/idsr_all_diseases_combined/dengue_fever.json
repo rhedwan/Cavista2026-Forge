@@ -1,0 +1,33 @@
+{
+  "disease": "Dengue Fever",
+  "category": "Other Disease of Public Health Importance",
+  "case_definition": {
+    "suspected": "Fever with two or more of headache, retro-orbital pain, myalgia, rash, or hemorrhagic manifestations.",
+    "probable": "Suspected case with epidemiologic link and supportive serology.",
+    "confirmed": "Detection of dengue virus via PCR or NS1 antigen test."
+  },
+  "notifiable": true,
+  "surveillance": {
+    "reporting_frequency": "Weekly or immediate during outbreak",
+    "reporting_tools": [
+      "IDSR Form 001",
+      "Dengue Line List"
+    ],
+    "immediate_notification_required": true
+  },
+  "public_health_actions": [
+    "Collect blood sample for PCR or NS1",
+    "Initiate supportive treatment",
+    "Implement vector control and case monitoring",
+    "Public health awareness on mosquito prevention"
+  ],
+  "lab_confirmation": "RT-PCR, NS1 antigen, or IgM serology.",
+  "integration": {
+    "linked_to_nhmis": true,
+    "nhmis_indicator_code": "IDSR-DG-01"
+  },
+  "source": {
+    "document": "Nigeria IDSR Guidelines",
+    "page_reference": "Section 2.6.4"
+  }
+}

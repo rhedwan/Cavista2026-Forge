@@ -1,0 +1,293 @@
+{
+  "section": "4",
+  "title": "ADOLESCENT HEALTH",
+  "subsections": [
+    {
+      "code": "4.1",
+      "title": "PUBERTY CONCERNS (FEMALE)",
+      "entries": [
+        {
+          "case": "Female adolescent with pubertal concerns",
+          "history": [
+            "Menstrual onset",
+            "Cycle regularity",
+            "Breast development"
+          ],
+          "examination": [
+            "Secondary sexual characteristics",
+            "General health exam"
+          ],
+          "clinical_judgement": "Normal or delayed puberty",
+          "action": [
+            "Provide education and reassurance",
+            "Refer if abnormalities present"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.2",
+      "title": "PUBERTY CONCERNS (MALE)",
+      "entries": [
+        {
+          "case": "Male adolescent with development concerns",
+          "history": [
+            "Voice changes",
+            "Genital development",
+            "Growth pattern"
+          ],
+          "examination": [
+            "Inspect for gynecomastia",
+            "Check testicular size"
+          ],
+          "clinical_judgement": "Delayed puberty or normal variation",
+          "action": [
+            "Reassure",
+            "Refer if delayed or abnormal findings"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.3",
+      "title": "CONTRACEPTIVE CHOICE FOR ADOLESCENTS",
+      "entries": [
+        {
+          "case": "Request for contraception",
+          "history": [
+            "Sexual activity",
+            "Desire for spacing",
+            "Medical history"
+          ],
+          "examination": [
+            "BP",
+            "Rule out pregnancy or STI"
+          ],
+          "clinical_judgement": "Eligible for contraceptive options",
+          "action": [
+            "Provide appropriate method",
+            "Counsel on use and follow-up"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.4",
+      "title": "SEXUAL DYSFUNCTION",
+      "entries": [
+        {
+          "case": "Adolescent reports sexual concerns",
+          "history": [
+            "Erectile problems",
+            "Pain during intercourse",
+            "Psychosocial history"
+          ],
+          "examination": [
+            "Inspect genitals",
+            "Assess psychological well-being"
+          ],
+          "clinical_judgement": "Psychological or developmental concern",
+          "action": [
+            "Provide counseling",
+            "Refer to specialist if needed"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.5",
+      "title": "GENITO-URINARY TRACT DISORDERS",
+      "entries": [
+        {
+          "case": "Urinary/genital issues",
+          "history": [
+            "Dysuria",
+            "Discharge",
+            "Frequency"
+          ],
+          "examination": [
+            "Inspect genital area",
+            "Palpate lower abdomen"
+          ],
+          "clinical_judgement": "Possible UTI or STI",
+          "action": [
+            "Treat as indicated",
+            "Refer if complicated"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.6",
+      "title": "ABORTION",
+      "entries": [
+        {
+          "case": "Suspected abortion",
+          "history": [
+            "Bleeding, abdominal pain",
+            "Menstrual and sexual history"
+          ],
+          "examination": [
+            "Check bleeding severity",
+            "Vital signs"
+          ],
+          "clinical_judgement": "Incomplete abortion",
+          "action": [
+            "Stabilize and refer immediately"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.7",
+      "title": "NUTRITIONAL DISORDERS",
+      "entries": [
+        {
+          "case": "Weight or dietary concerns",
+          "history": [
+            "Eating patterns",
+            "Body image",
+            "Menstrual history"
+          ],
+          "examination": [
+            "Height, weight, BMI"
+          ],
+          "clinical_judgement": "Undernutrition or obesity",
+          "action": [
+            "Nutritional counseling",
+            "Refer for dietician review"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.8",
+      "title": "MENTAL HEALTH DISORDERS",
+      "entries": [
+        {
+          "case": "Mood or behavior changes",
+          "history": [
+            "Depression, anxiety, school issues"
+          ],
+          "examination": [
+            "Mental status exam"
+          ],
+          "clinical_judgement": "Likely depression or anxiety",
+          "action": [
+            "Provide counseling",
+            "Refer for mental health evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.9",
+      "title": "VIOLENCE AND ASSAULTIVE BEHAVIOUR",
+      "entries": [
+        {
+          "case": "Report or signs of abuse",
+          "history": [
+            "Nature of incident",
+            "Perpetrator identity"
+          ],
+          "examination": [
+            "Physical and mental exam"
+          ],
+          "clinical_judgement": "Suspected abuse",
+          "action": [
+            "Ensure safety",
+            "Report to authorities",
+            "Refer for support"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.10",
+      "title": "SEXUALLY TRANSMITTED INFECTIONS (STIs)",
+      "entries": [
+        {
+          "case": "Symptoms of STI",
+          "history": [
+            "Discharge, itching, pain"
+          ],
+          "examination": [
+            "Inspect genitalia"
+          ],
+          "clinical_judgement": "Probable STI",
+          "action": [
+            "Treat syndromically",
+            "Refer for confirmatory tests"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.11",
+      "title": "INJURIES, FRACTURES AND BITES",
+      "entries": [
+        {
+          "case": "Physical trauma",
+          "history": [
+            "Cause, location, time"
+          ],
+          "examination": [
+            "Check injury site",
+            "Assess for bleeding or swelling"
+          ],
+          "clinical_judgement": "Minor or major trauma",
+          "action": [
+            "Clean wound",
+            "Immobilize if needed",
+            "Refer for imaging"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.12",
+      "title": "NECK DISORDERS/INJURIES",
+      "entries": [
+        {
+          "case": "Neck pain/swelling",
+          "history": [
+            "Injury or infection",
+            "Onset and duration"
+          ],
+          "examination": [
+            "Inspect and palpate neck"
+          ],
+          "clinical_judgement": "Trauma or lymphadenitis",
+          "action": [
+            "Provide supportive care",
+            "Refer if signs of systemic illness"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "4.13",
+      "title": "EAR, NOSE AND THROAT DISORDERS",
+      "entries": [
+        {
+          "case": "ENT complaints",
+          "history": [
+            "Ear pain",
+            "Sore throat",
+            "Nasal congestion"
+          ],
+          "examination": [
+            "Inspect ears, nose, throat"
+          ],
+          "clinical_judgement": "Likely URTI or otitis media",
+          "action": [
+            "Prescribe symptomatic treatment",
+            "Refer if persistent"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 202
+}

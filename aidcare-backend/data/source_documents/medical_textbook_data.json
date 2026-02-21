@@ -1,0 +1,1178 @@
+[
+  {
+    "disease": "Anaemia",
+    "synonyms": [
+      "Anemia",
+      "Iron deficiency anemia",
+      "Megaloblastic anemia"
+    ],
+    "category": "Haematology",
+    "description": "A condition where there is a reduced level of hemoglobin or red blood cells, impairing oxygen delivery to tissues.",
+    "epidemiology": {
+      "prevalence": "Common worldwide; especially in women and children",
+      "risk_factors": [
+        "Nutritional deficiency (iron, B12, folate)",
+        "Chronic disease",
+        "Blood loss (menstruation, GI bleeding)"
+      ]
+    },
+    "symptoms": [
+      "Fatigue",
+      "Pallor",
+      "Shortness of breath",
+      "Dizziness",
+      "Palpitations"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Pallor, systolic flow murmur"
+      ],
+      "investigations": [
+        "Full blood count (low Hb)",
+        "MCV (micro/normo/macrocytic)",
+        "Iron studies, B12, folate levels",
+        "Reticulocyte count"
+      ],
+      "differential_diagnosis": [
+        "Leukaemia",
+        "Thalassemia",
+        "Chronic kidney disease"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Iron supplementation for iron-deficiency",
+        "B12 or folate replacement",
+        "Treat underlying cause"
+      ],
+      "supportive": [
+        "Dietary advice",
+        "Blood transfusion if severe"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Nutritional support",
+      "Menstrual or GI blood loss control",
+      "Monitor at-risk populations"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Fatigue + pallor = always check hemoglobin"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Haematology \u2013 Anaemia"
+    }
+  },
+  {
+    "disease": "Sickle Cell Disease",
+    "synonyms": [
+      "Sickle cell anaemia",
+      "HbSS"
+    ],
+    "category": "Haematology",
+    "description": "A genetic hemoglobinopathy characterized by sickling of RBCs, leading to vaso-occlusive crises and hemolysis.",
+    "epidemiology": {
+      "prevalence": "Common in sub-Saharan Africa; autosomal recessive",
+      "risk_factors": [
+        "HbSS genotype",
+        "Both parents carriers (HbAS)"
+      ]
+    },
+    "symptoms": [
+      "Pain crises (vaso-occlusive)",
+      "Fatigue",
+      "Jaundice",
+      "Dactylitis in children",
+      "Frequent infections"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "History of recurrent pain + family history"
+      ],
+      "investigations": [
+        "FBC with hemolysis signs",
+        "Peripheral blood smear",
+        "Hemoglobin electrophoresis"
+      ],
+      "differential_diagnosis": [
+        "Other hemolytic anaemias",
+        "Osteomyelitis (bone pain)",
+        "Thalassemia"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Hydroxyurea",
+        "Folic acid",
+        "Analgesics for pain"
+      ],
+      "supportive": [
+        "Vaccinations",
+        "Prophylactic penicillin",
+        "Exchange transfusion in crisis"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Genetic counseling",
+      "Routine neonatal screening",
+      "Avoid dehydration and stress"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Severe pain + history of SCD = suspect vaso-occlusive crisis"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Haematology \u2013 Sickle Cell Disease"
+    }
+  },
+  {
+    "disease": "Leukaemia",
+    "synonyms": [
+      "Leukemia",
+      "AML",
+      "ALL",
+      "CLL",
+      "CML"
+    ],
+    "category": "Haematology",
+    "description": "A group of cancers of the bone marrow and blood characterized by uncontrolled proliferation of leukocytes.",
+    "epidemiology": {
+      "prevalence": "Most common childhood cancer (ALL); adult types include AML, CLL, CML",
+      "risk_factors": [
+        "Radiation exposure",
+        "Genetic syndromes (e.g. Down\u2019s syndrome)",
+        "Chemical exposure (benzene)"
+      ]
+    },
+    "symptoms": [
+      "Fatigue",
+      "Frequent infections",
+      "Bleeding or bruising",
+      "Bone pain",
+      "Lymphadenopathy"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Symptoms of marrow failure"
+      ],
+      "investigations": [
+        "Full blood count (pancytopenia or leukocytosis)",
+        "Peripheral blood smear (blasts)",
+        "Bone marrow biopsy",
+        "Cytogenetic analysis"
+      ],
+      "differential_diagnosis": [
+        "Lymphoma",
+        "Aplastic anemia",
+        "Infectious mononucleosis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Chemotherapy (regimen depends on type)",
+        "Tyrosine kinase inhibitors (CML)",
+        "Stem cell transplantation"
+      ],
+      "supportive": [
+        "Transfusions",
+        "Infection prophylaxis",
+        "Palliative care in advanced cases"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Early diagnosis through CBC in high-risk patients",
+      "Avoid known carcinogens",
+      "Genetic counseling for familial cases"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Unexplained anemia + infections + bruising = check blood film urgently"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Haematology \u2013 Leukaemia"
+    }
+  },
+  {
+    "disease": "Lymphoma",
+    "synonyms": [
+      "Hodgkin lymphoma",
+      "Non-Hodgkin lymphoma",
+      "NHL",
+      "HL"
+    ],
+    "category": "Haematology",
+    "description": "A group of blood cancers that develop from lymphocytes, with Hodgkin\u2019s lymphoma marked by Reed-Sternberg cells.",
+    "epidemiology": {
+      "prevalence": "Hodgkin\u2019s peaks in young adults; NHL more common in elderly",
+      "risk_factors": [
+        "Immunosuppression (HIV, transplant)",
+        "Epstein-Barr Virus",
+        "Autoimmune disease"
+      ]
+    },
+    "symptoms": [
+      "Painless lymphadenopathy",
+      "B symptoms (fever, night sweats, weight loss)",
+      "Fatigue",
+      "Pruritus",
+      "Mediastinal mass"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Persistent lymph node enlargement"
+      ],
+      "investigations": [
+        "Lymph node biopsy",
+        "CT/PET scan",
+        "CBC, LDH"
+      ],
+      "differential_diagnosis": [
+        "Leukaemia",
+        "Tuberculosis",
+        "Reactive lymphadenopathy"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Chemotherapy (ABVD regimen for HL)",
+        "Radiotherapy (especially in HL)",
+        "Immunotherapy for NHL"
+      ],
+      "supportive": [
+        "Infection prevention",
+        "Growth factor support"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "HIV control",
+      "Limit immunosuppression where possible",
+      "Early detection of B symptoms"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Lymphadenopathy + B symptoms = suspect lymphoma"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Haematology \u2013 Lymphoma"
+    }
+  },
+  {
+    "disease": "Thrombocytopenia",
+    "synonyms": [
+      "Low platelets",
+      "ITP",
+      "Immune thrombocytopenia"
+    ],
+    "category": "Haematology",
+    "description": "A condition characterized by a low platelet count, leading to increased risk of bleeding.",
+    "epidemiology": {
+      "prevalence": "Common in hospitalized patients; ITP more in women and children",
+      "risk_factors": [
+        "Autoimmune disease",
+        "Infections (HIV, HCV)",
+        "Drugs (heparin, quinine)"
+      ]
+    },
+    "symptoms": [
+      "Easy bruising",
+      "Petechiae",
+      "Prolonged bleeding",
+      "Menorrhagia",
+      "Epistaxis"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Signs of bleeding with low platelets"
+      ],
+      "investigations": [
+        "Platelet count",
+        "Peripheral blood smear",
+        "Bone marrow biopsy (if unclear)",
+        "Exclude secondary causes (HIV, HCV)"
+      ],
+      "differential_diagnosis": [
+        "Leukaemia",
+        "DIC",
+        "Aplastic anemia"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Steroids (ITP)",
+        "IVIG",
+        "Platelet transfusion if bleeding"
+      ],
+      "supportive": [
+        "Avoid NSAIDs/antiplatelets",
+        "Monitor for bleeding",
+        "Treat underlying cause"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Avoid platelet-lowering drugs",
+      "Vaccination (in splenectomy cases)",
+      "Manage autoimmune triggers"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Bleeding + platelets <50 = urgent review"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Haematology \u2013 Thrombocytopenia"
+    }
+  },
+  {
+    "disease": "Psoriasis",
+    "synonyms": [
+      "Psoriasis vulgaris",
+      "Plaque psoriasis"
+    ],
+    "category": "Dermatology",
+    "description": "A chronic autoimmune skin condition characterized by red, scaly plaques, commonly on the elbows, knees, and scalp.",
+    "epidemiology": {
+      "prevalence": "~2% of the population",
+      "risk_factors": [
+        "Family history",
+        "Stress",
+        "Infections (e.g., streptococcal)",
+        "Medications (e.g., lithium, beta-blockers)"
+      ]
+    },
+    "symptoms": [
+      "Red, raised plaques with silvery scales",
+      "Itching",
+      "Nail changes (pitting, onycholysis)",
+      "Joint pain (psoriatic arthritis)"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Characteristic lesions",
+        "Chronic course",
+        "Auspitz sign (pinpoint bleeding on scale removal)"
+      ],
+      "investigations": [
+        "Skin biopsy (if uncertain)",
+        "Exclude fungal infection"
+      ],
+      "differential_diagnosis": [
+        "Seborrheic dermatitis",
+        "Tinea corporis",
+        "Eczema"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Topical steroids",
+        "Vitamin D analogues (calcipotriol)"
+      ],
+      "supportive": [
+        "Phototherapy (UVB)",
+        "Systemic therapy (methotrexate, biologics for severe cases)"
+      ],
+      "contraindications": {
+        "Steroids": [
+          "Avoid long-term use due to skin thinning"
+        ]
+      }
+    },
+    "preventive_measures": [
+      "Avoid triggers (e.g., stress, infections)",
+      "Moisturize regularly",
+      "Adherence to therapy"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Sudden generalized flare = rule out erythrodermic psoriasis"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Dermatology \u2013 Psoriasis"
+    }
+  },
+  {
+    "disease": "Eczema (Atopic Dermatitis)",
+    "synonyms": [
+      "Atopic eczema",
+      "Atopic dermatitis"
+    ],
+    "category": "Dermatology",
+    "description": "A chronic inflammatory skin condition associated with itchy, red, and dry skin, often with a family history of allergies.",
+    "epidemiology": {
+      "prevalence": "Common in children; often improves with age",
+      "risk_factors": [
+        "Family history of atopy (asthma, hay fever)",
+        "Environmental allergens",
+        "Skin irritants"
+      ]
+    },
+    "symptoms": [
+      "Dry, itchy skin",
+      "Red, inflamed patches",
+      "Lichenification from scratching",
+      "Flexural distribution (elbows, knees)"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Typical distribution + chronic relapsing course"
+      ],
+      "investigations": [
+        "None usually needed",
+        "Allergy testing if severe or refractory"
+      ],
+      "differential_diagnosis": [
+        "Contact dermatitis",
+        "Psoriasis",
+        "Scabies"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Emollients",
+        "Topical corticosteroids"
+      ],
+      "supportive": [
+        "Antihistamines for itch",
+        "Avoidance of triggers",
+        "Topical calcineurin inhibitors"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Moisturize regularly",
+      "Avoid known triggers",
+      "Short lukewarm showers"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Widespread eczema + fever = suspect eczema herpeticum"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Dermatology \u2013 Eczema"
+    }
+  },
+  {
+    "disease": "Acne Vulgaris",
+    "synonyms": [
+      "Acne",
+      "Common acne",
+      "Pimples"
+    ],
+    "category": "Dermatology",
+    "description": "A common skin condition caused by blockage and inflammation of hair follicles and sebaceous glands, resulting in pimples, blackheads, and cysts.",
+    "epidemiology": {
+      "prevalence": "Affects 85% of adolescents",
+      "risk_factors": [
+        "Hormonal changes (puberty, PCOS)",
+        "Genetic predisposition",
+        "Certain cosmetics and medications"
+      ]
+    },
+    "symptoms": [
+      "Comedones (blackheads, whiteheads)",
+      "Papules and pustules",
+      "Nodules and cysts (in severe cases)",
+      "Facial and upper trunk distribution"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Typical appearance and distribution"
+      ],
+      "investigations": [
+        "None usually needed unless considering hormonal causes"
+      ],
+      "differential_diagnosis": [
+        "Rosacea",
+        "Folliculitis",
+        "Perioral dermatitis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Topical retinoids (e.g., adapalene)",
+        "Benzoyl peroxide",
+        "Topical antibiotics (clindamycin)"
+      ],
+      "supportive": [
+        "Oral antibiotics (doxycycline)",
+        "Combined oral contraceptives",
+        "Isotretinoin (for severe cases)"
+      ],
+      "contraindications": {
+        "Isotretinoin": [
+          "Pregnancy \u2013 teratogenic"
+        ]
+      }
+    },
+    "preventive_measures": [
+      "Gentle cleansing routine",
+      "Avoid oil-based cosmetics",
+      "Don\u2019t pick or squeeze lesions"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Severe cystic acne with scarring \u2192 consider early referral"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Dermatology \u2013 Acne"
+    }
+  },
+  {
+    "disease": "Skin Infections",
+    "synonyms": [
+      "Bacterial skin infection",
+      "Cellulitis",
+      "Fungal infection",
+      "Tinea",
+      "Viral skin lesions"
+    ],
+    "category": "Dermatology",
+    "description": "A broad group of infections affecting the skin, including bacterial (cellulitis), fungal (tinea), and viral (herpes, warts) causes.",
+    "epidemiology": {
+      "prevalence": "Very common in all age groups",
+      "risk_factors": [
+        "Breaks in skin barrier",
+        "Poor hygiene",
+        "Immunosuppression"
+      ]
+    },
+    "symptoms": [
+      "Redness, warmth, swelling (cellulitis)",
+      "Itchy ring-shaped rash (tinea)",
+      "Painful vesicles (herpes)",
+      "Warty growths (HPV)"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Visual inspection and distribution of lesions"
+      ],
+      "investigations": [
+        "Skin swab for culture",
+        "KOH prep (for fungi)",
+        "Tzanck smear (for herpes)"
+      ],
+      "differential_diagnosis": [
+        "Eczema",
+        "Psoriasis",
+        "Contact dermatitis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Antibiotics (e.g., flucloxacillin for cellulitis)",
+        "Antifungals (topical or oral for tinea)",
+        "Antivirals (acyclovir for herpes)"
+      ],
+      "supportive": [
+        "Hygiene and wound care",
+        "Pain relief",
+        "Monitor for spreading infection"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Good personal hygiene",
+      "Early treatment of wounds",
+      "Avoid sharing personal items"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Rapidly spreading red, hot skin = suspect cellulitis, start antibiotics"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Dermatology \u2013 Skin Infections"
+    }
+  },
+  {
+    "disease": "Urticaria",
+    "synonyms": [
+      "Hives",
+      "Welts",
+      "Angioedema (if deep)"
+    ],
+    "category": "Dermatology",
+    "description": "A transient, itchy rash caused by allergic or non-allergic triggers leading to histamine release.",
+    "epidemiology": {
+      "prevalence": "Common; up to 20% experience at least one episode",
+      "risk_factors": [
+        "Allergens (foods, drugs)",
+        "Infections",
+        "Stress"
+      ]
+    },
+    "symptoms": [
+      "Raised, red wheals",
+      "Intense itching",
+      "Swelling (angioedema)",
+      "Rapid onset and resolution"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Based on appearance and history"
+      ],
+      "investigations": [
+        "None needed for acute cases",
+        "Allergy testing for recurrent cases"
+      ],
+      "differential_diagnosis": [
+        "Erythema multiforme",
+        "Vasculitis",
+        "Contact dermatitis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Non-sedating antihistamines (cetirizine, loratadine)"
+      ],
+      "supportive": [
+        "Oral steroids if severe",
+        "Avoid triggers"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Identify and avoid triggers",
+      "Medical alert bracelet for drug-induced cases",
+      "Patient education"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Urticaria + breathing difficulty = possible anaphylaxis"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Dermatology \u2013 Urticaria"
+    }
+  },
+  {
+    "disease": "Rheumatoid Arthritis",
+    "synonyms": [
+      "RA"
+    ],
+    "category": "Rheumatology",
+    "description": "A chronic systemic autoimmune disorder that primarily affects joints, causing inflammation, pain, and potential joint destruction.",
+    "epidemiology": {
+      "prevalence": "Affects ~1% of the population, more common in women",
+      "risk_factors": [
+        "Genetic predisposition (HLA-DR4)",
+        "Smoking",
+        "Female sex"
+      ]
+    },
+    "symptoms": [
+      "Symmetrical joint pain and swelling",
+      "Morning stiffness >1 hour",
+      "Fatigue",
+      "Joint deformities (late)"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Symmetrical small joint arthritis (hands, wrists)",
+        "Morning stiffness"
+      ],
+      "investigations": [
+        "Rheumatoid factor (RF), anti-CCP",
+        "ESR, CRP",
+        "X-ray: joint space narrowing, erosions"
+      ],
+      "differential_diagnosis": [
+        "Osteoarthritis",
+        "SLE",
+        "Psoriatic arthritis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "DMARDs (e.g., methotrexate)",
+        "NSAIDs for symptom control"
+      ],
+      "supportive": [
+        "Physiotherapy",
+        "Steroids for flare-ups",
+        "Biologics (anti-TNF, IL-6 inhibitors)"
+      ],
+      "contraindications": {
+        "Methotrexate": [
+          "Pregnancy",
+          "Liver disease"
+        ]
+      }
+    },
+    "preventive_measures": [
+      "Early diagnosis and treatment",
+      "Smoking cessation",
+      "Monitoring for complications (e.g., cardiovascular risk)"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Hot, swollen joints + morning stiffness \u2192 rule out RA early"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Rheumatology \u2013 Rheumatoid Arthritis"
+    }
+  },
+  {
+    "disease": "Systemic Lupus Erythematosus",
+    "synonyms": [
+      "SLE",
+      "Lupus"
+    ],
+    "category": "Rheumatology",
+    "description": "A chronic autoimmune disease affecting multiple systems, characterized by flares of inflammation and organ damage.",
+    "epidemiology": {
+      "prevalence": "More common in young women, especially of African/Asian descent",
+      "risk_factors": [
+        "Genetic predisposition",
+        "Sunlight exposure",
+        "Hormonal factors"
+      ]
+    },
+    "symptoms": [
+      "Malar rash (butterfly rash)",
+      "Photosensitivity",
+      "Joint pain (non-erosive)",
+      "Fatigue",
+      "Oral ulcers",
+      "Renal involvement (nephritis)"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Multi-system symptoms",
+        "Autoimmune history"
+      ],
+      "investigations": [
+        "ANA, anti-dsDNA, anti-Sm antibodies",
+        "ESR, CRP",
+        "Urinalysis for proteinuria"
+      ],
+      "differential_diagnosis": [
+        "RA",
+        "Dermatomyositis",
+        "Vasculitis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Hydroxychloroquine",
+        "Corticosteroids (for flares)",
+        "Immunosuppressants (azathioprine, MMF)"
+      ],
+      "supportive": [
+        "Sun protection",
+        "Monitor renal function"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Avoid sun exposure",
+      "Regular monitoring",
+      "Early treatment of flares"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Fever + rash + joint pain in a woman \u2192 rule out SLE"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Rheumatology \u2013 SLE"
+    }
+  },
+  {
+    "disease": "Gout",
+    "synonyms": [
+      "Gouty arthritis",
+      "Hyperuricemia-related arthritis"
+    ],
+    "category": "Rheumatology",
+    "description": "An inflammatory arthritis caused by deposition of monosodium urate crystals in joints due to hyperuricemia.",
+    "epidemiology": {
+      "prevalence": "More common in men and older adults",
+      "risk_factors": [
+        "Alcohol consumption",
+        "High purine diet (meat, seafood)",
+        "Thiazide diuretics",
+        "Chronic kidney disease"
+      ]
+    },
+    "symptoms": [
+      "Sudden onset joint pain (often at night)",
+      "Swollen, red, hot joint (typically the big toe \u2013 podagra)",
+      "Tophi in chronic cases"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Classic presentation in toe or ankle",
+        "Recurrent acute flares"
+      ],
+      "investigations": [
+        "Joint aspiration: negatively birefringent urate crystals",
+        "Serum uric acid",
+        "X-ray: punched-out erosions in chronic gout"
+      ],
+      "differential_diagnosis": [
+        "Septic arthritis",
+        "Pseudogout",
+        "Cellulitis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "NSAIDs",
+        "Colchicine",
+        "Steroids (oral or intra-articular)"
+      ],
+      "supportive": [
+        "Lifestyle: weight loss, reduced alcohol/purines",
+        "Allopurinol (for prevention post-attack)",
+        "Febuxostat (if intolerant to allopurinol)"
+      ],
+      "contraindications": {
+        "Allopurinol": [
+          "During acute attack"
+        ]
+      }
+    },
+    "preventive_measures": [
+      "Avoid purine-rich food",
+      "Hydration",
+      "Urate-lowering therapy in recurrent gout"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Sudden hot, painful toe = rule out septic arthritis and consider gout"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Rheumatology \u2013 Gout"
+    }
+  },
+  {
+    "disease": "Ankylosing Spondylitis",
+    "synonyms": [
+      "AS",
+      "Axial spondyloarthritis"
+    ],
+    "category": "Rheumatology",
+    "description": "A chronic inflammatory disease primarily affecting the spine and sacroiliac joints, leading to progressive stiffness.",
+    "epidemiology": {
+      "prevalence": "More common in young males",
+      "risk_factors": [
+        "HLA-B27 positivity",
+        "Family history",
+        "Male sex"
+      ]
+    },
+    "symptoms": [
+      "Chronic back pain and stiffness",
+      "Worse in the morning or after rest",
+      "Improves with exercise",
+      "Reduced spinal mobility"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Young patient with inflammatory back pain"
+      ],
+      "investigations": [
+        "X-ray: sacroiliitis, bamboo spine (late)",
+        "MRI: early sacroiliitis",
+        "HLA-B27 testing"
+      ],
+      "differential_diagnosis": [
+        "Mechanical back pain",
+        "RA (atypical)",
+        "Psoriatic arthritis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "NSAIDs",
+        "Exercise and physiotherapy"
+      ],
+      "supportive": [
+        "TNF inhibitors (e.g., etanercept)",
+        "IL-17 inhibitors for resistant cases"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Postural training",
+      "Smoking cessation",
+      "Regular monitoring for uveitis, cardiac involvement"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Young man with chronic back stiffness improving with movement \u2192 suspect AS"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Rheumatology \u2013 Ankylosing Spondylitis"
+    }
+  },
+  {
+    "disease": "Osteoarthritis",
+    "synonyms": [
+      "OA",
+      "Degenerative joint disease"
+    ],
+    "category": "Rheumatology",
+    "description": "A degenerative joint disease marked by cartilage breakdown, osteophyte formation, and joint space narrowing, leading to pain and stiffness.",
+    "epidemiology": {
+      "prevalence": "Most common arthritis; increases with age",
+      "risk_factors": [
+        "Ageing",
+        "Obesity",
+        "Joint overuse or trauma",
+        "Genetics"
+      ]
+    },
+    "symptoms": [
+      "Joint pain worsened by activity",
+      "Short-lasting morning stiffness (<30 mins)",
+      "Joint crepitus",
+      "Reduced range of motion"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Pain pattern and joint examination"
+      ],
+      "investigations": [
+        "X-ray: joint space narrowing, osteophytes",
+        "No inflammatory markers"
+      ],
+      "differential_diagnosis": [
+        "RA",
+        "Gout",
+        "Psoriatic arthritis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Paracetamol",
+        "Topical NSAIDs"
+      ],
+      "supportive": [
+        "Weight loss",
+        "Physiotherapy",
+        "Joint replacement (severe cases)"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Maintain healthy weight",
+      "Avoid joint overuse",
+      "Early management of joint injuries"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Elderly patient with mechanical joint pain \u2192 likely OA"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Rheumatology \u2013 Osteoarthritis"
+    }
+  },
+  {
+    "disease": "Lung Cancer",
+    "synonyms": [
+      "Bronchogenic carcinoma"
+    ],
+    "category": "Oncology",
+    "description": "A malignant tumor of the lungs, often associated with smoking and environmental exposures.",
+    "epidemiology": {
+      "prevalence": "Leading cause of cancer-related death worldwide",
+      "risk_factors": [
+        "Smoking (primary)",
+        "Radon exposure",
+        "Asbestos",
+        "Air pollution"
+      ]
+    },
+    "symptoms": [
+      "Persistent cough",
+      "Hemoptysis (coughing blood)",
+      "Unintentional weight loss",
+      "Chest pain",
+      "Hoarseness"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "History and physical exam",
+        "Suspicious symptoms in a smoker"
+      ],
+      "investigations": [
+        "Chest X-ray, CT scan",
+        "Bronchoscopy with biopsy",
+        "PET scan and staging"
+      ],
+      "differential_diagnosis": [
+        "Tuberculosis",
+        "COPD",
+        "Lung abscess"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Surgical resection (if operable)",
+        "Chemotherapy and/or radiotherapy"
+      ],
+      "supportive": [
+        "Targeted therapies (e.g., EGFR inhibitors)",
+        "Palliative care for advanced disease"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Smoking cessation",
+      "Occupational exposure reduction",
+      "Regular screening in high-risk individuals"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Smoker with hemoptysis and weight loss \u2192 urgent chest imaging"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Oncology \u2013 Lung Cancer"
+    }
+  },
+  {
+    "disease": "Breast Cancer",
+    "synonyms": [
+      "Breast carcinoma"
+    ],
+    "category": "Oncology",
+    "description": "A malignant tumor originating from breast tissue, commonly affecting women.",
+    "epidemiology": {
+      "prevalence": "Most common cancer in women globally",
+      "risk_factors": [
+        "Age >50",
+        "Family history, BRCA1/2 mutation",
+        "Early menarche, late menopause",
+        "Hormone replacement therapy"
+      ]
+    },
+    "symptoms": [
+      "Breast lump",
+      "Nipple discharge or retraction",
+      "Skin dimpling",
+      "Axillary lymphadenopathy"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Palpable lump or suspicious findings on screening"
+      ],
+      "investigations": [
+        "Mammography, ultrasound",
+        "Core needle biopsy",
+        "MRI (for staging)"
+      ],
+      "differential_diagnosis": [
+        "Fibroadenoma",
+        "Breast cyst",
+        "Mastitis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Surgical excision (lumpectomy or mastectomy)",
+        "Radiotherapy",
+        "Hormonal therapy (e.g., tamoxifen if ER+)"
+      ],
+      "supportive": [
+        "Chemotherapy",
+        "Targeted therapy (e.g., trastuzumab if HER2+)"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Screening mammography",
+      "Self-breast exam awareness",
+      "BRCA genetic counseling"
+    ],
+    "contextual_notes": {
+      "triage_alert": "New breast lump, especially in >40 years \u2192 urgent breast clinic referral"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Oncology \u2013 Breast Cancer"
+    }
+  },
+  {
+    "disease": "Colorectal Cancer",
+    "synonyms": [
+      "Colon cancer",
+      "Rectal cancer"
+    ],
+    "category": "Oncology",
+    "description": "A malignancy arising from the lining of the colon or rectum, often developing from polyps.",
+    "epidemiology": {
+      "prevalence": "Third most common cancer worldwide",
+      "risk_factors": [
+        "Age >50",
+        "Family history, FAP, HNPCC",
+        "Low-fiber, high-fat diet",
+        "Inflammatory bowel disease"
+      ]
+    },
+    "symptoms": [
+      "Change in bowel habits",
+      "Rectal bleeding",
+      "Iron deficiency anemia",
+      "Abdominal pain",
+      "Unintentional weight loss"
+    ],
+    "diagnosis": {
+      "clinical": [
+        "Rectal exam, visible or occult bleeding"
+      ],
+      "investigations": [
+        "Colonoscopy with biopsy",
+        "CT colonography",
+        "CEA tumor marker"
+      ],
+      "differential_diagnosis": [
+        "IBD",
+        "Hemorrhoids",
+        "Diverticulosis"
+      ]
+    },
+    "treatment": {
+      "first_line": [
+        "Surgical resection",
+        "Adjuvant chemotherapy for stage III/IV"
+      ],
+      "supportive": [
+        "Radiotherapy (for rectal tumors)",
+        "Stoma care if applicable"
+      ],
+      "contraindications": {}
+    },
+    "preventive_measures": [
+      "Screening colonoscopy",
+      "Polyp removal",
+      "Healthy diet and physical activity"
+    ],
+    "contextual_notes": {
+      "triage_alert": "Elderly with change in bowel habit + anemia \u2192 rule out colorectal cancer"
+    },
+    "source": {
+      "textbook": "Oxford Handbook of Clinical Medicine",
+      "edition": "11th",
+      "page_reference": "Oncology \u2013 Colorectal Cancer"
+    }
+  }
+]

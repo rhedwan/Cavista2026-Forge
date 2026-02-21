@@ -1,0 +1,32 @@
+{
+  "disease": "Hepatitis B",
+  "category": "Other Disease of Public Health Importance",
+  "case_definition": {
+    "suspected": "Any person with jaundice, fever, dark urine or fatigue of unknown cause.",
+    "probable": "Suspected case with epidemiological link or exposure risk.",
+    "confirmed": "Detection of HBsAg in blood."
+  },
+  "notifiable": true,
+  "surveillance": {
+    "reporting_frequency": "Monthly",
+    "reporting_tools": [
+      "NHMIS Hepatitis Reporting Tool"
+    ],
+    "immediate_notification_required": false
+  },
+  "public_health_actions": [
+    "Refer to hepatitis treatment center",
+    "Collect blood for HBsAg test",
+    "Vaccinate contacts and high-risk individuals",
+    "Educate on transmission prevention"
+  ],
+  "lab_confirmation": "Serologic test positive for HBsAg.",
+  "integration": {
+    "linked_to_nhmis": true,
+    "nhmis_indicator_code": "NMIS-HB-01"
+  },
+  "source": {
+    "document": "Nigeria IDSR Guidelines",
+    "page_reference": "Section 2.6.3"
+  }
+}

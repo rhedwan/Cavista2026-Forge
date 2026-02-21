@@ -1,0 +1,2079 @@
+{
+  "document": "National Standing Orders for CHEWs",
+  "version": "2024",
+  "sections": [
+    {
+      "section": "1",
+      "title": "THE NEWBORN",
+      "age_group": "0 \u2013 28 DAYS",
+      "subsections": [
+        {
+          "code": "1.1",
+          "title": "IMMEDIATE CARE OF THE NEWBORN",
+          "entries": [
+            {
+              "case": "Normal Newborn",
+              "history": [],
+              "examination": [
+                "Check that the baby is pink",
+                "Count respiratory rate (40 - 60 bpm)",
+                "Measure temperature (36.5 \u2013 37.5\u00b0C)",
+                "Weigh the baby"
+              ],
+              "clinical_judgement": "Healthy, breathing, pink baby",
+              "action": [
+                "Dry with clean cloth",
+                "Initiate breastfeeding within 30 mins",
+                "Apply 0.5% Erythromycin to eyes",
+                "Delay cord clamping for 1\u20133 mins",
+                "Give Vitamin K1 IM",
+                "Cord care with 4% Chlorhexidine"
+              ],
+              "notes": [
+                "Do not bathe for first 24 hours",
+                "Ensure room temp of 25\u00b0C - 28\u00b0C",
+                "Document all findings",
+                "Provide discharge guidance to mother"
+              ]
+            },
+            {
+              "case": "Meconium-stained liquor and not breathing",
+              "clinical_judgement": "Asphyxia",
+              "action": [
+                "Initiate neonatal resuscitation within 1 minute",
+                "Use bag and mask ventilation",
+                "Check for fast breathing (>60 bpm)",
+                "Refer if no improvement"
+              ],
+              "notes": [
+                "Do not slap, pinch or turn baby upside down",
+                "Continue newborn care if breathing resumes"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "1.2",
+          "title": "NEWBORN WITHOUT ANY COMPLAINT \u2013 THE WELL CHILD",
+          "entries": [
+            {
+              "case": "Routine Evaluation",
+              "history": [
+                "Ask about feeding pattern and sleeping",
+                "Ask about urination and defecation"
+              ],
+              "examination": [
+                "Check for normal weight gain",
+                "Measure temperature",
+                "Inspect for jaundice, birthmarks, abnormalities"
+              ],
+              "clinical_judgement": "Healthy newborn without complaints",
+              "action": [
+                "Reassure mother",
+                "Educate on exclusive breastfeeding",
+                "Schedule next visit"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "1.3",
+          "title": "NEWBORN EMERGENCIES",
+          "entries": [
+            {
+              "case": "Danger Signs",
+              "history": [
+                "Poor feeding",
+                "Convulsions",
+                "Fast breathing",
+                "Fever",
+                "Hypothermia"
+              ],
+              "examination": [
+                "Count respiratory rate",
+                "Check for chest in-drawing",
+                "Assess jaundice"
+              ],
+              "clinical_judgement": "Suspected severe illness",
+              "action": [
+                "Start emergency care",
+                "Refer immediately to higher facility",
+                "Continue warming and skin-to-skin contact"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "1.4",
+          "title": "NEWBORN ABNORMALITIES",
+          "entries": [
+            {
+              "case": "Congenital Conditions",
+              "history": [
+                "Any family history of birth defects"
+              ],
+              "examination": [
+                "Check for cleft lip/palate, limb deformities",
+                "Palpate abdomen for masses"
+              ],
+              "clinical_judgement": "Identify abnormalities requiring specialist care",
+              "action": [
+                "Document findings",
+                "Refer for surgical or specialist intervention",
+                "Support parent emotionally and educate"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "1.5",
+          "title": "ORAL HEALTH",
+          "entries": [
+            {
+              "case": "Routine Oral Check",
+              "examination": [
+                "Inspect oral cavity for thrush, cleft palate, or infection"
+              ],
+              "clinical_judgement": "Normal or mild oral issues",
+              "action": [
+                "Provide oral hygiene instructions",
+                "Treat thrush with nystatin if present",
+                "Refer complicated issues"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 19
+    },
+    {
+      "section": "2",
+      "title": "CHILDHOOD CONDITIONS",
+      "subsections": [
+        {
+          "code": "2.1",
+          "title": "CHILD\u2019S FIRST VISIT",
+          "entries": [
+            {
+              "case": "Routine Evaluation",
+              "history": [
+                "Ask for birth history",
+                "Ask about feeding and immunization"
+              ],
+              "examination": [
+                "Check weight, height, head circumference",
+                "Inspect eyes, ears, mouth",
+                "Assess motor development"
+              ],
+              "clinical_judgement": "Initial health assessment",
+              "action": [
+                "Record baseline growth data",
+                "Initiate vaccination if due",
+                "Provide nutrition counseling"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.2",
+          "title": "HEALTHY CHILD",
+          "entries": [
+            {
+              "case": "Well Child Visit",
+              "examination": [
+                "General physical exam",
+                "Review growth chart",
+                "Check milestone achievement"
+              ],
+              "clinical_judgement": "No complaints, normal development",
+              "action": [
+                "Reassure caregiver",
+                "Encourage continued breastfeeding or proper diet",
+                "Schedule routine follow-up"
+              ],
+              "history": [
+                "Ask about feeding habits",
+                "Inquire about sleep patterns",
+                "Check immunization history",
+                "Ask about recent illnesses or hospital visits"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.3",
+          "title": "FEVER",
+          "entries": [
+            {
+              "case": "Child with fever",
+              "history": [
+                "Duration and pattern",
+                "Recent exposures",
+                "Associated symptoms"
+              ],
+              "examination": [
+                "Measure temperature",
+                "Check for rash, sore throat, ear discharge"
+              ],
+              "clinical_judgement": "Suspected infection or malaria",
+              "action": [
+                "Treat presumptive malaria if endemic area",
+                "Refer if fever persists > 3 days or danger signs present"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.4",
+          "title": "CONVULSION",
+          "entries": [
+            {
+              "case": "Child with convulsion",
+              "history": [
+                "Ask if febrile",
+                "Previous episodes",
+                "Duration"
+              ],
+              "examination": [
+                "Check for neck stiffness",
+                "Level of consciousness"
+              ],
+              "clinical_judgement": "Febrile or afebrile seizure",
+              "action": [
+                "Stabilize airway, breathing",
+                "Treat fever if present",
+                "Refer immediately for further evaluation"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.5",
+          "title": "COUGH/DIFFICULT BREATHING",
+          "entries": [
+            {
+              "case": "Suspected respiratory illness",
+              "history": [
+                "Duration of cough",
+                "Difficulty breathing",
+                "Noisy breathing"
+              ],
+              "examination": [
+                "Listen for wheeze or crackles",
+                "Count respiratory rate"
+              ],
+              "clinical_judgement": "Possible pneumonia, asthma, or bronchitis",
+              "action": [
+                "Provide antibiotics if pneumonia suspected",
+                "Refer severe cases"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.6",
+          "title": "DIARRHOEA",
+          "entries": [
+            {
+              "case": "Child with frequent loose stools",
+              "history": [
+                "Duration",
+                "Presence of blood",
+                "Feeding and hydration"
+              ],
+              "examination": [
+                "Assess dehydration",
+                "Check general condition"
+              ],
+              "clinical_judgement": "Mild to severe diarrhoea",
+              "action": [
+                "Give ORS and zinc",
+                "Refer if severely dehydrated"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.7",
+          "title": "VOMITING",
+          "entries": [
+            {
+              "case": "Recurrent vomiting",
+              "history": [
+                "Frequency",
+                "Relation to feeding",
+                "Bilious or blood-stained"
+              ],
+              "examination": [
+                "Check hydration",
+                "Abdominal tenderness"
+              ],
+              "clinical_judgement": "Likely gastroenteritis or obstruction",
+              "action": [
+                "Give fluids",
+                "Refer if persistent or bilious"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.8",
+          "title": "PALLOR",
+          "entries": [
+            {
+              "case": "Suspected anemia",
+              "history": [
+                "Fatigue",
+                "Diet",
+                "History of malaria"
+              ],
+              "examination": [
+                "Check conjunctiva and palms"
+              ],
+              "clinical_judgement": "Mild to moderate anemia",
+              "action": [
+                "Give iron supplements",
+                "Refer severe cases"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.9",
+          "title": "JAUNDICE",
+          "entries": [
+            {
+              "case": "Yellow eyes or skin",
+              "history": [
+                "Onset",
+                "Associated fever or urine color"
+              ],
+              "examination": [
+                "Check palms, sclera, abdomen"
+              ],
+              "clinical_judgement": "Likely hepatitis or hemolysis",
+              "action": [
+                "Refer for liver function tests",
+                "Supportive care"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.10",
+          "title": "MALNUTRITION",
+          "entries": [
+            {
+              "case": "Underweight child",
+              "history": [
+                "Diet",
+                "Feeding frequency",
+                "Illness"
+              ],
+              "examination": [
+                "Check weight-for-age",
+                "Look for edema"
+              ],
+              "clinical_judgement": "Moderate or severe malnutrition",
+              "action": [
+                "Enroll in nutrition program",
+                "Refer SAM cases"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "2.11",
+          "title": "HIV/AIDS",
+          "entries": [
+            {
+              "case": "HIV-exposed or symptomatic child",
+              "history": [
+                "Maternal status",
+                "Frequent infections",
+                "Weight loss"
+              ],
+              "examination": [
+                "Growth monitoring",
+                "Oral thrush",
+                "Lymphadenopathy"
+              ],
+              "clinical_judgement": "Suspected pediatric HIV",
+              "action": [
+                "Refer for confirmatory testing",
+                "Initiate ART if confirmed"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 48
+    },
+    {
+      "section": "3",
+      "title": "MIDDLE CHILDHOOD CONDITIONS",
+      "subsections": [
+        {
+          "code": "3.1",
+          "title": "CHILD\u2019S FIRST VISIT",
+          "entries": [
+            {
+              "case": "Routine Initial Visit",
+              "history": [
+                "Ask about birth and immunization history",
+                "Schooling",
+                "Dietary habits"
+              ],
+              "examination": [
+                "Measure height, weight, BMI",
+                "Inspect skin, eyes, oral cavity",
+                "Evaluate mental alertness"
+              ],
+              "clinical_judgement": "Baseline health assessment",
+              "action": [
+                "Update immunizations",
+                "Offer health education",
+                "Record findings in health register"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.2",
+          "title": "FEVER",
+          "entries": [
+            {
+              "case": "Febrile child",
+              "history": [
+                "Ask about duration and pattern",
+                "Associated symptoms",
+                "Exposure to illness"
+              ],
+              "examination": [
+                "Check temperature",
+                "Assess for rash, throat inflammation, ear signs"
+              ],
+              "clinical_judgement": "Likely viral or bacterial infection",
+              "action": [
+                "Give paracetamol for fever",
+                "Refer if fever >3 days or with convulsions",
+                "Encourage fluid intake"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.3",
+          "title": "CONVULSION",
+          "entries": [
+            {
+              "case": "Seizure episode",
+              "history": [
+                "Duration",
+                "History of epilepsy or trauma",
+                "Recent illness or fever"
+              ],
+              "examination": [
+                "Level of consciousness",
+                "Signs of trauma or infection"
+              ],
+              "clinical_judgement": "Febrile or afebrile seizure",
+              "action": [
+                "Ensure airway and safety",
+                "Cool if febrile",
+                "Refer for further evaluation"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.4",
+          "title": "COUGH",
+          "entries": [
+            {
+              "case": "Persistent cough",
+              "history": [
+                "Duration and type of cough",
+                "Sputum presence",
+                "Chest pain"
+              ],
+              "examination": [
+                "Listen to chest sounds",
+                "Check respiratory rate"
+              ],
+              "clinical_judgement": "Possible infection or asthma",
+              "action": [
+                "Treat with antibiotics if pneumonia suspected",
+                "Refer if wheezing or chronic symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.5",
+          "title": "DIARRHOEA",
+          "entries": [
+            {
+              "case": "Child with loose stools",
+              "history": [
+                "Frequency and duration",
+                "Presence of blood",
+                "Hydration status"
+              ],
+              "examination": [
+                "Signs of dehydration",
+                "General appearance"
+              ],
+              "clinical_judgement": "Acute gastroenteritis",
+              "action": [
+                "Give ORS and zinc",
+                "Refer if severely dehydrated"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.6",
+          "title": "VOMITING",
+          "entries": [
+            {
+              "case": "Repeated vomiting",
+              "history": [
+                "Content of vomit",
+                "Timing with meals",
+                "Associated abdominal pain"
+              ],
+              "examination": [
+                "Check hydration and abdomen"
+              ],
+              "clinical_judgement": "Possible gastritis or obstruction",
+              "action": [
+                "Administer antiemetics if needed",
+                "Refer if bilious or blood-stained"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.7",
+          "title": "HEADACHE",
+          "entries": [
+            {
+              "case": "Child complains of headache",
+              "history": [
+                "Duration and location",
+                "Associated fever, vision issues, or stress"
+              ],
+              "examination": [
+                "Check temperature",
+                "Neurological exam"
+              ],
+              "clinical_judgement": "Likely tension headache or febrile illness",
+              "action": [
+                "Reassure and hydrate",
+                "Treat underlying condition",
+                "Refer persistent or severe cases"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.8",
+          "title": "PALLOR",
+          "entries": [
+            {
+              "case": "Pale child",
+              "history": [
+                "Appetite, energy level",
+                "Diet",
+                "Bleeding history"
+              ],
+              "examination": [
+                "Check conjunctiva and palms"
+              ],
+              "clinical_judgement": "Mild to moderate anemia",
+              "action": [
+                "Prescribe iron",
+                "Nutrition advice",
+                "Refer if no improvement"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.9",
+          "title": "YELLOWISH EYES (JAUNDICE)",
+          "entries": [
+            {
+              "case": "Yellow eyes or skin",
+              "history": [
+                "Fever, urine color, abdominal pain"
+              ],
+              "examination": [
+                "Check sclera, palms, liver size"
+              ],
+              "clinical_judgement": "Possible hepatitis or hemolytic disease",
+              "action": [
+                "Refer for LFT and diagnosis",
+                "Supportive care"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "3.10",
+          "title": "NUTRITIONAL DISORDERS",
+          "entries": [
+            {
+              "case": "Growth faltering or obesity",
+              "history": [
+                "Diet pattern",
+                "Appetite",
+                "Activity level"
+              ],
+              "examination": [
+                "Check weight, height, MUAC"
+              ],
+              "clinical_judgement": "Undernutrition or overnutrition",
+              "action": [
+                "Nutritional counseling",
+                "Enroll in feeding program",
+                "Refer as needed"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 136
+    },
+    {
+      "section": "4",
+      "title": "ADOLESCENT HEALTH",
+      "subsections": [
+        {
+          "code": "4.1",
+          "title": "ADOLESCENTS CONCERNS ABOUT PUBERTY (FEMALE)",
+          "entries": [
+            {
+              "case": "Puberty-related concerns",
+              "history": [
+                "Age of onset of menstruation",
+                "Concerns about breast development",
+                "Menstrual irregularities"
+              ],
+              "examination": [
+                "General physical exam",
+                "Assess pubertal stage"
+              ],
+              "clinical_judgement": "Normal puberty or minor concerns",
+              "action": [
+                "Provide education on puberty and hygiene",
+                "Reassure",
+                "Refer if abnormal bleeding or delayed puberty"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.2",
+          "title": "ADOLESCENTS CONCERNS ABOUT PUBERTY (MALE)",
+          "entries": [
+            {
+              "case": "Male pubertal changes",
+              "history": [
+                "Onset of voice change",
+                "Concerns about genital growth",
+                "Gynecomastia"
+              ],
+              "examination": [
+                "Check pubertal stage",
+                "Inspect for abnormalities"
+              ],
+              "clinical_judgement": "Normal development or delayed puberty",
+              "action": [
+                "Reassure if normal",
+                "Refer if signs of delayed or abnormal development"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.3",
+          "title": "CONTRACEPTIVE CHOICE FOR ADOLESCENTS",
+          "entries": [
+            {
+              "case": "Adolescent requesting contraception",
+              "history": [
+                "Sexual activity",
+                "Knowledge about methods",
+                "Desire for spacing or protection"
+              ],
+              "examination": [
+                "Check for signs of STIs",
+                "Ensure no contraindications"
+              ],
+              "clinical_judgement": "Needs contraception and counseling",
+              "action": [
+                "Offer appropriate contraceptive options",
+                "Educate on safe sex and STI prevention"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.4",
+          "title": "SEXUAL DYSFUNCTIONS /MALFUNCTIONS",
+          "entries": [
+            {
+              "case": "Concerns about sexual performance or function",
+              "history": [
+                "Erectile issues",
+                "Pain during intercourse",
+                "Psychological stress"
+              ],
+              "examination": [
+                "General and genital exam"
+              ],
+              "clinical_judgement": "Likely psychosomatic or developmental",
+              "action": [
+                "Reassure",
+                "Refer to adolescent or psychological services if persistent"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.5",
+          "title": "GENITOURINARY TRACT DISORDERS",
+          "entries": [
+            {
+              "case": "Genital or urinary symptoms",
+              "history": [
+                "Dysuria",
+                "Discharge",
+                "Pain or swelling"
+              ],
+              "examination": [
+                "Inspect external genitalia",
+                "Palpate abdomen for tenderness"
+              ],
+              "clinical_judgement": "Possible UTI or STI",
+              "action": [
+                "Treat with appropriate antibiotics",
+                "Refer for lab testing if unclear"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.6",
+          "title": "ABORTION",
+          "entries": [
+            {
+              "case": "Suspected incomplete or unsafe abortion",
+              "history": [
+                "Bleeding",
+                "Abdominal pain",
+                "Last menstrual period"
+              ],
+              "examination": [
+                "Check for bleeding, fever, shock"
+              ],
+              "clinical_judgement": "Likely incomplete abortion",
+              "action": [
+                "Stabilize and refer urgently",
+                "Provide emotional support and education"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.7",
+          "title": "NUTRITIONAL DISORDERS",
+          "entries": [
+            {
+              "case": "Undernutrition or overweight",
+              "history": [
+                "Diet pattern",
+                "Weight loss or gain",
+                "Body image concerns"
+              ],
+              "examination": [
+                "BMI check",
+                "Check for stunting or wasting"
+              ],
+              "clinical_judgement": "Moderate to severe nutritional issue",
+              "action": [
+                "Provide dietary advice",
+                "Refer if anorexia/bulimia suspected"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.8",
+          "title": "MENTAL HEALTH DISORDERS",
+          "entries": [
+            {
+              "case": "Depression or anxiety",
+              "history": [
+                "Mood changes",
+                "Sleep and appetite issues",
+                "Suicidal ideation"
+              ],
+              "examination": [
+                "Mental status exam"
+              ],
+              "clinical_judgement": "Likely mental health concern",
+              "action": [
+                "Refer for psychological assessment",
+                "Provide support and safety planning"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.9",
+          "title": "VIOLENCE AND ASSAULTIVE BEHAVIOUR",
+          "entries": [
+            {
+              "case": "History of abuse or aggression",
+              "history": [
+                "Details of incident",
+                "Relationship to perpetrator"
+              ],
+              "examination": [
+                "Physical injuries",
+                "Mental status"
+              ],
+              "clinical_judgement": "Suspected abuse or trauma",
+              "action": [
+                "Ensure safety",
+                "Refer for forensic and psychological care"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.10",
+          "title": "SEXUALLY TRANSMITTED INFECTIONS (STIs)",
+          "entries": [
+            {
+              "case": "Symptoms of STI",
+              "history": [
+                "Discharge",
+                "Pain",
+                "Itching"
+              ],
+              "examination": [
+                "Inspect genitalia",
+                "Palpate lymph nodes"
+              ],
+              "clinical_judgement": "Probable STI",
+              "action": [
+                "Provide syndromic management",
+                "Refer for confirmatory testing"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.11",
+          "title": "INJURIES, FRACTURES AND BITES",
+          "entries": [
+            {
+              "case": "Trauma case",
+              "history": [
+                "Cause of injury",
+                "Pain and swelling"
+              ],
+              "examination": [
+                "Inspect and palpate affected area"
+              ],
+              "clinical_judgement": "Possible fracture or wound",
+              "action": [
+                "Immobilize",
+                "Clean and dress wounds",
+                "Refer for X-ray or surgery"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.12",
+          "title": "NECK DISORDERS/INJURIES",
+          "entries": [
+            {
+              "case": "Pain or stiffness in neck",
+              "history": [
+                "Recent trauma",
+                "Fever or headache"
+              ],
+              "examination": [
+                "Neck mobility",
+                "Tenderness"
+              ],
+              "clinical_judgement": "Likely sprain or meningitis",
+              "action": [
+                "Immobilize if trauma suspected",
+                "Refer if signs of infection or neurological signs"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "4.13",
+          "title": "EAR, NOSE AND THROAT DISORDERS",
+          "entries": [
+            {
+              "case": "ENT complaints",
+              "history": [
+                "Ear pain",
+                "Nasal congestion",
+                "Sore throat"
+              ],
+              "examination": [
+                "Inspect ear, nose, throat"
+              ],
+              "clinical_judgement": "Likely upper respiratory infection or otitis media",
+              "action": [
+                "Prescribe analgesics or antibiotics",
+                "Refer if recurrent or severe"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 202
+    },
+    {
+      "section": "5",
+      "title": "ADULT HEALTH CONDITIONS",
+      "subsections": [
+        {
+          "code": "5.1",
+          "title": "ADULT FIRST VISIT",
+          "entries": [
+            {
+              "case": "Initial adult consultation",
+              "history": [
+                "Chief complaint",
+                "Medical history",
+                "Family history",
+                "Lifestyle habits"
+              ],
+              "examination": [
+                "Measure BP, pulse, temperature",
+                "Check BMI and conduct general exam"
+              ],
+              "clinical_judgement": "Baseline assessment",
+              "action": [
+                "Document vitals and history",
+                "Advise on lifestyle changes",
+                "Screen for NCDs"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.2",
+          "title": "FEVER",
+          "entries": [
+            {
+              "case": "Adult with fever",
+              "history": [
+                "Duration",
+                "Pattern",
+                "Associated symptoms"
+              ],
+              "examination": [
+                "Temperature",
+                "Signs of infection (e.g. throat, chest, abdomen)"
+              ],
+              "clinical_judgement": "Likely infection",
+              "action": [
+                "Administer antipyretic",
+                "Refer if fever persists >3 days or severe symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.3",
+          "title": "COUGH",
+          "entries": [
+            {
+              "case": "Adult with persistent cough",
+              "history": [
+                "Duration",
+                "Sputum production",
+                "Weight loss",
+                "Chest pain"
+              ],
+              "examination": [
+                "Listen to lungs",
+                "Check for lymphadenopathy"
+              ],
+              "clinical_judgement": "Possible TB, bronchitis, or pneumonia",
+              "action": [
+                "Refer for sputum test or X-ray",
+                "Treat if clear bacterial infection"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.4",
+          "title": "DIFFICULTY IN BREATHING",
+          "entries": [
+            {
+              "case": "Shortness of breath",
+              "history": [
+                "Onset",
+                "Triggers",
+                "Associated chest pain or wheezing"
+              ],
+              "examination": [
+                "Respiratory rate",
+                "Oxygen saturation (if available)",
+                "Auscultate lungs"
+              ],
+              "clinical_judgement": "Possible asthma, COPD or heart failure",
+              "action": [
+                "Administer bronchodilator",
+                "Refer severe cases immediately"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.5",
+          "title": "DIARRHOEA",
+          "entries": [
+            {
+              "case": "Frequent loose stools",
+              "history": [
+                "Duration",
+                "Blood in stool",
+                "Recent food intake"
+              ],
+              "examination": [
+                "Signs of dehydration",
+                "Abdominal tenderness"
+              ],
+              "clinical_judgement": "Likely infectious or dietary cause",
+              "action": [
+                "Provide ORS and zinc",
+                "Refer if blood in stool or severe dehydration"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.6",
+          "title": "VOMITING",
+          "entries": [
+            {
+              "case": "Nausea and vomiting",
+              "history": [
+                "Content of vomit",
+                "Relation to meals",
+                "Fever or headache"
+              ],
+              "examination": [
+                "Hydration status",
+                "Abdominal exam"
+              ],
+              "clinical_judgement": "Possible gastritis or systemic infection",
+              "action": [
+                "Rehydrate",
+                "Refer if persistent or bilious"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.7",
+          "title": "BODY PAIN",
+          "entries": [
+            {
+              "case": "Generalized or localized pain",
+              "history": [
+                "Location",
+                "Duration",
+                "Aggravating factors"
+              ],
+              "examination": [
+                "Inspect and palpate area",
+                "Check for inflammation"
+              ],
+              "clinical_judgement": "Musculoskeletal vs. systemic",
+              "action": [
+                "Administer analgesics",
+                "Refer if persistent or associated with fever"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.8",
+          "title": "CHEST PAIN",
+          "entries": [
+            {
+              "case": "Chest discomfort",
+              "history": [
+                "Duration",
+                "Radiation",
+                "Relation to exertion or food"
+              ],
+              "examination": [
+                "BP, pulse, respiratory rate",
+                "Auscultate heart and lungs"
+              ],
+              "clinical_judgement": "Possible angina, reflux, or musculoskeletal",
+              "action": [
+                "Administer aspirin if suspected cardiac",
+                "Refer immediately for evaluation"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.9",
+          "title": "HEADACHE",
+          "entries": [
+            {
+              "case": "Acute or chronic headache",
+              "history": [
+                "Onset",
+                "Location",
+                "Fever, visual changes, trauma"
+              ],
+              "examination": [
+                "BP",
+                "Neurological signs"
+              ],
+              "clinical_judgement": "Likely tension, migraine, or systemic",
+              "action": [
+                "Provide pain relief",
+                "Refer for persistent or severe cases"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.10",
+          "title": "PALLOR",
+          "entries": [
+            {
+              "case": "Signs of anemia",
+              "history": [
+                "Fatigue",
+                "Dizziness",
+                "Nutritional history"
+              ],
+              "examination": [
+                "Check conjunctiva, palms",
+                "Measure BP"
+              ],
+              "clinical_judgement": "Likely iron deficiency or chronic disease",
+              "action": [
+                "Prescribe iron",
+                "Refer for full blood count"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.11",
+          "title": "WEIGHT LOSS",
+          "entries": [
+            {
+              "case": "Unintentional weight loss",
+              "history": [
+                "Duration",
+                "Appetite changes",
+                "Chronic illness"
+              ],
+              "examination": [
+                "BMI",
+                "Signs of malnutrition or systemic illness"
+              ],
+              "clinical_judgement": "Possible chronic disease (e.g., TB, cancer)",
+              "action": [
+                "Refer for further investigation"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.12",
+          "title": "JAUNDICE",
+          "entries": [
+            {
+              "case": "Yellow skin or eyes",
+              "history": [
+                "Dark urine",
+                "Pale stool",
+                "Abdominal pain"
+              ],
+              "examination": [
+                "Inspect sclera",
+                "Palpate liver"
+              ],
+              "clinical_judgement": "Suspected liver disease",
+              "action": [
+                "Refer for LFTs",
+                "Supportive care"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.13",
+          "title": "SKIN DISORDERS",
+          "entries": [
+            {
+              "case": "Rash or lesions",
+              "history": [
+                "Onset",
+                "Itching",
+                "Spreading pattern"
+              ],
+              "examination": [
+                "Inspect skin",
+                "Check for fever or discharge"
+              ],
+              "clinical_judgement": "Infectious or allergic dermatitis",
+              "action": [
+                "Apply topical treatments",
+                "Refer if extensive"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.14",
+          "title": "OEDEMA",
+          "entries": [
+            {
+              "case": "Swelling of legs/face",
+              "history": [
+                "Onset",
+                "Associated symptoms (e.g., breathlessness)"
+              ],
+              "examination": [
+                "Check for pitting oedema",
+                "Check BP"
+              ],
+              "clinical_judgement": "Cardiac, renal or nutritional cause",
+              "action": [
+                "Refer for kidney/cardiac workup"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.15",
+          "title": "BURNS",
+          "entries": [
+            {
+              "case": "Thermal or chemical burns",
+              "history": [
+                "Cause",
+                "Time of injury"
+              ],
+              "examination": [
+                "Assess extent and depth",
+                "Check for infection"
+              ],
+              "clinical_judgement": "First to third-degree burn",
+              "action": [
+                "Cool burn, dress, refer if extensive"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.16",
+          "title": "WOUNDS, SORES, ULCERS, FRACTURES & BITES",
+          "entries": [
+            {
+              "case": "Injuries and infections",
+              "history": [
+                "Cause, time",
+                "Pain, swelling"
+              ],
+              "examination": [
+                "Inspect for infection",
+                "Check mobility"
+              ],
+              "clinical_judgement": "Traumatic or infected wound",
+              "action": [
+                "Clean and dress",
+                "Refer if complicated"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.17",
+          "title": "HEAD INJURIES",
+          "entries": [
+            {
+              "case": "Trauma to head",
+              "history": [
+                "Loss of consciousness",
+                "Vomiting, seizure"
+              ],
+              "examination": [
+                "GCS score",
+                "Check pupils"
+              ],
+              "clinical_judgement": "Concussion or TBI",
+              "action": [
+                "Stabilize and refer immediately"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.18",
+          "title": "NECK DISORDERS/INJURIES",
+          "entries": [
+            {
+              "case": "Neck pain/swelling",
+              "history": [
+                "Recent trauma",
+                "Infection symptoms"
+              ],
+              "examination": [
+                "Palpate neck",
+                "Check mobility"
+              ],
+              "clinical_judgement": "Musculoskeletal or lymphadenopathy",
+              "action": [
+                "Apply collar if trauma",
+                "Refer if infection suspected"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.19",
+          "title": "EYE DISORDER",
+          "entries": [
+            {
+              "case": "Visual complaints",
+              "history": [
+                "Pain",
+                "Redness",
+                "Discharge"
+              ],
+              "examination": [
+                "Inspect eye",
+                "Visual acuity test"
+              ],
+              "clinical_judgement": "Conjunctivitis or trauma",
+              "action": [
+                "Topical antibiotics",
+                "Refer if vision loss"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.20",
+          "title": "EAR, NOSE AND THROAT DISORDERS",
+          "entries": [
+            {
+              "case": "ENT symptoms",
+              "history": [
+                "Sore throat",
+                "Ear pain",
+                "Nasal blockage"
+              ],
+              "examination": [
+                "Inspect ENT areas",
+                "Check temperature"
+              ],
+              "clinical_judgement": "Likely URTI or otitis media",
+              "action": [
+                "Prescribe analgesics or antibiotics",
+                "Refer if persistent"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.21",
+          "title": "ORAL HEALTH DISORDERS",
+          "entries": [
+            {
+              "case": "Dental or gum issues",
+              "history": [
+                "Pain",
+                "Bleeding",
+                "Swelling"
+              ],
+              "examination": [
+                "Inspect teeth and gums"
+              ],
+              "clinical_judgement": "Dental caries or gingivitis",
+              "action": [
+                "Refer to dental clinic",
+                "Give analgesics"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.22",
+          "title": "RESPIRATORY AND CARDIOVASCULAR DISORDERS",
+          "entries": [
+            {
+              "case": "Shortness of breath, chest pain",
+              "history": [
+                "Cough",
+                "Palpitations",
+                "Swelling"
+              ],
+              "examination": [
+                "Auscultate chest",
+                "Check BP"
+              ],
+              "clinical_judgement": "Heart failure or respiratory disease",
+              "action": [
+                "Start emergency care",
+                "Refer immediately"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.23",
+          "title": "ABNORMAL BLOOD PRESSURE",
+          "entries": [
+            {
+              "case": "High or low BP",
+              "history": [
+                "Headache, dizziness",
+                "Medication use"
+              ],
+              "examination": [
+                "Measure BP"
+              ],
+              "clinical_judgement": "Hypertension or hypotension",
+              "action": [
+                "Lifestyle advice",
+                "Refer for antihypertensives"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.24",
+          "title": "ABDOMINAL DISORDERS",
+          "entries": [
+            {
+              "case": "Abdominal pain or distension",
+              "history": [
+                "Onset, location",
+                "Bowel movement changes"
+              ],
+              "examination": [
+                "Palpate abdomen",
+                "Check for mass or tenderness"
+              ],
+              "clinical_judgement": "Possible appendicitis, gastritis, or hernia",
+              "action": [
+                "Refer for ultrasound/surgery"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.25",
+          "title": "WORM INFESTATION",
+          "entries": [
+            {
+              "case": "Suspected helminth infection",
+              "history": [
+                "Abdominal pain",
+                "Weight loss",
+                "Anal itching"
+              ],
+              "examination": [
+                "Inspect anus",
+                "Check nutritional status"
+              ],
+              "clinical_judgement": "Likely helminthiasis",
+              "action": [
+                "Give albendazole or mebendazole"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.26",
+          "title": "GENITO-URINARY DISORDERS",
+          "entries": [
+            {
+              "case": "Urinary or reproductive complaints",
+              "history": [
+                "Burning micturition",
+                "Discharge",
+                "Lower abdominal pain"
+              ],
+              "examination": [
+                "Palpate abdomen",
+                "Inspect genital area"
+              ],
+              "clinical_judgement": "Possible UTI or STI",
+              "action": [
+                "Antibiotics",
+                "Refer for testing"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.27",
+          "title": "UPPER AND LOWER LIMBS DISORDERS",
+          "entries": [
+            {
+              "case": "Pain or swelling in limbs",
+              "history": [
+                "Injury, fever",
+                "Redness or numbness"
+              ],
+              "examination": [
+                "Inspect and palpate",
+                "Assess movement"
+              ],
+              "clinical_judgement": "Injury or infection",
+              "action": [
+                "Support limb",
+                "Refer if fracture suspected"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.28",
+          "title": "MENTAL HEALTH DISORDERS",
+          "entries": [
+            {
+              "case": "Behavioral or emotional changes",
+              "history": [
+                "Mood swings",
+                "Hallucinations",
+                "Suicidal thoughts"
+              ],
+              "examination": [
+                "Mental status"
+              ],
+              "clinical_judgement": "Likely depression, psychosis or anxiety",
+              "action": [
+                "Refer for psychiatric care"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.29",
+          "title": "POISONING",
+          "entries": [
+            {
+              "case": "Ingestion of toxic substance",
+              "history": [
+                "Substance taken",
+                "Time",
+                "Symptoms"
+              ],
+              "examination": [
+                "Vitals",
+                "Check consciousness"
+              ],
+              "clinical_judgement": "Acute poisoning",
+              "action": [
+                "Refer urgently",
+                "Start emergency resuscitation"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.30",
+          "title": "MANAGEMENT OF HIV/AIDS PATIENTS",
+          "entries": [
+            {
+              "case": "Confirmed HIV positive",
+              "history": [
+                "ART status",
+                "Symptoms of opportunistic infections"
+              ],
+              "examination": [
+                "Weight",
+                "Oral exam",
+                "Skin lesions"
+              ],
+              "clinical_judgement": "Stable or complicated HIV",
+              "action": [
+                "Ensure ART adherence",
+                "Refer complicated cases"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.31",
+          "title": "STI/RTI (FEMALE)",
+          "entries": [
+            {
+              "case": "Female with genital symptoms",
+              "history": [
+                "Discharge",
+                "Itching",
+                "Painful urination"
+              ],
+              "examination": [
+                "Inspect vulva and cervix",
+                "Check for sores or discharge"
+              ],
+              "clinical_judgement": "Syndromic STI",
+              "action": [
+                "Treat per protocol",
+                "Refer if not resolved"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "5.32",
+          "title": "STI/RTI (MALE)",
+          "entries": [
+            {
+              "case": "Male with genital complaints",
+              "history": [
+                "Urethral discharge",
+                "Dysuria",
+                "Painful swelling"
+              ],
+              "examination": [
+                "Inspect penis and scrotum"
+              ],
+              "clinical_judgement": "Syndromic STI",
+              "action": [
+                "Treat syndromically",
+                "Refer complicated cases"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 240
+    },
+    {
+      "section": "6",
+      "title": "MATERNAL HEALTH",
+      "subsections": [
+        {
+          "code": "6.1",
+          "title": "PRENATAL (ANTENATAL) CARE",
+          "entries": [
+            {
+              "case": "Routine antenatal care visit",
+              "history": [
+                "Last menstrual period",
+                "Obstetric history",
+                "Medical/surgical history"
+              ],
+              "examination": [
+                "Check blood pressure, weight, height",
+                "Abdominal examination for fetal growth and lie",
+                "Test urine for protein and sugar"
+              ],
+              "clinical_judgement": "Routine or high-risk pregnancy",
+              "action": [
+                "Administer routine ANC medications (iron, folic acid, IPTp)",
+                "Counsel on danger signs",
+                "Schedule next visit or refer if high-risk"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "6.2",
+          "title": "MATERNAL HEALTH (LABOUR AND DELIVERY)",
+          "entries": [
+            {
+              "case": "Woman in labour",
+              "history": [
+                "Onset and duration of labour",
+                "Parity",
+                "Rupture of membranes"
+              ],
+              "examination": [
+                "Check cervical dilation",
+                "Monitor fetal heart rate",
+                "Assess contractions and vital signs"
+              ],
+              "clinical_judgement": "Normal or obstructed labour",
+              "action": [
+                "Conduct clean and safe delivery",
+                "Refer obstructed or prolonged labour",
+                "Manage third stage actively"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "6.3",
+          "title": "POSTNATAL DISORDERS",
+          "entries": [
+            {
+              "case": "Postpartum care",
+              "history": [
+                "Bleeding",
+                "Fever",
+                "Breastfeeding challenges"
+              ],
+              "examination": [
+                "Check lochia, uterine involution",
+                "Assess perineum and breasts"
+              ],
+              "clinical_judgement": "Normal recovery or postpartum complication",
+              "action": [
+                "Support breastfeeding",
+                "Treat infections or bleeding early",
+                "Refer if severe"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "6.4",
+          "title": "FAMILY PLANNING",
+          "entries": [
+            {
+              "case": "Request for contraception",
+              "history": [
+                "Desire for spacing or limiting",
+                "Menstrual history",
+                "Medical history"
+              ],
+              "examination": [
+                "BP, breast exam, abdominal exam"
+              ],
+              "clinical_judgement": "Candidate for contraception",
+              "action": [
+                "Provide preferred and safe contraceptive",
+                "Educate on use and side effects",
+                "Schedule follow-up"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "6.5",
+          "title": "INFERTILITY",
+          "entries": [
+            {
+              "case": "Woman or couple with infertility concerns",
+              "history": [
+                "Duration of infertility",
+                "Menstrual regularity",
+                "Sexual and obstetric history"
+              ],
+              "examination": [
+                "Pelvic exam",
+                "Check for signs of hormonal imbalance"
+              ],
+              "clinical_judgement": "Possible primary or secondary infertility",
+              "action": [
+                "Refer for fertility evaluation and counseling",
+                "Treat identifiable causes where possible"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "6.6",
+          "title": "PRE-MENOPAUSE",
+          "entries": [
+            {
+              "case": "Perimenopausal symptoms",
+              "history": [
+                "Irregular menses",
+                "Hot flashes",
+                "Mood changes"
+              ],
+              "examination": [
+                "General and pelvic examination"
+              ],
+              "clinical_judgement": "Transition to menopause",
+              "action": [
+                "Provide reassurance and symptom relief",
+                "Refer if abnormal bleeding or other complications"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 296
+    },
+    {
+      "section": "7",
+      "title": "GERIATRIC HEALTH",
+      "subsections": [
+        {
+          "code": "7.1",
+          "title": "MUSCULO-SKELETAL SYSTEM DISORDERS",
+          "entries": [
+            {
+              "case": "Elderly with joint/muscle pain",
+              "history": [
+                "Onset, duration of pain",
+                "Difficulty walking or stiffness"
+              ],
+              "examination": [
+                "Joint inspection",
+                "Range of motion",
+                "Muscle strength"
+              ],
+              "clinical_judgement": "Osteoarthritis or degenerative disorder",
+              "action": [
+                "Prescribe analgesics",
+                "Advise physical activity",
+                "Refer if disabling"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "7.2",
+          "title": "CARDIOVASCULAR SYSTEM DISORDERS",
+          "entries": [
+            {
+              "case": "Elderly with chest pain, palpitations",
+              "history": [
+                "Onset, severity, relation to exertion",
+                "Past heart disease"
+              ],
+              "examination": [
+                "Check pulse, BP",
+                "Auscultate heart"
+              ],
+              "clinical_judgement": "Possible heart failure or ischemic disease",
+              "action": [
+                "Refer for ECG and further assessment",
+                "Start supportive care"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "7.3",
+          "title": "GENITO-URINARY DISORDERS",
+          "entries": [
+            {
+              "case": "Urinary symptoms in the elderly",
+              "history": [
+                "Frequency",
+                "Dysuria",
+                "Incontinence"
+              ],
+              "examination": [
+                "Palpate bladder",
+                "Inspect genitalia"
+              ],
+              "clinical_judgement": "UTI or prostate issues",
+              "action": [
+                "Treat UTI or refer male with suspected BPH"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "7.4",
+          "title": "GASTROINTESTINAL DISORDERS",
+          "entries": [
+            {
+              "case": "Indigestion, constipation or diarrhea",
+              "history": [
+                "Dietary habits",
+                "Use of medications",
+                "Abdominal pain"
+              ],
+              "examination": [
+                "Inspect and palpate abdomen"
+              ],
+              "clinical_judgement": "Likely age-related digestive issue or pathology",
+              "action": [
+                "Adjust diet and hydration",
+                "Refer if persistent or alarming signs"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "7.5",
+          "title": "SPECIFIC PROBLEMS OF THE ELDERLY",
+          "entries": [
+            {
+              "case": "Multiple health concerns",
+              "history": [
+                "Mobility, hearing, vision, cognition"
+              ],
+              "examination": [
+                "Functional assessment",
+                "Gait and balance check"
+              ],
+              "clinical_judgement": "Frailty or geriatric syndrome",
+              "action": [
+                "Create care plan",
+                "Refer for multidisciplinary support"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "7.6",
+          "title": "MENTAL DISORDERS",
+          "entries": [
+            {
+              "case": "Confusion, memory loss, depression",
+              "history": [
+                "Forgetfulness, hallucinations, social withdrawal"
+              ],
+              "examination": [
+                "Mini mental status exam"
+              ],
+              "clinical_judgement": "Likely dementia or depression",
+              "action": [
+                "Refer for psychiatric or neurologic evaluation"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "7.7",
+          "title": "ORAL DISORDERS",
+          "entries": [
+            {
+              "case": "Dental pain or mouth sores",
+              "history": [
+                "Difficulty chewing, dry mouth",
+                "Dental hygiene"
+              ],
+              "examination": [
+                "Inspect teeth, gums, tongue"
+              ],
+              "clinical_judgement": "Dental caries, gingivitis or fungal infection",
+              "action": [
+                "Treat oral thrush",
+                "Refer to dentist"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 326
+    },
+    {
+      "section": "8",
+      "title": "HEALTHCARE FACILITY MANAGEMENT",
+      "subsections": [
+        {
+          "code": "8.1",
+          "title": "HEALTHCARE FACILITY MANAGEMENT",
+          "entries": [
+            {
+              "case": "Introduction to facility management",
+              "history": [],
+              "examination": [],
+              "clinical_judgement": "Understand core functions and principles",
+              "action": [
+                "Implement principles of planning, organizing, leading, and controlling",
+                "Develop clear organograms and job descriptions"
+              ]
+            },
+            {
+              "case": "Leadership in PHC",
+              "history": [],
+              "examination": [],
+              "clinical_judgement": "Effective leadership is essential for service delivery",
+              "action": [
+                "Promote teamwork and staff motivation",
+                "Lead by example and build trust among healthcare workers"
+              ]
+            },
+            {
+              "case": "Human Resources for Health (HRH)",
+              "history": [],
+              "examination": [],
+              "clinical_judgement": "HRH is key to effective PHC",
+              "action": [
+                "Monitor staffing levels and roles",
+                "Conduct staff appraisals and manage conflict"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "8.2",
+          "title": "FINANCIAL MANAGEMENT IN PHC",
+          "entries": [
+            {
+              "case": "Budgeting and cost estimation",
+              "history": [],
+              "examination": [],
+              "clinical_judgement": "Plan for adequate resource allocation",
+              "action": [
+                "Prepare monthly expenditure reports",
+                "Maintain proper financial records and reports"
+              ]
+            },
+            {
+              "case": "Financial accountability",
+              "history": [],
+              "examination": [],
+              "clinical_judgement": "Ensure transparency in fund use",
+              "action": [
+                "Use banking and reconciliation systems",
+                "Track income, expenses, and budgets"
+              ]
+            }
+          ]
+        },
+        {
+          "code": "8.3",
+          "title": "HEALTH INFORMATION SYSTEM (HIS)",
+          "entries": [
+            {
+              "case": "Establishing HIS in PHCs",
+              "history": [],
+              "examination": [],
+              "clinical_judgement": "Efficient data management improves service delivery",
+              "action": [
+                "Train staff on data collection tools (e.g., NHMIS)",
+                "Ensure timely and accurate reporting",
+                "Use data for planning and decision-making"
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "CHEW",
+      "page_start": 342
+    }
+  ]
+}

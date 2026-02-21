@@ -1,0 +1,238 @@
+{
+  "section": "3",
+  "title": "MIDDLE CHILDHOOD CONDITIONS",
+  "subsections": [
+    {
+      "code": "3.1",
+      "title": "CHILD\u2019S FIRST VISIT",
+      "entries": [
+        {
+          "case": "Routine Initial Visit",
+          "history": [
+            "Ask about birth and immunization history",
+            "Schooling",
+            "Dietary habits"
+          ],
+          "examination": [
+            "Measure height, weight, BMI",
+            "Inspect skin, eyes, oral cavity",
+            "Evaluate mental alertness"
+          ],
+          "clinical_judgement": "Baseline health assessment",
+          "action": [
+            "Update immunizations",
+            "Offer health education",
+            "Record findings in health register"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.2",
+      "title": "FEVER",
+      "entries": [
+        {
+          "case": "Febrile child",
+          "history": [
+            "Ask about duration and pattern",
+            "Associated symptoms",
+            "Exposure to illness"
+          ],
+          "examination": [
+            "Check temperature",
+            "Assess for rash, throat inflammation, ear signs"
+          ],
+          "clinical_judgement": "Likely viral or bacterial infection",
+          "action": [
+            "Give paracetamol for fever",
+            "Refer if fever >3 days or with convulsions",
+            "Encourage fluid intake"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.3",
+      "title": "CONVULSION",
+      "entries": [
+        {
+          "case": "Seizure episode",
+          "history": [
+            "Duration",
+            "History of epilepsy or trauma",
+            "Recent illness or fever"
+          ],
+          "examination": [
+            "Level of consciousness",
+            "Signs of trauma or infection"
+          ],
+          "clinical_judgement": "Febrile or afebrile seizure",
+          "action": [
+            "Ensure airway and safety",
+            "Cool if febrile",
+            "Refer for further evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.4",
+      "title": "COUGH",
+      "entries": [
+        {
+          "case": "Persistent cough",
+          "history": [
+            "Duration and type of cough",
+            "Sputum presence",
+            "Chest pain"
+          ],
+          "examination": [
+            "Listen to chest sounds",
+            "Check respiratory rate"
+          ],
+          "clinical_judgement": "Possible infection or asthma",
+          "action": [
+            "Treat with antibiotics if pneumonia suspected",
+            "Refer if wheezing or chronic symptoms"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.5",
+      "title": "DIARRHOEA",
+      "entries": [
+        {
+          "case": "Child with loose stools",
+          "history": [
+            "Frequency and duration",
+            "Presence of blood",
+            "Hydration status"
+          ],
+          "examination": [
+            "Signs of dehydration",
+            "General appearance"
+          ],
+          "clinical_judgement": "Acute gastroenteritis",
+          "action": [
+            "Give ORS and zinc",
+            "Refer if severely dehydrated"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.6",
+      "title": "VOMITING",
+      "entries": [
+        {
+          "case": "Repeated vomiting",
+          "history": [
+            "Content of vomit",
+            "Timing with meals",
+            "Associated abdominal pain"
+          ],
+          "examination": [
+            "Check hydration and abdomen"
+          ],
+          "clinical_judgement": "Possible gastritis or obstruction",
+          "action": [
+            "Administer antiemetics if needed",
+            "Refer if bilious or blood-stained"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.7",
+      "title": "HEADACHE",
+      "entries": [
+        {
+          "case": "Child complains of headache",
+          "history": [
+            "Duration and location",
+            "Associated fever, vision issues, or stress"
+          ],
+          "examination": [
+            "Check temperature",
+            "Neurological exam"
+          ],
+          "clinical_judgement": "Likely tension headache or febrile illness",
+          "action": [
+            "Reassure and hydrate",
+            "Treat underlying condition",
+            "Refer persistent or severe cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.8",
+      "title": "PALLOR",
+      "entries": [
+        {
+          "case": "Pale child",
+          "history": [
+            "Appetite, energy level",
+            "Diet",
+            "Bleeding history"
+          ],
+          "examination": [
+            "Check conjunctiva and palms"
+          ],
+          "clinical_judgement": "Mild to moderate anemia",
+          "action": [
+            "Prescribe iron",
+            "Nutrition advice",
+            "Refer if no improvement"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.9",
+      "title": "YELLOWISH EYES (JAUNDICE)",
+      "entries": [
+        {
+          "case": "Yellow eyes or skin",
+          "history": [
+            "Fever, urine color, abdominal pain"
+          ],
+          "examination": [
+            "Check sclera, palms, liver size"
+          ],
+          "clinical_judgement": "Possible hepatitis or hemolytic disease",
+          "action": [
+            "Refer for LFT and diagnosis",
+            "Supportive care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "3.10",
+      "title": "NUTRITIONAL DISORDERS",
+      "entries": [
+        {
+          "case": "Growth faltering or obesity",
+          "history": [
+            "Diet pattern",
+            "Appetite",
+            "Activity level"
+          ],
+          "examination": [
+            "Check weight, height, MUAC"
+          ],
+          "clinical_judgement": "Undernutrition or overnutrition",
+          "action": [
+            "Nutritional counseling",
+            "Enroll in feeding program",
+            "Refer as needed"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 136
+}

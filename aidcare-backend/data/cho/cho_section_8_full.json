@@ -1,0 +1,80 @@
+{
+  "section": "8",
+  "title": "HEALTHCARE FACILITY MANAGEMENT",
+  "subsections": [
+    {
+      "code": "8.1",
+      "title": "HEALTHCARE FACILITY MANAGEMENT",
+      "entries": [
+        {
+          "case": "Managing PHC services",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Need for leadership and organized services",
+          "action": [
+            "Establish functional organogram",
+            "Define clear job descriptions",
+            "Apply principles of planning, organizing, leading, and controlling"
+          ]
+        },
+        {
+          "case": "Leadership roles",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Effective leadership improves staff performance",
+          "action": [
+            "Motivate health workers",
+            "Lead by example",
+            "Build team culture"
+          ]
+        },
+        {
+          "case": "Human Resources for Health (HRH)",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Critical to healthcare delivery",
+          "action": [
+            "Ensure equitable distribution",
+            "Appraise and supervise staff regularly"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "8.2",
+      "title": "FINANCIAL MANAGEMENT IN PHC",
+      "entries": [
+        {
+          "case": "Budgeting and expenditure tracking",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Effective fund management is essential",
+          "action": [
+            "Maintain financial records",
+            "Prepare budgets and expenditure reports",
+            "Ensure accountability and transparency"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "8.3",
+      "title": "HEALTH INFORMATION SYSTEM (HIS)",
+      "entries": [
+        {
+          "case": "PHC data collection and reporting",
+          "history": [],
+          "examination": [],
+          "clinical_judgement": "Reliable data is key to decision-making",
+          "action": [
+            "Train staff on NHMIS tools",
+            "Submit timely reports",
+            "Use data for planning and performance improvement"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHO",
+  "page_start": 342
+}

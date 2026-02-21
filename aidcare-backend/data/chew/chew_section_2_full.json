@@ -1,0 +1,264 @@
+{
+  "section": "2",
+  "title": "CHILDHOOD CONDITIONS",
+  "subsections": [
+    {
+      "code": "2.1",
+      "title": "CHILD\u2019S FIRST VISIT",
+      "entries": [
+        {
+          "case": "Routine Evaluation",
+          "history": [
+            "Ask for birth history",
+            "Ask about feeding and immunization"
+          ],
+          "examination": [
+            "Check weight, height, head circumference",
+            "Inspect eyes, ears, mouth",
+            "Assess motor development"
+          ],
+          "clinical_judgement": "Initial health assessment",
+          "action": [
+            "Record baseline growth data",
+            "Initiate vaccination if due",
+            "Provide nutrition counseling"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.2",
+      "title": "HEALTHY CHILD",
+      "entries": [
+        {
+          "case": "Well Child Visit",
+          "history": [
+            "Ask about feeding habits",
+            "Inquire about sleep patterns",
+            "Check immunization history",
+            "Ask about recent illnesses or hospital visits"
+          ],
+          "examination": [
+            "General physical exam",
+            "Review growth chart",
+            "Check milestone achievement"
+          ],
+          "clinical_judgement": "No complaints, normal development",
+          "action": [
+            "Reassure caregiver",
+            "Encourage continued breastfeeding or proper diet",
+            "Schedule routine follow-up"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.3",
+      "title": "FEVER",
+      "entries": [
+        {
+          "case": "Child with fever",
+          "history": [
+            "Duration and pattern",
+            "Recent exposures",
+            "Associated symptoms"
+          ],
+          "examination": [
+            "Measure temperature",
+            "Check for rash, sore throat, ear discharge"
+          ],
+          "clinical_judgement": "Suspected infection or malaria",
+          "action": [
+            "Treat presumptive malaria if endemic area",
+            "Refer if fever persists > 3 days or danger signs present"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.4",
+      "title": "CONVULSION",
+      "entries": [
+        {
+          "case": "Child with convulsion",
+          "history": [
+            "Ask if febrile",
+            "Previous episodes",
+            "Duration"
+          ],
+          "examination": [
+            "Check for neck stiffness",
+            "Level of consciousness"
+          ],
+          "clinical_judgement": "Febrile or afebrile seizure",
+          "action": [
+            "Stabilize airway, breathing",
+            "Treat fever if present",
+            "Refer immediately for further evaluation"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.5",
+      "title": "COUGH/DIFFICULT BREATHING",
+      "entries": [
+        {
+          "case": "Suspected respiratory illness",
+          "history": [
+            "Duration of cough",
+            "Difficulty breathing",
+            "Noisy breathing"
+          ],
+          "examination": [
+            "Listen for wheeze or crackles",
+            "Count respiratory rate"
+          ],
+          "clinical_judgement": "Possible pneumonia, asthma, or bronchitis",
+          "action": [
+            "Provide antibiotics if pneumonia suspected",
+            "Refer severe cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.6",
+      "title": "DIARRHOEA",
+      "entries": [
+        {
+          "case": "Child with frequent loose stools",
+          "history": [
+            "Duration",
+            "Presence of blood",
+            "Feeding and hydration"
+          ],
+          "examination": [
+            "Assess dehydration",
+            "Check general condition"
+          ],
+          "clinical_judgement": "Mild to severe diarrhoea",
+          "action": [
+            "Give ORS and zinc",
+            "Refer if severely dehydrated"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.7",
+      "title": "VOMITING",
+      "entries": [
+        {
+          "case": "Recurrent vomiting",
+          "history": [
+            "Frequency",
+            "Relation to feeding",
+            "Bilious or blood-stained"
+          ],
+          "examination": [
+            "Check hydration",
+            "Abdominal tenderness"
+          ],
+          "clinical_judgement": "Likely gastroenteritis or obstruction",
+          "action": [
+            "Give fluids",
+            "Refer if persistent or bilious"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.8",
+      "title": "PALLOR",
+      "entries": [
+        {
+          "case": "Suspected anemia",
+          "history": [
+            "Fatigue",
+            "Diet",
+            "History of malaria"
+          ],
+          "examination": [
+            "Check conjunctiva and palms"
+          ],
+          "clinical_judgement": "Mild to moderate anemia",
+          "action": [
+            "Give iron supplements",
+            "Refer severe cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.9",
+      "title": "JAUNDICE",
+      "entries": [
+        {
+          "case": "Yellow eyes or skin",
+          "history": [
+            "Onset",
+            "Associated fever or urine color"
+          ],
+          "examination": [
+            "Check palms, sclera, abdomen"
+          ],
+          "clinical_judgement": "Likely hepatitis or hemolysis",
+          "action": [
+            "Refer for liver function tests",
+            "Supportive care"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.10",
+      "title": "MALNUTRITION",
+      "entries": [
+        {
+          "case": "Underweight child",
+          "history": [
+            "Diet",
+            "Feeding frequency",
+            "Illness"
+          ],
+          "examination": [
+            "Check weight-for-age",
+            "Look for edema"
+          ],
+          "clinical_judgement": "Moderate or severe malnutrition",
+          "action": [
+            "Enroll in nutrition program",
+            "Refer SAM cases"
+          ]
+        }
+      ]
+    },
+    {
+      "code": "2.11",
+      "title": "HIV/AIDS",
+      "entries": [
+        {
+          "case": "HIV-exposed or symptomatic child",
+          "history": [
+            "Maternal status",
+            "Frequent infections",
+            "Weight loss"
+          ],
+          "examination": [
+            "Growth monitoring",
+            "Oral thrush",
+            "Lymphadenopathy"
+          ],
+          "clinical_judgement": "Suspected pediatric HIV",
+          "action": [
+            "Refer for confirmatory testing",
+            "Initiate ART if confirmed"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": "CHEW",
+  "page_start": 48
+}
