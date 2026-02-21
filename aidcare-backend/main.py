@@ -1692,9 +1692,6 @@ async def tts_generate(tts_request: TTSRequest):
     Keeps API keys server-side. Returns raw audio/mpeg binary.
     """
     is_yoruba = tts_request.language == 'yo'
-    print(f"[TTS] language={tts_request.language!r}  is_yoruba={is_yoruba}  text_len={len(tts_request.text or '')}")
-    print(f"[TTS] YARNGPT_API_KEY set: {bool(os.environ.get('YARNGPT_API_KEY'))}")
-    print(f"[TTS] ELEVENLABS_API_KEY set: {bool(os.environ.get('ELEVENLABS_API_KEY'))}")
 
     if is_yoruba:
         if not os.environ.get("YARNGPT_API_KEY"):
@@ -1719,8 +1716,6 @@ async def tts_generate(tts_request: TTSRequest):
             effective_voice_id = None
         else:
             effective_voice_id = tts_request.voice_id if tts_request.voice_id else get_voice_id(tts_request.language)
-        print(f"[TTS] effective_voice_id={effective_voice_id!r}")
-
         audio_bytes = await generate_speech(
             text=tts_request.text,
             language=tts_request.language,
@@ -1737,11 +1732,9 @@ async def tts_generate(tts_request: TTSRequest):
         )
 
     except ValueError as e:
-        print(f"[TTS] ValueError: {e}")
         raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
         import traceback
-        print(f"[TTS] Unexpected error: {e}")
         traceback.print_exc()
         # Return 503 so frontend can gracefully fall back (show text only)
         raise HTTPException(status_code=503, detail=f"TTS generation failed: {str(e)}")
