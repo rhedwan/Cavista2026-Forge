@@ -43,6 +43,12 @@ def migrate():
         if not column_exists(conn, "copilot_doctors", "role"):
             print("Adding column: role")
             conn.execute(text("ALTER TABLE copilot_doctors ADD COLUMN role VARCHAR(50) DEFAULT 'doctor' NOT NULL"))
+        if not column_exists(conn, "copilot_shifts", "ward_id"):
+            print("Adding column: copilot_shifts.ward_id")
+            conn.execute(text("ALTER TABLE copilot_shifts ADD COLUMN ward_id INTEGER"))
+        if not column_exists(conn, "copilot_consultations", "patient_id"):
+            print("Adding column: copilot_consultations.patient_id")
+            conn.execute(text("ALTER TABLE copilot_consultations ADD COLUMN patient_id INTEGER"))
     print("Migration complete.")
 
 if __name__ == "__main__":

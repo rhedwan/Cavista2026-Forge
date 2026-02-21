@@ -1,4 +1,5 @@
 # routers/auth.py
+import traceback
 import uuid
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, EmailStr
@@ -36,42 +37,60 @@ class TokenResponse(BaseModel):
 
 
 def _serialize_user(doctor: models.Doctor) -> dict:
+    try:
+        hospital = doctor.hospital
+    except Exception:
+        hospital = None
+    try:
+        ward = doctor.ward_rel
+    except Exception:
+        ward = None
+    org = hospital.organization if hospital else None
     return {
         "doctor_id": doctor.doctor_uuid,
         "email": doctor.email,
         "name": doctor.full_name,
         "specialty": doctor.specialty or "",
         "role": doctor.role,
-        "hospital_id": doctor.hospital.hospital_uuid if doctor.hospital else None,
-        "hospital_name": doctor.hospital.name if doctor.hospital else None,
-        "ward_id": doctor.ward_rel.ward_uuid if doctor.ward_rel else None,
-        "ward_name": doctor.ward_rel.name if doctor.ward_rel else None,
-        "org_id": doctor.hospital.organization.org_uuid if doctor.hospital and doctor.hospital.organization else None,
-        "org_name": doctor.hospital.organization.name if doctor.hospital and doctor.hospital.organization else None,
+        "hospital_id": hospital.hospital_uuid if hospital else None,
+        "hospital_name": hospital.name if hospital else None,
+        "ward_id": ward.ward_uuid if ward else None,
+        "ward_name": ward.name if ward else None,
+        "org_id": org.org_uuid if org else None,
+        "org_name": org.name if org else None,
     }
 
 
 @router.post("/register", response_model=TokenResponse)
 def register(payload: RegisterRequest, db: Session = Depends(get_db)):
-    existing = db.query(models.Doctor).filter(models.Doctor.email == payload.email).first()
-    if existing:
-        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Email already registered")
+    try:
+        existing = db.query(models.Doctor).filter(models.Doctor.email == payload.email).first()
+        if existing:
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Email already registered")
 
-    doctor = models.Doctor(
-        doctor_uuid=str(uuid.uuid4()),
-        email=payload.email,
-        password_hash=hash_password(payload.password),
-        full_name=payload.full_name,
-        specialty=payload.specialty,
-        role=payload.role,
-        is_active=True,
-    )
-    db.add(doctor)
-    db.commit()
-    db.refresh(doctor)
+        doctor = models.Doctor(
+            doctor_uuid=str(uuid.uuid4()),
+            email=payload.email,
+            password_hash=hash_password(payload.password),
+            full_name=payload.full_name,
+            specialty=payload.specialty,
+            role=payload.role,
+            is_active=True,
+        )
+        db.add(doctor)
+        db.commit()
+        db.refresh(doctor)
 
-    token = create_access_token(data={"sub": doctor.doctor_uuid})
-    return TokenResponse(access_token=token, user=_serialize_user(doctor))
+        token = create_access_token(data={"sub": doctor.doctor_uuid})
+        return TokenResponse(access_token=token, user=_serialize_user(doctor))
+    except HTTPException:
+        raise
+    except Exception as e:
+        traceback.print_exc()
+        msg = str(e)
+        if "UndefinedColumn" in msg or "does not exist" in msg.lower() or "ProgrammingError" in type(e).__name__:
+            msg = "Database schema needs updating. Please contact support or run migrations."
+        raise HTTPException(status_code=500, detail=msg)
 
 
 @router.post("/login", response_model=TokenResponse)

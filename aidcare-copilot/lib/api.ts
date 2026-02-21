@@ -30,8 +30,14 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${API}${path}`, { ...init, headers });
   if (res.status === 401) {
     clearSession();
-    if (typeof window !== 'undefined') window.location.href = '/login';
-    throw new ApiError(401, 'Session expired');
+    const text = await res.text().catch(() => '');
+    let detail = 'Session expired';
+    try { detail = JSON.parse(text).detail || detail; } catch {}
+    // Don't redirect on login/register 401 — show error. Redirect only for session expired.
+    if (typeof window !== 'undefined' && !path.includes('/auth/login') && !path.includes('/auth/register')) {
+      window.location.href = '/login';
+    }
+    throw new ApiError(401, detail);
   }
   if (!res.ok) {
     const text = await res.text().catch(() => res.statusText);
@@ -50,8 +56,13 @@ async function apiForm<T>(path: string, formData: FormData): Promise<T> {
   });
   if (res.status === 401) {
     clearSession();
-    if (typeof window !== 'undefined') window.location.href = '/login';
-    throw new ApiError(401, 'Session expired');
+    const text = await res.text().catch(() => '');
+    let detail = 'Session expired';
+    try { detail = JSON.parse(text).detail || detail; } catch {}
+    if (typeof window !== 'undefined' && !path.includes('/auth/login') && !path.includes('/auth/register')) {
+      window.location.href = '/login';
+    }
+    throw new ApiError(401, detail);
   }
   if (!res.ok) {
     const text = await res.text().catch(() => res.statusText);
