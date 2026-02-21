@@ -43,7 +43,7 @@ async def generate_speech(
 
 
 async def _yarngpt_generate(text: str, voice: str) -> bytes:
-    """Call YarnGPT TTS and return raw audio bytes."""
+    """Call YarnGPT TTS and return raw audio bytes (streamed)."""
     api_key = os.environ.get("YARNGPT_API_KEY")
     if not api_key:
         raise ValueError("YARNGPT_API_KEY environment variable is not set")
@@ -52,7 +52,6 @@ async def _yarngpt_generate(text: str, voice: str) -> bytes:
 
     headers = {
         "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
     }
     payload = {
         "text": truncated_text,
@@ -60,27 +59,17 @@ async def _yarngpt_generate(text: str, voice: str) -> bytes:
     }
 
     async with httpx.AsyncClient(timeout=60.0) as client:
-        response = await client.post(YARNGPT_API_URL, headers=headers, json=payload)
+        async with client.stream("POST", YARNGPT_API_URL, headers=headers, json=payload) as response:
+            if not response.is_success:
+                error_body = await response.aread()
+                raise ValueError(
+                    f"YarnGPT API error {response.status_code}: {error_body.decode(errors='replace')}"
+                )
 
-        if not response.is_success:
-            error_body = response.text
-            raise ValueError(
-                f"YarnGPT API error {response.status_code}: {error_body}"
-            )
-
-        content_type = response.headers.get("content-type", "")
-
-        # Some TTS APIs return JSON with an audio URL instead of raw bytes
-        if "application/json" in content_type:
-            data = response.json()
-            audio_url = data.get("audio_url") or data.get("url") or data.get("audio")
-            if not audio_url:
-                raise ValueError(f"YarnGPT returned JSON but no audio URL: {data}")
-            audio_response = await client.get(audio_url)
-            audio_response.raise_for_status()
-            return audio_response.content
-
-        return response.content
+            chunks = []
+            async for chunk in response.aiter_bytes(chunk_size=8192):
+                chunks.append(chunk)
+            return b"".join(chunks)
 
 
 async def _elevenlabs_generate(

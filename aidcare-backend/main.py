@@ -1688,21 +1688,38 @@ async def copilot_tts_generate(tts_request: TTSRequest):
 @app.post("/tts/generate/")
 async def tts_generate(tts_request: TTSRequest):
     """
-    ElevenLabs TTS proxy endpoint. Keeps the API key server-side.
-    Returns raw audio/mpeg binary.
+    TTS proxy endpoint. Yoruba uses YarnGPT; all other languages use ElevenLabs.
+    Keeps API keys server-side. Returns raw audio/mpeg binary.
     """
-    if not os.environ.get("ELEVENLABS_API_KEY"):
-        raise HTTPException(
-            status_code=503,
-            detail="TTS service is not configured. Please set ELEVENLABS_API_KEY."
-        )
+    is_yoruba = tts_request.language == 'yo'
+    print(f"[TTS] language={tts_request.language!r}  is_yoruba={is_yoruba}  text_len={len(tts_request.text or '')}")
+    print(f"[TTS] YARNGPT_API_KEY set: {bool(os.environ.get('YARNGPT_API_KEY'))}")
+    print(f"[TTS] ELEVENLABS_API_KEY set: {bool(os.environ.get('ELEVENLABS_API_KEY'))}")
+
+    if is_yoruba:
+        if not os.environ.get("YARNGPT_API_KEY"):
+            raise HTTPException(
+                status_code=503,
+                detail="Yoruba TTS is not configured. Please set YARNGPT_API_KEY."
+            )
+    else:
+        if not os.environ.get("ELEVENLABS_API_KEY"):
+            raise HTTPException(
+                status_code=503,
+                detail="TTS service is not configured. Please set ELEVENLABS_API_KEY."
+            )
 
     if not tts_request.text or not tts_request.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty.")
 
     try:
-        # Use provided voice_id or look up by language
-        effective_voice_id = tts_request.voice_id if tts_request.voice_id else get_voice_id(tts_request.language)
+        if is_yoruba:
+            # Always ignore voice_id for Yoruba — YarnGPT uses its own voice names,
+            # not ElevenLabs IDs. The service will use YARNGPT_VOICE_YO from .env.
+            effective_voice_id = None
+        else:
+            effective_voice_id = tts_request.voice_id if tts_request.voice_id else get_voice_id(tts_request.language)
+        print(f"[TTS] effective_voice_id={effective_voice_id!r}")
 
         audio_bytes = await generate_speech(
             text=tts_request.text,
@@ -1720,9 +1737,11 @@ async def tts_generate(tts_request: TTSRequest):
         )
 
     except ValueError as e:
+        print(f"[TTS] ValueError: {e}")
         raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
         import traceback
+        print(f"[TTS] Unexpected error: {e}")
         traceback.print_exc()
         # Return 503 so frontend can gracefully fall back (show text only)
         raise HTTPException(status_code=503, detail=f"TTS generation failed: {str(e)}")
