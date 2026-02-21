@@ -31,8 +31,4 @@ RUN pip install --upgrade pip && \
 # --- App Source ---
 COPY . .
 
-# --- Explicitly ensure FAISS knowledge bases are present ---
-COPY data/kb_chw/ ./data/kb_chw/
-COPY data/kb_clinical/ ./data/kb_clinical/
-
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
