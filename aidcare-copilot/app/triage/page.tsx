@@ -132,7 +132,7 @@ export default function TriagePage() {
     });
     try {
       const res = await triageProcessAudio(blob, lang, staffNotes);
-      if (res.transcript) setMsgs(prev => [...prev, { role: 'patient', content: res.transcript }]);
+      if (res.transcript) setMsgs(prev => [...prev, { role: 'patient', content: String(res.transcript) }]);
       setTriageResult(res);
       setPhase('results');
     } catch (err) { setError(getError(err)); }

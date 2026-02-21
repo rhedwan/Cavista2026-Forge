@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Icon from '../../components/Icon';
 import { transcribeAndScribe, getPatientDetail, getPatients, startShift, getActiveShift, getError } from '../../lib/api';
@@ -17,7 +17,7 @@ interface TranscriptMsg {
 
 type RecState = 'idle' | 'recording' | 'processing';
 
-export default function ScribePage() {
+function ScribeContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const patientId = searchParams.get('patient') || '';
@@ -416,5 +416,13 @@ export default function ScribePage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function ScribePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center"><div className="size-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>}>
+      <ScribeContent />
+    </Suspense>
   );
 }
