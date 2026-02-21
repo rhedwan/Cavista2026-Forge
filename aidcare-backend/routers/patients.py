@@ -128,10 +128,26 @@ def list_patients(
     query = db.query(models.Patient)
 
     if ward_uuid:
+        # Specific ward requested — filter to that ward
         ward = db.query(models.Ward).filter(models.Ward.ward_uuid == ward_uuid).first()
         if ward:
             query = query.filter(models.Patient.ward_id == ward.id)
+    elif current_user.role in ("super_admin",):
+        # Super admins see all patients across all organizations
+        pass
+    elif current_user.hospital_id:
+        # All health workers under a hospital see all patients in that hospital's wards
+        hospital_ward_ids = [
+            w.id for w in db.query(models.Ward)
+            .filter(models.Ward.hospital_id == current_user.hospital_id)
+            .all()
+        ]
+        if hospital_ward_ids:
+            query = query.filter(models.Patient.ward_id.in_(hospital_ward_ids))
+        else:
+            query = query.filter(models.Patient.ward_id == None)  # no wards → no patients
     elif current_user.ward_id:
+        # Fallback: if no hospital assigned, show only their ward
         query = query.filter(models.Patient.ward_id == current_user.ward_id)
 
     if status_filter:
