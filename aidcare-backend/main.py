@@ -33,6 +33,7 @@ app.add_middleware(
         "https://triage.theaidcare.com",
         "https://lang.theaidcare.com",
         "https://aidcare-lang.vercel.app",
+        "https://cavista2026.vercel.app",
     ],
     allow_origin_regex=r"https://.*\.(vercel\.app|up\.railway\.app)",
     allow_credentials=True,

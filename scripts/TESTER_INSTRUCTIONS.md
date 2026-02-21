@@ -6,8 +6,20 @@ Hand this to your tester along with the scripts in this folder.
 
 ## What to Test
 
-1. **API (backend)** – automated script
-2. **Frontend (UI)** – manual checklist
+1. **Demo script** – What to say and do for each feature (Triage, Scribe, etc.)
+2. **API (backend)** – automated script
+3. **Frontend (UI)** – manual checklist
+
+---
+
+## Demo Script (Start Here)
+
+**`scripts/DEMO_SCRIPT.md`** – Use this for demonstrating or testing the app. It includes:
+
+- Exact phrases to **speak** or type for Triage (English, Pidgin, voice)
+- Exact phrases to **speak** for Scribe (doctor consultation, Pidgin)
+- Step-by-step flows for Patients and Handover
+- Suggested demo order
 
 ---
 
@@ -76,13 +88,13 @@ python scripts/run_api_tests.py --skip-ai
 
 ---
 
-## Run Manual UI Tests
+## Run Manual UI Tests / Demo
 
-1. Start backend: `cd aidcare-backend && uvicorn main:app --reload`
+1. Start backend: `cd aidcare-backend && uvicorn main:app --reload` (or use live backend)
 2. Start frontend: `cd aidcare-copilot && npm run dev`
-3. Open `scripts/manual_test_checklist.md`
-4. Go through each section and check off items
-5. Record any bugs in the "Notes for Tester" table at the bottom
+3. Open **`scripts/DEMO_SCRIPT.md`** – follow the script: say the phrases, click the buttons
+4. Optionally use `scripts/manual_test_checklist.md` for a full checklist
+5. Record any bugs in the "Notes for Tester" table
 
 ---
 
