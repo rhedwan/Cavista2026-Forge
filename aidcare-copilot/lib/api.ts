@@ -178,12 +178,58 @@ export async function triageTTS(text: string, language: string): Promise<Blob> {
 export const triageSave = (patientUuid: string, result: Record<string, unknown>) =>
   api<{ status: string }>(`/triage/save/${patientUuid}`, { method: 'POST', body: JSON.stringify({ triage_result: result }) });
 
+export const triageCreatePatient = (params: {
+  full_name: string;
+  age?: number | null;
+  gender?: string | null;
+  primary_diagnosis?: string | null;
+  triage_result: Record<string, unknown>;
+}) =>
+  api<{ status: string; patient_id: string; full_name: string; risk_level: string; patient_status: string }>(
+    '/triage/create-patient', { method: 'POST', body: JSON.stringify(params) }
+  );
+
 // ── Burnout ──
-export const getMyBurnout = () => api<Record<string, unknown>>('/doctor/burnout/me');
+export const getMyBurnout = () => api<{
+  doctor_id: string;
+  doctor_name: string;
+  current_shift: { shift_id: string; start: string; patients_seen: number; hours_active: number } | null;
+  cognitive_load_score: number;
+  status: 'green' | 'amber' | 'red';
+  score_breakdown: { volume: number; complexity: number; duration: number; consecutive: number };
+  history_7_days: { date: string; cls: number; status: string }[];
+  recommendation: string;
+}>('/doctor/burnout/me');
 
 // ── Admin ──
 export const getAdminDashboard = (wardUuid?: string) =>
-  api<Record<string, unknown>>(`/admin/dashboard/${wardUuid ? `?ward_uuid=${wardUuid}` : ''}`);
+  api<{
+    generated_at: string;
+    team_stats: { total_active: number; red_count: number; amber_count: number; green_count: number; avg_cls: number; total_patients_today: number };
+    doctors: {
+      doctor_id: string; name: string; specialty: string; ward_name: string;
+      cls: number; status: string; patients_seen: number; hours_active: number;
+      is_on_shift: boolean; shift_duration_hours: number;
+    }[];
+    red_zone_alerts: { doctor_id: string; name: string; cls: number; message: string }[];
+  }>(`/admin/dashboard/${wardUuid ? `?ward_uuid=${wardUuid}` : ''}`);
 
 export const getAdminAllocation = () =>
-  api<Record<string, unknown>>('/admin/allocation');
+  api<{
+    hospital_name: string;
+    overburdened_units: { ward_id: string; ward_name: string; ward_type: string; fatigue_index: number; patient_count: number; doctor_count: number; pat_doc_ratio: string; capacity: number; utilization: number; status: string }[];
+    stable_units: { ward_id: string; ward_name: string; ward_type: string; fatigue_index: number; patient_count: number; doctor_count: number; pat_doc_ratio: string; capacity: number; utilization: number; status: string }[];
+    recommendations: { id: string; source_ward: string; target_ward: string; source_fatigue: number; target_fatigue: number; projected_fatigue_after: number; fatigue_reduction: string; priority: string }[];
+    overburdened_count: number;
+    stable_count: number;
+  }>('/admin/allocation');
+
+export const getWardStats = (wardUuid: string) =>
+  api<{
+    ward_id: string; ward_name: string; hospital_name: string | null;
+    capacity_percent: number; patient_count: number; ward_capacity: number;
+    avg_fatigue_score: number; active_doctors: number; total_doctors: number;
+    predicted_critical_time: string | null; fatigue_forecast: { time: string; cls: number }[];
+    clerking_volume_per_hour: number; avg_case_complexity: number;
+    unit_status: 'critical' | 'warning' | 'optimal';
+  }>(`/units/${wardUuid}/stats`);
