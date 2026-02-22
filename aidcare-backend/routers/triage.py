@@ -2,7 +2,9 @@
 # Multilingual triage with dual-input: patient (any language) + staff notes (English)
 import os
 import time
+import uuid
 import shutil
+from datetime import datetime, timezone
 from threading import Lock
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
@@ -12,7 +14,7 @@ from sqlalchemy.orm import Session
 
 from aidcare_pipeline.database import get_db
 from aidcare_pipeline import copilot_models as models
-from aidcare_pipeline.auth import get_optional_user
+from aidcare_pipeline.auth import get_optional_user, get_current_user
 from aidcare_pipeline.transcription import transcribe_audio_local
 from aidcare_pipeline.symptom_extraction import extract_symptoms_with_gemini
 from aidcare_pipeline.recommendation import generate_triage_recommendation
@@ -72,6 +74,14 @@ class TTSRequest(BaseModel):
 
 
 class SaveTriageRequest(BaseModel):
+    triage_result: dict
+
+
+class CreatePatientFromTriageRequest(BaseModel):
+    full_name: str
+    age: int | None = None
+    gender: str | None = None
+    primary_diagnosis: str | None = None
     triage_result: dict
 
 
@@ -244,6 +254,53 @@ def save_triage_to_patient(
     db.commit()
     db.refresh(patient)
     return {"status": "saved", "patient_id": patient.patient_uuid}
+
+
+# --- Create new patient from triage result ---
+
+@router.post("/create-patient")
+def create_patient_from_triage(
+    payload: CreatePatientFromTriageRequest,
+    db: Session = Depends(get_db),
+    current_user: models.Doctor = Depends(get_current_user),
+):
+    """Create a brand-new patient record directly from a triage assessment."""
+    risk_level = payload.triage_result.get("risk_level", "low")
+    status = "critical" if risk_level == "high" else "stable"
+
+    # Extract symptoms as primary diagnosis if not provided
+    primary_dx = payload.primary_diagnosis
+    if not primary_dx:
+        rec = payload.triage_result.get("triage_recommendation", {})
+        if isinstance(rec, dict):
+            primary_dx = rec.get("summary_of_findings", "")[:200] or None
+        symptoms = payload.triage_result.get("extracted_symptoms", [])
+        if not primary_dx and symptoms:
+            primary_dx = ", ".join(symptoms[:3])
+
+    patient = models.Patient(
+        patient_uuid=str(uuid.uuid4()),
+        full_name=payload.full_name,
+        age=payload.age,
+        gender=payload.gender,
+        ward_id=current_user.ward_id,
+        attending_doctor_id=current_user.id,
+        status=status,
+        primary_diagnosis=primary_dx,
+        admission_date=datetime.now(timezone.utc),
+        triage_result=payload.triage_result,
+    )
+    db.add(patient)
+    db.commit()
+    db.refresh(patient)
+
+    return {
+        "status": "created",
+        "patient_id": patient.patient_uuid,
+        "full_name": patient.full_name,
+        "risk_level": risk_level,
+        "patient_status": status,
+    }
 
 
 # --- Helpers ---
